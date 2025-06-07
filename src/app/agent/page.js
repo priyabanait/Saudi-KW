@@ -133,7 +133,7 @@ const Agent = () => {
       ))}
     </div>
 
-    {/* ✅ Mobile-only button */}
+
     <div className="block md:hidden mt-4">
       <button className="w-full bg-black text-white py-2 rounded-full text-sm hover:bg-red-700 transition">
         Load More..
@@ -161,7 +161,7 @@ const Agent = () => {
   </div>
 </div>
 
-{/* ✅ Desktop-only button */}
+
 <div className="hidden md:flex justify-start ml-42 mt-6">
   <button className="w-56 bg-black text-white py-2 rounded-full text-sm hover:bg-red-700 transition">
     Load More..
@@ -174,7 +174,7 @@ const Agent = () => {
         <img
           src="howwillyouthink.png"
           alt="How Will You Thrive"
-          className="w-full max-w-[800px] h-auto" // ✅ Responsive image
+          className="w-full max-w-[800px] h-auto" 
         />
       </div>
 

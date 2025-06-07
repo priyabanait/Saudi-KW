@@ -57,7 +57,7 @@ const Tenant = () => {
       <main className="px-4 py-6 md:mt-30 mt-10">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-xs md:text-sm">
-            Before you start your search for a rental property it's worth asking yourself
+            Before you start your search for a rental property it&rsquo;s worth asking yourself
           </p>
         </div>
       </main>

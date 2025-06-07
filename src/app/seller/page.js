@@ -87,7 +87,7 @@ The CMA reports usually contain  +`,
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
             <div className="w-full md:w-auto text-center">
-              <p className='text-xs md:text-[0.6rem]'>You're ready to sell your property. And, while you're looking forward to seeing the word "SOLD" posted from the curb, you know there's a lot to consider along the way.</p>
+              <p className='text-xs md:text-[0.6rem]'>You&rsquo;re ready to sell your property. And, while you're looking forward to seeing the word "SOLD" posted from the curb, you know there's a lot to consider along the way.</p>
               <p className='text-xs md:text-[0.6rem]'>One of your first decisions is to select a real estate company and real estate agent who'll join you in the process.</p>
             </div>
           </div>

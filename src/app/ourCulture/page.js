@@ -137,7 +137,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
     lineHeight: 1.6,
   }}>
               We believe that the company we keep can contribute to our lives in
-              untold ways. To help cement this understanding we've formalized a
+              untold ways. To help cement this understanding we&rsquo;ve formalized a
             </p>
             <p className="text-xs md:text-[0.8rem]">
               Belief system that guides how we treat each other.

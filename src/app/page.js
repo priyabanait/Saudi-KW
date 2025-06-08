@@ -30,8 +30,8 @@ const Home = () => {
       <h1 className="text-sm md:text-4xl font-bold flex text-center justify-center mb-9 md:mb-21 text-white">
         ONE MOVE COULD SHAPE YOUR FUTURE
       </h1>
-      <div className="w-full max-w-xl mx-auto">
-        <div className="bg-white rounded-t-3xl p-4 shadow-lg pb-12">
+      <div className="w-full max-w-2xl mx-auto">
+        <div className="bg-white rounded-t-3xl p-4 shadow-lg pb-14">
           <div className="flex flex-col md:flex-row items-center w-full px-6 mt-4 sm:px-8 gap-2 sm:gap-0">
             {/* Search Input */}
             <div className="flex items-center w-full min-h-[48px] px-6 border border-gray-300 rounded-full md:rounded-l-full md:rounded-r-none focus-within:ring-1 transition-all">

@@ -32,7 +32,7 @@ const Home = () => {
     </div>
 
     {/* Fixed Search Box in Center */}
-    <div className="absolute left-0 right-0 top-[65%] md:top-[78.5%] z-10">
+    <div className="absolute left-0 right-0 top-[65%] md:top-[85%] z-10">
       <div className="w-full max-w-xl mx-auto">
         <div className="bg-white rounded-t-3xl p-4 shadow-lg pb-12">
           <div className="flex flex-col md:flex-row items-center w-full px-6 mt-4 sm:px-8 gap-2 sm:gap-0">

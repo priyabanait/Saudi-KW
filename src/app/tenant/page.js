@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Box from '@/components/box';
-
+import Image from 'next/image';
 const Tenant = () => {
   const sections = [
     {
@@ -48,7 +48,7 @@ const Tenant = () => {
     <div className="overflow-x-hidden">
       <Header />
       <Box
-        src="agentbg.jpg"
+        src="/agentbg.jpg"
         h3="Tenant Guide"
         image="https://static.wixstatic.com/media/36a881_c580b86333874ddca3fad0d685aa3c7e~mv2.png/v1/fill/w_271,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6-removebg-preview.png"
       />
@@ -111,11 +111,13 @@ const Tenant = () => {
         </div>
       </main>
 
-      <div className="flex justify-center py-8 md:py-16 mt-16 md:mt-20 px-4">
-        <img
+ <div className="flex justify-center py-16">
+        <Image
           src="/howwillyouthink.png"
           alt="How Will You Thrive"
-          className="w-full max-w-[800px] h-auto"
+          width={800}
+          height={400}
+        
         />
       </div>
 

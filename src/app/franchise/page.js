@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '@/components/box';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import Image from 'next/image';
 
 const franchise = () => {
   return (
@@ -19,9 +20,9 @@ const franchise = () => {
       {/* Intro Text */}
       <main className="px-4 py-6 md:mt-32 mt-10">
         <div className="mx-auto text-center">
-         <h1 className="text-xl md:text-3xl font-light text-gray-800">
-  WE WANT YOU TO <span className="text-red-800">LIVE A BIG LIFE</span>
-</h1>
+          <h1 className="text-xl md:text-3xl font-light text-gray-800">
+            WE WANT YOU TO <span className="text-red-800">LIVE A BIG LIFE</span>
+          </h1>
           <hr className="w-60 md:w-96 mx-auto bg-red-500 h-[1.5px] mt-6 md:mt-14" />
           <div className="mt-10">
             <p className="text-xs md:text-[0.8rem]">
@@ -60,7 +61,14 @@ const franchise = () => {
         {/* Title Banner */}
         <div className="bg-red-700 py-2 flex justify-center relative">
           <div className="relative">
-            <img src="kwlinelogo.png" alt="KW Logo" width={100} height={100} />
+            {/* KW Logo */}
+            <Image
+              src="/kwlinelogo.png"
+              alt="KW Logo"
+              width={100}
+              height={100}
+              className="object-contain"
+            />
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="text-white font-normal text-2xl whitespace-nowrap">
                 FRANCHISE APPLICATION
@@ -74,21 +82,38 @@ const franchise = () => {
           {/* Left Black Sidebar */}
           <div className="bg-black text-white flex flex-col items-center w-full lg:w-72 border-r-2 rounded-r-2xl relative min-h-full">
             <div className="flex flex-col items-center top-0 left-10 absolute">
-              <img src="KellerWilliams_KSA.png" alt="logo" className="h-12 mb-2" />
+              {/* Logo in sidebar */}
+              <Image
+                src="/KellerWilliams_KSA.png"
+                alt="logo"
+                width={48}
+                height={48}
+                className="mb-2"
+              />
             </div>
 
             <div className="pt-24 space-y-12 group">
-              <img src="https://static.wixstatic.com/media/36a881_b93011b55c3c4cc5a3fec96a287e4564~mv2.png/v1/crop/x_0,y_37,w_289,h_255/fill/w_171,h_188,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-02-18%20135420.png" alt="Target Icon"
-                className="h-30 ml-4 mb-4 transition-transform duration-300 ease-in-out group-hover:-translate-y-2" />
+              {/* Target Icon */}
+              <div className="relative h-[120px] w-[110px] ml-4 mb-4">
+                <Image
+                  src="https://static.wixstatic.com/media/36a881_b93011b55c3c4cc5a3fec96a287e4564~mv2.png/v1/crop/x_0,y_37,w_289,h_255/fill/w_171,h_188,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-02-18%20135420.png"
+                  alt="Target Icon"
+                  fill
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
             </div>
 
             {[279, 568, 0, 279, 568].map((x, i) => (
               <div key={i} className="flex flex-col items-center group">
-                <img
-                  src={`https://static.wixstatic.com/media/36a881_b93011b55c3c4cc5a3fec96a287e4564~mv2.png/v1/crop/x_${x},y_${i < 2 ? 23 : 324},w_289,h_255/fill/w_211,h_188,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-02-18%20135420.png`}
-                  alt="Rocket Icon"
-                  className="h-30 mb-10 transition-transform duration-300 ease-in-out group-hover:-translate-y-2"
-                />
+                <div className="relative h-[120px] w-[140px] mb-10 transition-transform duration-300 ease-in-out group-hover:-translate-y-2">
+                  <Image
+                    src={`https://static.wixstatic.com/media/36a881_b93011b55c3c4cc5a3fec96a287e4564~mv2.png/v1/crop/x_${x},y_${i < 2 ? 23 : 324},w_289,h_255/fill/w_211,h_188,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-02-18%20135420.png`}
+                    alt="Rocket Icon"
+                    fill
+                    style={{ objectFit: "contain" }}
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -97,73 +122,133 @@ const franchise = () => {
           <div className="flex-1 md:py-20 md:p-10 min-h-full py-10">
             <div className="px-6 sm:px-10 lg:px-20">
               <form className="space-y-6">
-                {["Your Name", "Your Surname", "Your Email Address", "Your Mobile Phone", "Your Company Name"].map((label, i) => (
+                {[
+                  "Your Name",
+                  "Your Surname",
+                  "Your Email Address",
+                  "Your Mobile Phone",
+                  "Your Company Name",
+                ].map((label, i) => (
                   <div key={i}>
-                    <label className="block mb-2 md:text-[0.7rem] font-thin">{label} *</label>
-                    <input type="text" required className="w-full p-1 rounded-2xl bg-white" />
+                    <label className="block mb-2 md:text-[0.7rem] font-thin">
+                      {label} *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full p-1 rounded-2xl bg-white"
+                    />
                   </div>
                 ))}
 
                 {/* Date of Birth */}
                 <div className="mb-8">
-                  <label className="block mb-2 md:text-[0.7rem] font-extralight">Date of Birth *</label>
+                  <label className="block mb-2 md:text-[0.7rem] font-extralight">
+                    Date of Birth *
+                  </label>
                   <div className="flex gap-3">
                     <select className="w-full px-3 py-2 rounded-2xl bg-white md:text-[0.6rem]">
                       <option value="">Month</option>
                       {[
-                        "January", "February", "March", "April", "May", "June",
-                        "July", "August", "September", "October", "November", "December"
+                        "January",
+                        "February",
+                        "March",
+                        "April",
+                        "May",
+                        "June",
+                        "July",
+                        "August",
+                        "September",
+                        "October",
+                        "November",
+                        "December",
                       ].map((month, i) => (
-                        <option key={i} value={String(i + 1).padStart(2, "0")}>{month}</option>
+                        <option key={i} value={String(i + 1).padStart(2, "0")}>
+                          {month}
+                        </option>
                       ))}
                     </select>
-                    <input type="number" placeholder="Day"  required className="w-full px-3 py-2 rounded-2xl bg-white md:text-[0.6rem]" />
-                    <input type="number" placeholder="Year" required className="w-full px-3 py-2 rounded-2xl bg-white md:text-[0.6rem]" />
+                    <input
+                      type="number"
+                      placeholder="Day"
+                      required
+                      className="w-full px-3 py-2 rounded-2xl bg-white md:text-[0.6rem]"
+                    />
+                    <input
+                      type="number"
+                      placeholder="Year"
+                      required
+                      className="w-full px-3 py-2 rounded-2xl bg-white md:text-[0.6rem]"
+                    />
                   </div>
                 </div>
 
                 {[
-                  "Your Education Status", 
-                  "Province You Want to Apply", 
-                  "How Did You Hear About the Keller Williams Brand ?"
+                  "Your Education Status",
+                  "Province You Want to Apply",
+                  "How Did You Hear About the Keller Williams Brand ?",
                 ].map((label, i) => (
                   <div key={i}>
-                    <label className="block mb-2 md:text-[0.7rem] font-extralight">{label} *</label>
-                    <input type="text" required className="w-full p-1 rounded-2xl bg-white" />
+                    <label className="block mb-2 md:text-[0.7rem] font-extralight">
+                      {label} *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      className="w-full p-1 rounded-2xl bg-white"
+                    />
                   </div>
                 ))}
 
-                <label className="md:text-[0.7rem] font-extralight">Promotional Permissions*</label>
+                <label className="md:text-[0.7rem] font-extralight">
+                  Promotional Permissions*
+                </label>
                 <div className="flex items-start space-x-2">
-                  <input type="checkbox" required id="promoConsent" className="mt-1" />
-                  <label htmlFor="promoConsent" className="text-base md:text-[0.7rem] font-extralight">
-                    I consent to receiving promotional emails, text messages, and calls regarding Keller Williams' services.
+                  <input
+                    type="checkbox"
+                    required
+                    id="promoConsent"
+                    className="mt-1"
+                  />
+                  <label
+                    htmlFor="promoConsent"
+                    className="text-base md:text-[0.7rem] font-extralight"
+                  >
+                    I consent to receiving promotional emails, text messages, and
+                    calls regarding Keller Williams' services.
                   </label>
                 </div>
 
-                <label className="md:text-[0.7rem] font-extralight">Personal Data Protection Declaration *</label>
+                <label className="md:text-[0.7rem] font-extralight">
+                  Personal Data Protection Declaration *
+                </label>
                 <div className="flex items-start space-x-2">
-                  <input type="checkbox" id="dataConsent" required className="mt-4" />
-                  <label htmlFor="dataConsent" className="text-base md:text-[0.7rem] font-extralight">
-             
-
-
-As Keller Williams Saudi Arabia, we care about your security. In order to fulfill our obligation to inform arising from Article 10 of the Personal Data Protection Law and to obtain your "Personal Data Protection and Personal Data Sharing Permission" from our valued visitors; we kindly request you to read and approve the text in the link below.
-
+                  <input
+                    type="checkbox"
+                    id="dataConsent"
+                    required
+                    className="mt-4"
+                  />
+                  <label
+                    htmlFor="dataConsent"
+                    className="text-base md:text-[0.7rem] font-extralight"
+                  >
+                    As Keller Williams Saudi Arabia, we care about your security. In
+                    order to fulfill our obligation to inform arising from Article 10
+                    of the Personal Data Protection Law and to obtain your "Personal
+                    Data Protection and Personal Data Sharing Permission" from our
+                    valued visitors; we kindly request you to read and approve the
+                    text in the link below.
                   </label>
                 </div>
                 <div className="mt-8 flex justify-end">
-  <button
-    type="submit"
-   className="w-32 md:w-32 bg-red-800 text-white py-2 rounded-full text-sm hover:bg-red-700 transition"
-  >
-    Submit
-  </button>
-</div>
-{/* 
-                <button className="w-32 md:w-32 bg-red-800 text-white py-2 rounded-full text-sm hover:bg-red-700 transition">
-                  Submit
-                </button> */}
+                  <button
+                    type="submit"
+                    className="w-32 md:w-32 bg-red-800 text-white py-2 rounded-full text-sm hover:bg-red-700 transition"
+                  >
+                    Submit
+                  </button>
+                </div>
               </form>
             </div>
           </div>
@@ -171,7 +256,7 @@ As Keller Williams Saudi Arabia, we care about your security. In order to fulfil
       </div>
 
       <div className="bg-red-700 py-4 flex justify-center">
-        <img src="kwline.png" alt="KW Logo Center" width={80} height={80} />
+        <Image src="/kwline.png" alt="KW Logo Center" width={80} height={80} />
       </div>
       <hr className="w-5/12 mx-auto bg-red-500 h-[1.5px] mt-20 mb-10" />
       <Footer />

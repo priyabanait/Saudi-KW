@@ -1,16 +1,16 @@
 import React from 'react';
-import Image from 'next/image';
+
 import Header from '@/components/header';
 import Box from '@/components/box';
 import Footer from '@/components/footer';
-
+import Image from 'next/image';
 export default function Training() {
   return (
     <div>
       <Header />
       <Box
         h3={"Kw Training"}
-        src="training.jpg"
+        src="/training.jpg"
         image={
           'https://static.wixstatic.com/media/36a881_a82aacde83a9442dae07d99a846cadf4~mv2.png/v1/fill/w_271,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8-removebg-preview%20(1).png'
         }
@@ -19,7 +19,7 @@ export default function Training() {
       <section className="bg-white mt-10 pb-16 px-4 text-center">
         <div className="max-w-6xl mx-auto">
           
-          <img src="Keller.png" alt="Gary Keller" width={1800} height={600} className="mx-auto w-full h-auto" />
+          <Image src="/Keller.png" alt="Gary Keller" width={1800} height={600} className="mx-auto w-full h-auto" />
         </div>
       </section>
 
@@ -46,7 +46,7 @@ export default function Training() {
       </section>
 
       <section className="relative mt-4 w-full min-h-[40vh] md:min-h-screen text-white flex items-center justify-center">
-        <img src="coaching.png" alt="Training Stage Background" className="absolute inset-0 w-full h-full object-cover" />
+        <Image src="/coaching.png" alt="Training Stage Background"  fill className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 w-full max-w-4xl px-6 text-center">
           <h1 className="text-xl md:text-3xl font-bold mb-6">TRAINING & COACHING</h1>
@@ -79,7 +79,7 @@ export default function Training() {
       </section>
 
       <section className="relative w-full min-h-[40vh] md:min-h-screen text-white flex items-center justify-center">
-        <img src="buildexperties.jpg" alt="experties" className="absolute inset-0 w-full h-full object-cover" />
+        <Image src="/buildexperties.jpg" alt="experties" fill className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 w-full max-w-4xl px-6 text-center">
           <h1 className="text-xl md:text-3xl font-bold mb-6">BUILD EXPERTISE</h1>
@@ -98,30 +98,34 @@ export default function Training() {
       <div className="relative w-full h-[180px] md:h-[300px] flex items-center justify-center">
         {/* Book 1 - back layer */}
        
-        <img
-          src="bookblue.png"
+        <Image
+          src="/bookblue.png"
           alt="Book 1"
+          fill
           className="absolute bottom-0 right-[60%] w-full h-full z-40 transform -rotate-5"
         />
 
         {/* Book 2 */}
-        <img
-          src="book.png"
+        <Image
+          src="/book.png"
           alt="Book 2"
+          fill
           className="absolute bottom-0 right-[20%] w-full h-full z-50 transform -rotate-5"
         />
 
         {/* Book 3 */}
-        <img
-          src="bookred.png"
+        <Image
+          src="/bookred.png"
           alt="Book 3"
+          fill
           className="absolute bottom-0 left-[20%] w-full h-full z-50 transform -rotate-5"
         />
 
         {/* Book 4 - front layer */}
-        <img
-          src="bookwhite.png"
+        <Image
+          src="/bookwhite.png"
           alt="Book 4"
+          fill
           className="absolute bottom-0 left-[55%] w-full h-full z-60 transform -rotate-5"
         />
       </div>
@@ -164,7 +168,7 @@ export default function Training() {
 </section>
 
       <section className="relative w-full min-h-[40vh] md:min-h-screen text-white flex items-center justify-center">
-        <img src="removelimits.jpg" alt="limits" className="absolute inset-0 w-full h-full object-cover" />
+        <Image src="/removelimits.jpg" alt="limits" fill className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="relative z-10 w-full max-w-4xl px-6 text-center">
           <h1 className="text-xl md:text-3xl font-bold mb-6">REMOVE LIMITS</h1>

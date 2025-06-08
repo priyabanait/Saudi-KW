@@ -4,7 +4,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Box from '@/components/box';
 import { useEffect, useRef, useState } from 'react';
-
+import Image from 'next/image';
 const Seller = () => {
   const timelineRef = useRef(null);
   const [markerTop, setMarkerTop] = useState(0);
@@ -76,7 +76,7 @@ The CMA reports usually contain  +`,
       
 
         <Box
-        src='agentbg.jpg'
+        src='/agentbg.jpg'
           h3="Steps for Sell Your Home"
           image="https://static.wixstatic.com/media/36a881_0ed2d4fa08bb4022acbbb9e48b783092~mv2.png/v1/fill/w_271,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4-removebg-preview.png"
         />
@@ -87,8 +87,8 @@ The CMA reports usually contain  +`,
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
             <div className="w-full md:w-auto text-center">
-              <p className='text-xs md:text-[0.6rem]'>You&rsquo;re ready to sell your property. And, while you're looking forward to seeing the word "SOLD" posted from the curb, you know there's a lot to consider along the way.</p>
-              <p className='text-xs md:text-[0.6rem]'>One of your first decisions is to select a real estate company and real estate agent who'll join you in the process.</p>
+              <p className='text-xs md:text-[0.6rem]'>You&rsquo;re ready to sell your property. And, while you&rsquo;re looking forward to seeing the word "SOLD" posted from the curb, you know there&rsquo;s a lot to consider along the way.</p>
+              <p className='text-xs md:text-[0.6rem]'>One of your first decisions is to select a real estate company and real estate agent who&rsquo;ll join you in the process.</p>
             </div>
           </div>
         </div>
@@ -161,11 +161,13 @@ The CMA reports usually contain  +`,
         </div>
       </div>
 
-      <div className="flex justify-center py-2 md:py-16 mt-2 md:mt-7 px-4">
-        <img
-          src="howwillyouthink.png"
+ <div className="flex justify-center py-16">
+        <Image
+          src="/howwillyouthink.png"
           alt="How Will You Thrive"
-          className="w-full max-w-[800px]"
+          width={800}
+          height={400}
+        
         />
       </div>
       

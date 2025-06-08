@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '@/components/header';
 import Box from '@/components/box';
 import Footer from '@/components/footer';
-
+import Image from 'next/image';
 import {
   FaArrowUpRightFromSquare,
   FaBookOpen,
@@ -104,7 +104,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
       <Header />
       <Box
         h3="About Us"
-        src="ourculturebg.jpg"
+        src="/ourculturebg.jpg"
         image="https://static.wixstatic.com/media/36a881_a82aacde83a9442dae07d99a846cadf4~mv2.png/v1/fill/w_271,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8-removebg-preview%20(1).png"
       />
 
@@ -222,7 +222,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
   <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto">
     {/* Left Image */}
     <div className="w-full md:w-1/2 flex justify-center items-start">
-      <img
+      <Image
         src="https://static.wixstatic.com/media/36a881_b66311c7d0ce4bab88e85a84321bd1b0~mv2.jpg/v1/fill/w_798,h_934,fp_0.50_0.33,q_85,enc_avif,quality_auto/Pic153%20(4).jpg"
         alt="CEO"
         width={500}
@@ -294,7 +294,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
         <div key={index}>
           {/* Changed to vertical layout on mobile */}
           <div className="flex flex-col md:flex-row gap-6 p-6">
-            <img
+            <Image
               src={member.image}
               alt={member.name}
               width={200}
@@ -338,13 +338,15 @@ SUCCESS: RESULTS THROUGH PEOPLE`
     </div>
   </div>
 </div>
-      <div className="flex justify-center py-14 mt-2 px-4">
-        <img
-          src="howwillyouthink.png"
-          alt="How Will You Thrive"
-          className="w-full max-w-[800px] h-auto" // ✅ Responsive image
-        />
-      </div>
+       <div className="flex justify-center py-16">
+              <Image
+                src="/howwillyouthink.png"
+                alt="How Will You Thrive"
+                width={800}
+                height={400}
+              
+              />
+            </div>
       <main className="px-4 py-6 md:mt-2 mt-4">
         <div className="max-w-7xl mx-auto text-center md:mt-14">
           <p className="text-2xl md:text-4xl font-normal">

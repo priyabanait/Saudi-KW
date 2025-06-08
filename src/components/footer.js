@@ -53,92 +53,86 @@ const Footer = () => {
         </div>
 
         {/* Grid Columns */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-6 md:gap-4 w-full">
-          {[
-            {
-              label: "Properties",
-              imageUrl: "https://static.wixstatic.com/media/36a881_58e60526563049da91b5a702cb9995ac~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1.png",
-              path: "/properties",
-              items: ["Active", "Sold", "Rent", "Auction", "New Development", "International"]
-            },
-            {
-              label: "Market Center",
-              imageUrl: "https://static.wixstatic.com/media/36a881_63ae150a87e247f4910718ae270a72c0~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2.png",
-              path: "/marketCenter",
-              items: ["Jasmine", "Jeddah", "All"]
-            },
-            {
-              label: "Agent",
-              imageUrl: "https://static.wixstatic.com/media/36a881_e044755275e349d683e96f438b0bb5c2~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3.png",
-              path: "/agent",
-              items: [
-                "Name",
-                "Market Center",
-                React.cloneElement(
-                  <span className="text-red-600 font-semibold">LOGIN</span>,
-                  { key: "login" }
-                )
-              ]
-            },
-            {
-              label: "Seller",
-              imageUrl: "https://static.wixstatic.com/media/36a881_19eaa839fd874fc8981955a4021a4ca8~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4.png",
-              path: "/seller",
-              items: ["Book Agent Evaluation", "Seller Guide", "Five Steps To Sell"]
-            },
-            {
-              label: "Buyer",
-              imageUrl: "https://static.wixstatic.com/media/36a881_e46ac8d781f74cc4b8398f64c2d63425~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/5.png",
-              path: "/buyer",
-              items: ["Search Property", "Property Auction", "New Development", "Buyer Guide"]
-            },
-            {
-              label: "Tenant",
-              imageUrl: "https://static.wixstatic.com/media/36a881_464aa2c8eefd4c3aab2ff966735952a8~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6.png",
-              path: "/tenant",
-              items: ["Rent Search", "Tenant Guide"]
-            },
-            {
-              label: "Franchise",
-              imageUrl: "https://static.wixstatic.com/media/36a881_93371d3a91d7440b895906dd5eb1620a~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7.png",
-              path: "/franchise",
-              items: ["Overview", "Benefits", "Application"]
-            },
-            {
-              label: "Our Culture",
-              imageUrl: "https://static.wixstatic.com/media/36a881_795b387ef3734f7b97a97edd833d71b7~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8.png",
-              path: "/ourCulture",
-              items: ["About Us", "Why KW", "KW Training", "KW Technology", "KW University", "Events", "News", "Contact Us"]
-            },
-          ].map(({ label, imageUrl, path, items }, i) => (
-            <div key={i}>
-              {/* Image with link */}
-              <div className="rounded-xl flex flex-col transition-all cursor-pointer mb-2">
-                <a href={path}>
-                  <img
-                    src={imageUrl}
-                    alt={label}
-                    className="h-full w-full object-contain mb-2 mt-4"
-                  />
-                </a>
-              </div>
-              {/* Items with same path */}
-              <div className="md:border-l md:border-gray-300 md:pl-4 pl-4 ml-2">
-                <ul className="text-xs space-y-6 text-left">
-                  {items.map((item, index) => (
-                    <li key={index} className="hover:text-gray-600 transition-colors">
-                      <a href={path} className="block w-full">
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
+       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-6 md:gap-4 w-full">
+  {[
+    {
+      label: "Properties",
+      imageUrl: "https://static.wixstatic.com/media/36a881_58e60526563049da91b5a702cb9995ac~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1.png",
+      path: "/properties",
+      items: ["Active", "Sold", "Rent", "Auction", "New Development", "International"]
+    },
+    {
+      label: "Market Center",
+      imageUrl: "https://static.wixstatic.com/media/36a881_63ae150a87e247f4910718ae270a72c0~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2.png",
+      path: "/marketCenter",
+      items: ["Jasmine", "Jeddah", "All"]
+    },
+    {
+      label: "Agent",
+      imageUrl: "https://static.wixstatic.com/media/36a881_e044755275e349d683e96f438b0bb5c2~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3.png",
+      path: "/agent",
+      items: ["Name", "Market Center", <span className="text-red-600 font-semibold">LOGIN</span>]
+    },
+    {
+      label: "Seller",
+      imageUrl: "https://static.wixstatic.com/media/36a881_19eaa839fd874fc8981955a4021a4ca8~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4.png",
+      path: "/seller",
+      items: ["Book Agent Evaluation", "Seller Guide", "Five Steps To Sell"]
+    },
+    {
+      label: "Buyer",
+      imageUrl: "https://static.wixstatic.com/media/36a881_e46ac8d781f74cc4b8398f64c2d63425~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/5.png",
+      path: "/buyer",
+      items: ["Search Property", "Property Auction", "New Development", "Buyer Guide"]
+    },
+    {
+      label: "Tenant",
+      imageUrl: "https://static.wixstatic.com/media/36a881_464aa2c8eefd4c3aab2ff966735952a8~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6.png",
+      path: "/tenant",
+      items: ["Rent Search", "Tenant Guide"]
+    },
+    {
+      label: "Franchise",
+      imageUrl: "https://static.wixstatic.com/media/36a881_93371d3a91d7440b895906dd5eb1620a~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7.png",
+      path: "/franchise",
+      items: ["Overview", "Benefits", "Application"]
+    },
+    {
+      label: "Our Culture",
+      imageUrl: "https://static.wixstatic.com/media/36a881_795b387ef3734f7b97a97edd833d71b7~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8.png",
+      path: "/ourCulture",
+      items: ["About Us", "Why KW", "KW Training", "KW Technology", "KW University", "Events", "News", "Contact Us"]
+    },
+  ].map(({ label, imageUrl, path, items }, i) => (
+    <div key={i}>
+      {/* Image with link */}
+      <div className="rounded-xl flex flex-col transition-all cursor-pointer mb-2">
+        <a href={path}>
+          <img
+            src={imageUrl}
+            alt={label}
+        className="h-25 w-25 md:h-50 md:w-50 object-contain "
+          />
+        </a>
       </div>
-
+      {/* Items with same path */}
+      <div className={`${'md:border-l md:border-gray-300 md:pl-4 pl-4 ml-2'}`}>
+        <ul className="text-xs space-y-6 text-left">
+          {items.map((item, index) => (
+            <li key={index} className="hover:text-gray-600 transition-colors">
+              {typeof item === 'string' ? (
+                <a href={path} className="block w-full">{item}</a>
+              ) : (
+                <a href={path} className="block w-full">{item}</a>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  ))}
+</div>
+</div>
       {/* Bottom Footer Info */}
       <div className="bg-gray-100 text-gray-50 mt-20 text-sm px-6 border-t">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">

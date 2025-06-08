@@ -12,8 +12,7 @@ const Home = () => {
   <Header />
 
   {/* Hero Section */}
-  <div className="relative min-h-screen">
-    {/* Background Image */}
+<div className="relative min-h-[40vh] md:min-h-[100vh]">
     <div className="absolute inset-0">
       <Image
         src="/kwbg-image.jpg"
@@ -24,15 +23,13 @@ const Home = () => {
       />
     </div>
 
-    {/* Hero Content */}
-    <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
-      <h1 className="text-sm md:text-4xl font-bold text-white mb-4 md:mb-8 mt-30 md:mt-60">
-        ONE MOVE COULD SHAPE YOUR FUTURE
-      </h1>
-    </div>
+  
 
     {/* Fixed Search Box in Center */}
-    <div className="absolute left-0 right-0 top-[65%] md:top-[80%] z-10">
+    <div className="absolute left-0 right-0 top-[65%] md:80%] z-10">
+      <h1 className="text-sm md:text-4xl font-bold flex text-center justify-center mb-9.5 text-white">
+        ONE MOVE COULD SHAPE YOUR FUTURE
+      </h1>
       <div className="w-full max-w-xl mx-auto">
         <div className="bg-white rounded-t-3xl p-4 shadow-lg pb-12">
           <div className="flex flex-col md:flex-row items-center w-full px-6 mt-4 sm:px-8 gap-2 sm:gap-0">
@@ -74,7 +71,7 @@ const Home = () => {
 
 
       {/* Image Grid Section */}
-      <div className="px-4 md:py-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-0 md:gap-2 mt-20 lg:mt-20">
+      <div className="px-4 md:py-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-0 md:gap-2 mt-75 lg:mt-20">
         {[
           { label: "Properties", path: 'properties', imageUrl: "https://static.wixstatic.com/media/36a881_58e60526563049da91b5a702cb9995ac~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1.png" },
           { label: "Market Center", path: 'marketCenter', imageUrl: "https://static.wixstatic.com/media/36a881_63ae150a87e247f4910718ae270a72c0~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2.png" },

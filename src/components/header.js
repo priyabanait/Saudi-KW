@@ -8,6 +8,7 @@ import {
   FaTwitter, FaTiktok, FaSnapchatGhost, FaWhatsapp, FaChevronDown 
 } from "react-icons/fa";
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,10 +62,13 @@ const Header = () => {
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link href="/">
-            <img 
+            <Image 
               src="https://static.wixstatic.com/media/36a881_0cd959d32d904bd7be76303fb23dec0a~mv2.png/v1/fill/w_279,h_63,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled%20design.png" 
               alt="KW Saudi Arabia Logo" 
+              width={279}
+              height={63}
               className="h-12 w-auto object-contain"
+              priority
             />
           </Link>
         </div>

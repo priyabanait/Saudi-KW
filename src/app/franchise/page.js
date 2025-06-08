@@ -11,7 +11,7 @@ const franchise = () => {
 
       <Box
         h3={"Investment Opportunities"}
-        src="franchisebg.jpg"
+        src="/franchisebg.jpg"
         image={
           'https://static.wixstatic.com/media/36a881_d93a5085a707440e9b7a3346a80846a1~mv2.png/v1/fill/w_271,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/7-removebg-preview.png'
         }
@@ -214,8 +214,7 @@ const franchise = () => {
                     htmlFor="promoConsent"
                     className="text-base md:text-[0.7rem] font-extralight"
                   >
-                    I consent to receiving promotional emails, text messages, and
-                    calls regarding Keller Williams' services.
+                    I consent to receiving promotional emails, text messages, and calls regarding Keller Williams&apos; services.
                   </label>
                 </div>
 
@@ -235,8 +234,8 @@ const franchise = () => {
                   >
                     As Keller Williams Saudi Arabia, we care about your security. In
                     order to fulfill our obligation to inform arising from Article 10
-                    of the Personal Data Protection Law and to obtain your "Personal
-                    Data Protection and Personal Data Sharing Permission" from our
+                    of the Personal Data Protection Law and to obtain your &quot;Personal
+                    Data Protection and Personal Data Sharing Permission&quot; from our
                     valued visitors; we kindly request you to read and approve the
                     text in the link below.
                   </label>

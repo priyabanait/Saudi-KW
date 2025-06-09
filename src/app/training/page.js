@@ -113,7 +113,7 @@ export default function Training() {
           alt="Your First Home"
           width={200}
           height={150}
-          className="absolute bottom-0 left-[30%] md:left-[20%] -translate-x-[7%] md:-translate-x-[20%] md:w-[450px] md:h-[300px] w-[170px] h-[140px] rotate-[-6deg] z-40"
+          className="absolute bottom-0 left-[30%] md:left-[30%] -translate-x-[7%] md:-translate-x-[20%] md:w-[450px] md:h-[300px] w-[170px] h-[140px] rotate-[-6deg] z-40"
         />
 
         {/* Book 3 */}
@@ -131,7 +131,7 @@ export default function Training() {
           alt="The ONE Thing"
           width={200}
           height={150}
-          className="absolute bottom-0 left-[10%] md:left-[78%] -translate-x-[70%] md:translate-x-0 md:w-[900px] md:h-[300px] w-[300px] h-[140px] rotate-[-5deg] z-20"
+          className="absolute bottom-0 left-[10%] md:left-[82%] -translate-x-[70%] md:translate-x-0 md:w-[900px] md:h-[300px] w-[300px] h-[140px] rotate-[-5deg] z-20"
         />
       </div>
 

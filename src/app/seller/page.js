@@ -161,17 +161,18 @@ The CMA reports usually contain  +`,
         </div>
       </div>
 
- <div className="flex justify-center py-16">
-        <Image
-          src="/howwillyouthink.png"
-          alt="How Will You Thrive"
-          width={800}
-          height={400}
-        
-        />
-      </div>
-      
-      <hr className="w-10/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-10 md:mt-6 mb-18" />
+ 
+  <div className="flex justify-center py-2 md:py-16">
+         <Image
+           src="/howwillyouthink.png"
+           alt="How Will You Thrive"
+           width={800}
+           height={400}
+         
+         />
+       </div>
+ 
+       <hr className="w-8/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-14 mb-10" />
       <Footer />
     </div>
   );

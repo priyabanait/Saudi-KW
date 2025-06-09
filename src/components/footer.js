@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <div>
       {/* Footer Grid */}
-      <div className="md:mt-4 px-4 md:px-5">
+      <div className="md:mt-1 px-4 md:px-5">
         {/* Top Contact Info */}
         <div className="flex flex-col md:flex-row md:justify-between border border-gray-100 rounded-xl items-start border-b md:p-8 pb-2 md:pb-4 text-xs md:text-sm bg-gray-100 text-gray-700">
           <div className="flex items-center space-x-2 font-semibold">
@@ -55,7 +55,7 @@ const Footer = () => {
         </div>
 
         {/* Grid Columns */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-6 md:gap-4 w-full">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-6 md:gap-1 w-full">
           {[
             {
               label: "Properties",
@@ -108,7 +108,7 @@ const Footer = () => {
           ].map(({ label, imageUrl, path, items }, i) => (
             <div key={i}>
               {/* Image with link */}
-              <div className="rounded-xl flex flex-col transition-all cursor-pointer mb-2">
+              <div className="rounded-xl flex flex-col transition-all cursor-pointer">
                 <a href={path}>
                   <Image
                     src={imageUrl}

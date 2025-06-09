@@ -75,32 +75,32 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
-          <Link href="/about" className="text-xs font-medium text-white hover:text-gray-300 transition-colors">
+          <Link href="/ourCulture" className="text-[0.6rem]  text-white hover:text-gray-300 transition-colors">
             About Us
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="/search" className="text-xs text-white hover:text-gray-300 transition-colors">
+          <Link href="/properties" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
             Search
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="/join" className="text-xs text-white hover:text-gray-300 transition-colors">
+          <Link href="/franchise" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
             Join Us
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="/contact" className="text-xs text-white hover:text-gray-300 transition-colors">
+          <Link href="/contactUs" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
             Contact Us
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="/valuation" className="text-xs text-white hover:text-gray-300 transition-colors">
+          <Link href="/contactUs" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
             Instant Valuation
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="/ar" className="text-xs text-white hover:text-gray-300 transition-colors">
+          <Link href="#" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
             عربي
           </Link>
           <Link 
-            href="/login" 
-            className="border border-white px-4 py-1.5 rounded-full text-white hover:bg-white hover:text-black transition-colors text-xs font-medium"
+            href="#" 
+            className="border border-white px-4 py-1.5 rounded-full text-white hover:bg-white hover:text-black transition-colors text-[0.6rem]"
           >
             Sign In/Register
           </Link>
@@ -122,26 +122,26 @@ const Header = () => {
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
           <div className={`absolute md:hidden top-full left-0 right-0 py-4 px-6 space-y-4 shadow-lg bg-gray-950/95 backdrop-blur-sm`}>
-            <Link href="/about" className="block py-2 text-white hover:text-gray-300 transition-colors">
+            <Link href="/ourCulture" className="block py-2 text-white hover:text-gray-300 transition-colors">
               About Us
             </Link>
-            <Link href="/search" className="block py-2 text-white hover:text-gray-300 transition-colors">
+            <Link href="/properties" className="block py-2 text-white hover:text-gray-300 transition-colors">
               Search
             </Link>
-            <Link href="/join" className="block py-2 text-white hover:text-gray-300 transition-colors">
+            <Link href="/franchise" className="block py-2 text-white hover:text-gray-300 transition-colors">
               Join Us
             </Link>
-            <Link href="/contact" className="block py-2 text-white hover:text-gray-300 transition-colors">
+            <Link href="/contactUs" className="block py-2 text-white hover:text-gray-300 transition-colors">
               Contact Us
             </Link>
-            <Link href="/valuation" className="block py-2 text-white hover:text-gray-300 transition-colors">
+            <Link href="/contactUs" className="block py-2 text-white hover:text-gray-300 transition-colors">
               Instant Valuation
             </Link>
-            <Link href="/ar" className="block py-2 text-white hover:text-gray-300 transition-colors">
+            <Link href="#" className="block py-2 text-white hover:text-gray-300 transition-colors">
               عربي
             </Link>
             <Link 
-              href="/login" 
+              href="#" 
               className="w-full border border-white px-4 py-2 rounded-full text-white hover:bg-white hover:text-black transition-colors mt-2 inline-block text-center"
             >
               Sign In/Register

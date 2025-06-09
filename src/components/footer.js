@@ -141,7 +141,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Footer Info */}
-      <div className="bg-gray-100 text-gray-50 mt-4 md:mt-20 text-sm border-t">
+      <div className="bg-gray-100 px-2 text-gray-50 mt-4 md:mt-20 text-sm border-t">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           {/* Logo */}
           <div className="flex items-center gap-3">

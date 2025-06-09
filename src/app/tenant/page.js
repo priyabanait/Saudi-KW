@@ -111,7 +111,7 @@ const Tenant = () => {
         </div>
       </main>
 
- <div className="flex justify-center py-16">
+ <div className="flex justify-center py-4 md:py-16">
         <Image
           src="/howwillyouthink.png"
           alt="How Will You Thrive"
@@ -121,7 +121,7 @@ const Tenant = () => {
         />
       </div>
 
-      <hr className="w-8/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-10 md:mt-14 mb-10" />
+      <hr className="w-8/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-14 mb-10" />
       <Footer />
     </div>
   );

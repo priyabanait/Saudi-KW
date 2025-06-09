@@ -201,7 +201,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
     ))}
   </div>
 </div>
-<hr className="w-11/12 md:w-6/12 mx-auto bg-gray-200 mt-6 md:mt-8" />
+<hr className="w-11/12 md:w-6/12 mx-auto bg-gray-200 mt-2 md:mt-8" />
  <main className="px-4 py-6">
         <div className="mx-auto text-center">
          
@@ -218,7 +218,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
           </div>
         </div>
       </main>
-<div className="min-h-screen flex flex-col items-center justify-start pt-10 md:pt-10">
+<div className="min-h-screen flex flex-col items-center justify-start pt-4 md:pt-10">
   <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto">
     {/* Left Image */}
     <div className="w-full md:w-1/2 flex justify-center items-start">
@@ -237,7 +237,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
         MEET OUR <span className="text-red-800 font-bold">CEO</span>
       </h1>
 
-      <h2 className="text-red-800 mt-14 text-[0.7rem] font-semibold tracking-wider">
+      <h2 className="text-red-800 mt-4 md:mt-14 text-[0.7rem] font-semibold tracking-wider">
         CEO MESSAGE
       </h2>
 
@@ -272,7 +272,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
     </div>
   </div>
 </div>
-     <div className="min-h-screen bg-white mt-20">
+     <div className="min-h-screen bg-white mt-4 md:mt-20">
   {/* Changed outer container to stack on mobile */}
   <div className="flex flex-col md:flex-row border-t border-b border-r border-black">
     
@@ -280,7 +280,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
     <div className="w-full md:w-1/2 flex justify-center items-center 
                    md:sticky md:top-0 top-20 h-auto md:h-screen 
                    border-b md:border-b-0 md:border-r border-black
-                   py-10 md:py-0">
+                   py-4 md:py-0">
       <div className="text-center px-4">
         <h2 className="text-3xl font-semibold mb-2">OUR TEAM</h2>
         <div className="w-30 h-0.5 bg-red-500 mb-2 mx-auto mt-4 md:mt-10"></div>
@@ -338,7 +338,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
     </div>
   </div>
 </div>
-       <div className="flex justify-center py-16">
+       <div className="flex justify-center py:4 md:py-16">
               <Image
                 src="/howwillyouthink.png"
                 alt="How Will You Thrive"
@@ -347,7 +347,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
               
               />
             </div>
-      <main className="px-4 py-6 md:mt-2 mt-4">
+      <main className="px-4 py-2 md:py-6 md:mt-2">
         <div className="max-w-7xl mx-auto text-center md:mt-14">
           <p className="text-2xl md:text-4xl font-normal">
             KW SAUDI ARABIA

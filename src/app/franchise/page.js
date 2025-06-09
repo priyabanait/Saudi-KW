@@ -86,8 +86,8 @@ const franchise = () => {
               <Image
                 src="/KellerWilliams_KSA.png"
                 alt="logo"
-                width={48}
-                height={48}
+                width={200}
+                height={200}
                 className="mb-2"
               />
             </div>
@@ -257,7 +257,7 @@ const franchise = () => {
       <div className="bg-red-700 py-4 flex justify-center">
         <Image src="/kwline.png" alt="KW Logo Center" width={80} height={80} />
       </div>
-      <hr className="w-5/12 mx-auto bg-red-500 h-[1.5px] mt-20 mb-10" />
+      <hr className="w-5/12 mx-auto bg-red-500 h-[1.5px] mt-4 md:mt-20 mb-10" />
       <Footer />
     </div>
   );

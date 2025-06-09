@@ -16,14 +16,14 @@ export default function Training() {
         }
       />
 
-      <section className="bg-white mt-10 pb-16 px-4 text-center">
+      <section className="bg-white mt-4 md:mt-10 md:pb-16 mb-4 px-4 text-center">
         <div className="max-w-6xl mx-auto">
           
           <Image src="/keller.png" alt="Gary Keller" width={1800} height={600} className="mx-auto w-full h-auto" />
         </div>
       </section>
 
-      <section className="bg-white py-10 px-6 text-center">
+      <section className="bg-white py-0 md:py-10 px-6 text-center">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-16 gap-y-10 max-w-5xl mx-auto">
           <div>
             <p className="text-xl md:text-4xl font-normal mb-2">1200+</p>
@@ -55,8 +55,8 @@ export default function Training() {
         </div>
       </section>
 
-      <section className="py-16">
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <section className="md:py-16 py-4">
+        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
           <div className="text-center md:text-center">
             <h2 className="text-xl md:text-2xl font-bold text-red-700 mb-6">In Person & Online Sessions</h2>
             <p className="text-base text-gray-700 mb-8">At KW Saudi Arabia, we provide flexible training to suit your needs. 
@@ -91,54 +91,61 @@ export default function Training() {
       </section>
 
      
-<section className="py-16 bg-white overflow-hidden">
-  <div className="container px-22 md:px-2 md:mx-50 ">
+<section className='md:py-8 py-2'>
+  <div className="container">
     <div className="flex flex-col md:flex-row items-center justify-center">
-      {/* Books Stack Section - now matches iframe width */}
-      <div className="relative w-full h-[180px] md:h-[300px] flex items-center justify-center">
-        {/* Book 1 - back layer */}
-       
+      
+      {/* Book Stack Section */}
+      <div className="relative w-[150px] md:w-[800px] h-[200px] md:h-[350px] md:mx-4 md:ml-15">
+        
+        {/* Book 1 */}
         <Image
           src="/bookblue.png"
-          alt="Book 1"
-          fill
-          className="absolute bottom-0 right-[60%] w-full h-full z-40 transform -rotate-5"
+          alt="The Millionaire Real Estate Investor"
+          width={200}
+          height={150}
+          className="absolute bottom-0 md:left-[0%] -translate-x-[20%] md:-translate-x-[20%] md:w-[300px] md:h-[300px] w-[200px] h-[140px] rotate-[-8deg] z-30"
         />
 
         {/* Book 2 */}
         <Image
           src="/book.png"
-          alt="Book 2"
-          fill
-          className="absolute bottom-0 right-[20%] w-full h-full z-50 transform -rotate-5"
+          alt="Your First Home"
+          width={200}
+          height={150}
+          className="absolute bottom-0 left-[30%] md:left-[30%] -translate-x-[7%] md:-translate-x-[20%] md:w-[450px] md:h-[300px] w-[170px] h-[140px] rotate-[-6deg] z-40"
         />
 
         {/* Book 3 */}
         <Image
           src="/bookred.png"
-          alt="Book 3"
-          fill
-          className="absolute bottom-0 left-[20%] w-full h-full z-50 transform -rotate-5"
+          alt="The Millionaire Real Estate Agent"
+          width={200}
+          height={150}
+          className="absolute bottom-0 left-[60%] md:left-[66%] -translate-x-[0%] md:-translate-x-[20%] md:w-[450px] md:h-[300px] w-[180px] h-[140px] rotate-[-6deg] z-50"
         />
 
-        {/* Book 4 - front layer */}
+        {/* Book 4 */}
         <Image
           src="/bookwhite.png"
-          alt="Book 4"
-          fill
-          className="absolute bottom-0 left-[55%] w-full h-full z-60 transform -rotate-5"
+          alt="The ONE Thing"
+          width={200}
+          height={150}
+          className="absolute bottom-0 left-[10%] md:left-[82%] -translate-x-[70%] md:translate-x-0 md:w-[900px] md:h-[300px] w-[300px] h-[140px] rotate-[-5deg] z-20"
         />
       </div>
 
       {/* Text Section */}
-      <div className="w-full mt-4 md:ml-40 text-center md:text-right">
+      <div className="w-full mt-4 md:mt-0 md:ml-20 text-center md:text-right">
         <h2 className="text-red-700 text-xl md:text-3xl font-light">
-          BEST SELLING BOOKS
+          BEST SELLING<br />BOOKS
         </h2>
       </div>
     </div>
   </div>
 </section>
+
+
 
 <hr />
 
@@ -178,7 +185,7 @@ export default function Training() {
         </div>
       </section>
 
-      <main className="px-4 py-6 md:mt-24 mt-16">
+      <main className="px-4 py-6 md:mt-24 mt-4">
         <div className="mx-auto text-center">
           <span className="text-2xl md:text-3xl font-medium tracking-wide">CONNECT WITH US</span>
           <hr className="w-48 md:w-72 mx-auto bg-red-500 h-[1.5px] mt-6" />
@@ -195,7 +202,7 @@ export default function Training() {
         </button>
       </div>
 
-      <hr className="w-48 md:w-6/12 mx-auto bg-red-500 h-[1.5px] md:mt-55 mb-12" />
+      <hr className="w-48 md:w-6/12 mx-auto bg-red-500 h-[1.5px] md:mt-55 mt-10 mb-12" />
 
       <Footer />
     </div>

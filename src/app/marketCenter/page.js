@@ -18,7 +18,7 @@ const Page = () => {
 
   
 
-<div className="w-full mx-auto px-4 md:px-8 md:mt-40 lg:px-20 py-8 mt-10">
+<div className="w-full mx-auto px-4 md:px-8 md:mt-40 lg:px-20 py-8 mt-4">
   <div className="flex flex-col lg:flex-row gap-6 lg:gap-14">
     
     {/* First Image Block */}
@@ -46,12 +46,12 @@ const Page = () => {
   </div>
 </div>
 
- <div className="bg-red-700 py-4 flex justify-center mt-10">
+ <div className="bg-red-700 py-4 flex justify-center mt-2 md:mt-10">
         <Image src="/kwline.png" alt="KW Logo Center" width={80} height={80} />
       </div>
 
       {/* Thrive Image Section */}
-      <div className="flex justify-center py-16">
+      <div className="flex justify-center py-2 md:py-16">
         <Image
           src="/howwillyouthink.png"
           alt="How Will You Thrive"
@@ -60,7 +60,7 @@ const Page = () => {
         
         />
       </div>
-        <hr className="w-5/12 mx-auto bg-red-500 h-[1.5px] mt-8 mb-10" />
+        <hr className="w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-8 mb-10" />
         <Footer></Footer>
              </div>
     );

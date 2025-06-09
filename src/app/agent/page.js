@@ -48,7 +48,7 @@ const Agent = () => {
         image="https://static.wixstatic.com/media/36a881_81438044a1d045b894b318b12b06aa24~mv2.png/v1/fill/w_271,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/3-removebg-preview.png"
       />
 
-      <main className="px-4 py-6 mt-10">
+      <main className="px-4 md:py-6 md:mt-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Search Filters */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
@@ -77,7 +77,7 @@ const Agent = () => {
         </div>
       </main>
 
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] bg-gray-100 p-4 gap-0 rounded-4xl">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] bg-gray-100 md:p-4 gap-0 rounded-4xl">
         {/* Left: Agents List */}
         <div className="space-y-6 md:pr-6">
           <h2 className="font-semibold text-center text-sm border-b pb-2">OUR AGENTS</h2>
@@ -163,7 +163,7 @@ const Agent = () => {
         </button>
       </div>
 
-     <div className="flex justify-center py-16">
+     <div className="flex justify-center py-4 md:py-16">
             <Image
               src="/howwillyouthink.png"
               alt="How Will You Thrive"
@@ -174,7 +174,7 @@ const Agent = () => {
           </div>
 
 
-      <hr className="w-5/12 mx-auto bg-red-500 h-[1.5px] mt-20 mb-10" />
+      <hr className="w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-20 mb-10" />
       <Footer />
     </div>
   );

@@ -13,9 +13,9 @@ const Footer = () => {
   return (
     <div>
       {/* Footer Grid */}
-      <div className="mt-4 px-4 md:px-5">
+      <div className="md:mt-4 px-4 md:px-5">
         {/* Top Contact Info */}
-        <div className="flex flex-col md:flex-row md:justify-between border border-gray-100 rounded-xl items-start border-b p-4 md:p-8 pb-2 md:pb-4 text-xs md:text-sm bg-gray-100 text-gray-700">
+        <div className="flex flex-col md:flex-row md:justify-between border border-gray-100 rounded-xl items-start border-b md:p-8 pb-2 md:pb-4 text-xs md:text-sm bg-gray-100 text-gray-700">
           <div className="flex items-center space-x-2 font-semibold">
             <span className="text-red-800 text-lg md:text-lg">CONTACT US</span>
           </div>
@@ -141,7 +141,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Footer Info */}
-      <div className="bg-gray-100 text-gray-50 mt-20 text-sm px-6 border-t">
+      <div className="bg-gray-100 text-gray-50 mt-4 md:mt-20 text-sm border-t">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           {/* Logo */}
           <div className="flex items-center gap-3">
@@ -150,11 +150,11 @@ const Footer = () => {
               alt="KW Saudi Arabia Logo"
               width={184}
               height={46}
-              className="h-46 w-auto object-contain"
+              className="md:h-46 h-30 w-auto object-contain"
             />
           </div>
           {/* Address + Links */}
-          <div className="text-right space-y-1 text-sm">
+          <div className="text-right space-y-1 md:px-0 text-sm">
             <a href="#" className='text-gray-500 text-[0.7rem]'>شركة الياسمين لإدارة وتطوير العقارات</a>
             <p className="text-gray-500 text-[0.7rem]">REGA LICENSE NUMBER #1200018764</p>
             <p className="text-gray-500 text-[0.7rem]">KW Saudi Arabia HQ - 2740 King Fahad Branch Rd, Al Sahafah, 6403, Riyadh 13515</p>

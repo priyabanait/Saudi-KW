@@ -170,7 +170,7 @@ const Properties = () => {
       <Header />
       <Box h3={"Search Listings"} src="/kwbg-image.jpg" image="/properties.png" />
 
-      <div className="grid grid-cols-2 md:grid-cols-5 md:mt-40 mt-20 gap-4 text-[10px] md:text-xs w-full max-w-6xl px-4 md:px-40">
+      <div className="grid grid-cols-2 md:grid-cols-5 md:mt-40 mt-8 gap-4 text-[10px] md:text-xs w-full max-w-6xl px-4 md:px-40">
         <select className="text-[0.6rem] leading-tight">
           <option>PROPERTY TYPE</option>
         </select>
@@ -199,7 +199,7 @@ const Properties = () => {
         </div>
       </div>
 
-      <p className="mt-6 text-[0.7rem] leading-tight ml-4 text-gray-700">
+      <p className="md:mt-6 mt-2 text-[0.7rem] leading-tight ml-4 text-gray-700">
         Total Listings : <span className="text-red-600 font-semibold">74</span>
       </p>
 
@@ -260,13 +260,13 @@ const Properties = () => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center mt-5">
+      <div className="flex justify-center items-center md:mt-5">
         <button className="w-3/6 py-2 px-8 bg-red-700 hover:bg-red-950 text-white font-normal rounded-full transition">
           View More Properties..
         </button>
       </div>
 
-      <hr className="w-6/12 mx-auto bg-red-500 h-[1.5px] mt-20 mb-16" />
+      <hr className="w-6/12 mx-auto bg-red-500 h-[1.5px] mt-5 md:mt-20 mb-16" />
       <Footer />
     </div>
   );

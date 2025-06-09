@@ -91,7 +91,7 @@ export default function Training() {
       </section>
 
      
-<section className='md:py-8 py-2'>
+<section className='md:py-8 py-2 mx-auto'>
   <div className="container">
     <div className="flex flex-col md:flex-row items-center justify-center">
       
@@ -104,7 +104,7 @@ export default function Training() {
           alt="The Millionaire Real Estate Investor"
           width={200}
           height={150}
-          className="absolute bottom-0 md:left-[0%] -translate-x-[20%] md:-translate-x-[20%] md:w-[300px] md:h-[300px] w-[200px] h-[140px] rotate-[-8deg] z-30"
+          className="absolute bottom-0 md:left-[0%] -translate-x-[20%] md:-translate-x-[20%] md:w-[450px] md:h-[300px] w-[200px] h-[140px] rotate-[-8deg] z-30"
         />
 
         {/* Book 2 */}
@@ -131,7 +131,7 @@ export default function Training() {
           alt="The ONE Thing"
           width={200}
           height={150}
-          className="absolute bottom-0 left-[10%] md:left-[82%] -translate-x-[70%] md:translate-x-0 md:w-[900px] md:h-[300px] w-[300px] h-[140px] rotate-[-5deg] z-20"
+          className="absolute bottom-0 left-[10%] md:left-[82%] -translate-x-[70%] md:translate-x-0 md:w-[450px] md:h-[300px] w-[300px] h-[140px] rotate-[-5deg] z-20"
         />
       </div>
 

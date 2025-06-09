@@ -12,66 +12,71 @@ const Home = () => {
   <Header />
 
   {/* Hero Section */}
-<div className="relative min-h-[40vh] md:min-h-[100vh]">
-    <div className="absolute inset-0">
-      <Image
-        src="/kwbg-image.jpg"
-        alt="hero"
-        fill
-        className="object-cover"
-        priority
-      />
-    </div>
+{/* Hero Section with Background Image */}
+<div className="relative min-h-[40vh] md:min-h-screen">
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <Image
+      src="/kwbg-image.jpg"
+      alt="hero"
+      fill
+      className="object-cover"
+      priority
+    />
+  </div>
 
-  
+  {/* Content Over Background */}
+  <div className="relative z-10 flex flex-col items-center justify-end min-h-[40vh] md:min-h-screen px-4">
+    {/* Heading */}
+    <h1 className="text-sm md:text-4xl font-bold text-center text-white mb-4 md:mb-10">
+      ONE MOVE COULD SHAPE YOUR FUTURE
+    </h1>
 
-    {/* Fixed Search Box in Center */}
-    <div className="absolute left-0 right-0 top-[65%] md:80%] z-10">
-      <h1 className="text-sm md:text-4xl font-bold flex text-center justify-center mb-9 md:mb-21 text-white">
-        ONE MOVE COULD SHAPE YOUR FUTURE
-      </h1>
-      <div className="w-full max-w-2xl mx-auto">
-        <div className="bg-white rounded-t-3xl p-4 shadow-lg pb-14">
-          <div className="flex flex-col md:flex-row items-center w-full px-6 mt-4 sm:px-8 gap-2 sm:gap-0">
-            {/* Search Input */}
-            <div className="flex items-center w-full min-h-[48px] px-6 border border-gray-300 rounded-full md:rounded-l-full md:rounded-r-none focus-within:ring-1 transition-all">
-              <FaSearch className="text-gray-500 mr-3 flex-shrink-0" />
-              <input
-                type="text"
-                placeholder="Looking For a Home Start Here..."
-                className="w-full outline-none text-sm sm:text-md text-black bg-transparent"
-              />
-            </div>
-
-            {/* Select Dropdown */}
-            <div className="relative w-full md:w-auto min-w-[150px]">
-              <select className="w-full min-h-[48px] px-4 pr-8 border border-gray-300 text-sm rounded-full md:rounded-r-full md:rounded-l-none text-gray-700 hover:border-gray-400 transition-all appearance-none">
-                <option className="text-gray-400">Property Type</option>
-                <option>Apartment</option>
-                <option>Villa</option>
-              </select>
-              <FaChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none" />
-            </div>
+    {/* White Box (Search Area) */}
+    <div className="w-full max-w-xl bg-white rounded-t-3xl shadow-lg overflow-hidden pb-6">
+      <div className="p-8">
+        <div className="flex flex-col md:flex-row items-center w-full px-4 sm:px-6 gap-2 sm:gap-0">
+          {/* Search Input */}
+          <div className="flex items-center w-full min-h-[48px] px-4 border border-gray-300 rounded-full md:rounded-l-full md:rounded-r-none focus-within:ring-1 transition-all">
+            <FaSearch className="text-gray-500 mr-3 flex-shrink-0" />
+            <input
+              type="text"
+              placeholder="Looking For a Home Start Here..."
+              className="w-full outline-none text-sm sm:text-md text-black bg-transparent"
+            />
           </div>
-        </div>
 
-        {/* Bottom Buttons */}
-        <div className="bg-red-700 rounded-b-3xl p-6 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0">
-          <button className="w-56 px-4 py-2 bg-red-800 text-white font-medium rounded-xl md:rounded-l-xl md:rounded-r-none border border-gray-300">
-            Find a Property
-          </button>
-          <button className="w-56 px-4 py-2 bg-red-800 text-white font-medium rounded-xl md:rounded-r-xl md:rounded-l-none border border-gray-300">
-            Find an Agent
-          </button>
+          {/* Property Type Select */}
+          <div className="relative w-full md:w-auto min-w-[150px]">
+            <select className="w-full min-h-[48px] px-4 pr-8 border border-gray-300 text-sm rounded-full md:rounded-r-full md:rounded-l-none text-gray-700 hover:border-gray-400 transition-all appearance-none">
+              <option className="text-gray-400">Property Type</option>
+              <option>Apartment</option>
+              <option>Villa</option>
+            </select>
+            <FaChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 pointer-events-none" />
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+{/* Red Button Section BELOW image + white box */}
+<div className="w-full px-4 mt-[-1px]">
+  <div className="max-w-xl mx-auto bg-red-700 rounded-b-3xl p-6 flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0">
+    <button className="w-56 px-4 py-2 bg-red-800 text-white font-medium rounded-xl md:rounded-l-xl md:rounded-r-none border border-gray-300">
+      Find a Property
+    </button>
+    <button className="w-56 px-4 py-2 bg-red-800 text-white font-medium rounded-xl md:rounded-r-xl md:rounded-l-none border border-gray-300">
+      Find an Agent
+    </button>
+  </div>
+</div>
 
 
 
       {/* Image Grid Section */}
-      <div className="px-4 md:py-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-0 md:gap-2 mt-75 lg:mt-20">
+      <div className="px-4 md:py-10 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-0 md:gap-2">
         {[
           { label: "Properties", path: 'properties', imageUrl: "https://static.wixstatic.com/media/36a881_58e60526563049da91b5a702cb9995ac~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1.png" },
           { label: "Market Center", path: 'marketCenter', imageUrl: "https://static.wixstatic.com/media/36a881_63ae150a87e247f4910718ae270a72c0~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2.png" },
@@ -103,25 +108,29 @@ const Home = () => {
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-20">
           {/* First Image Block */}
           <div className="lg:w-1/2">
-            <Image
-              src="/riyaddh.jpg"
-              alt="Real Estate Property"
-              width={800}
-              height={500}
-              className="w-full h-auto max-h-[500px] object-contain"
-            />
-          </div>
+  <Link href="/riyadh">
+    <Image
+      src="/riyaddh.jpg"
+      alt="Real Estate Property"
+      width={800}
+      height={500}
+      className="w-full h-auto max-h-[500px] object-contain cursor-pointer"
+    />
+  </Link>
+</div>
 
-          {/* Second Image Block */}
-          <div className="lg:w-1/2">
-            <Image
-              src="/jeddhah.jpg"
-              alt="Real Estate Agent"
-              width={800}
-              height={500}
-              className="w-full h-auto max-h-[500px] object-contain"
-            />
-          </div>
+{/* Second Image Block */}
+<div className="lg:w-1/2">
+  <Link href="/jeddah">
+    <Image
+      src="/jeddhah.jpg"
+      alt="Real Estate Agent"
+      width={800}
+      height={500}
+      className="w-full h-auto max-h-[500px] object-contain cursor-pointer"
+    />
+  </Link>
+</div>
         </div>
       </div>
 

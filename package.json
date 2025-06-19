@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.20.6",
     "@tailwindcss/postcss": "^4.1.8",
     "next": "15.3.3",
     "postcss": "^8.5.4",

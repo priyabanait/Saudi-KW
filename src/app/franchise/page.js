@@ -1,10 +1,24 @@
-import React from 'react';
+'use client'
+import React, { useEffect, useState } from 'react';
 import Box from '@/components/box';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Image from 'next/image';
+import { FaGlobe } from 'react-icons/fa'
 
 const franchise = () => {
+  // Add state to track screen size
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className="relative">
       <Header />
@@ -17,49 +31,132 @@ const franchise = () => {
         }
       ></Box>
 
-      {/* Intro Text */}
-      <main className="px-4 py-6 md:mt-32 mt-10">
-        <div className="mx-auto text-center">
-          <h1 className="text-xl md:text-3xl font-light text-gray-800">
-            WE WANT YOU TO <span className="text-red-800">LIVE A BIG LIFE</span>
-          </h1>
-          <hr className="w-60 md:w-96 mx-auto bg-red-500 h-[1.5px] mt-6 md:mt-14" />
-          <div className="mt-10">
-            <p className="text-xs md:text-[0.8rem]">
-              Our mission is to help you to build careers worth having, businesses worth owning, lives worth living, experiences worth giving and legacies worth leaving. To that end we want
-            </p>
-            <p className="text-xs md:text-[0.8rem]">
-              this to be the most amazing place to be an estate agent in the UK and globally. And we want the best leadership for our market centres.
-            </p>
-          </div>
-        </div>
-      </main>
-
-      {/* Black Strip Section */}
-      <div className="relative min-h-[40vh] md:min-h-screen bg-black flex items-center justify-center md:mt-35">
-        <main className="px-4 py-6">
-          <div className="mx-auto text-center md:mt-6">
-            <p className="text-white md:text-[0.6rem]">WHERE</p>
-            <h1 className="text-xl md:text-3xl font-light text-white mt-4">
-              TRUE FINANCIAL FREEDOM BEGINS
-            </h1>
-            <hr className="w-48 md:w-96 mx-auto bg-red-800 h-[2px] rounded-full mt-6 md:mt-14" />
-            <div className="mt-10">
-              <p className="text-xs md:text-[0.8rem] text-white">
-                As a company founded on proven systems and models, Keller Williams provides the blueprint for building a big business and an even bigger life.
-              </p>
-              <button className="w-48 md:w-56 bg-red-800 text-white py-2 rounded-full text-sm hover:bg-red-700 transition mt-6 md:mt-10">
-                GET STARTED
-              </button>
+      {/* Responsive Section Order */}
+      <div className="w-full">
+        {/* Mobile: Black Box first, then Big Life Box */}
+        {isMobile ? (
+          <>
+            {/* Black Strip Section */}
+            <div className="relative min-h-[40vh] md:min-h-screen bg-black flex items-center justify-center md:mt-35">
+              <main className="px-4 md:py-6 py-37 mx-5 md:mx-0">
+                <div className="mx-auto text-center md:mt-6">
+                  <p className="text-white md:text-[0.6rem] tracking-[0.2em] text-[0.6rem]">WHERE</p>
+                  <h1 className="text-xl md:text-3xl tracking-[0.2em] md:tracking-[0.2em] font-normal text-white mt-4">
+                    TRUE FINANCIAL FREEDOM BEGINS
+                  </h1>
+                  <hr className="w-34 md:w-96 mx-auto bg-red-700 h-[2px] rounded-full mt-6 md:mt-14" />
+                  <div className="mt-10"> 
+                    <p className="text-[0.6rem] md:text-[0.8rem] text-white">
+                      As A Company Founded On Proven Systems And Models, Keller Williams Provides The Blueprint For Building A Big Business And An Even Bigger Life.
+                    </p>
+                    <div className=" hidden md:flex justify-center md:justify-center mt-6 md:mt-10">
+                      <button className="
+                        w-56 bg-red-700 text-white py-3 rounded-full text-sm
+                        relative overflow-hidden
+                        group transition-all duration-300
+                        hover:pr-8 hover:pl-4
+                      ">
+                        <span className="inline-block transition-all duration-300 group-hover:-translate-x-3">
+                          GET STARTED
+                        </span>
+                        <span className="
+                          absolute right-4 top-1/2 -translate-y-1/2
+                          opacity-0 group-hover:opacity-100
+                          transition-all duration-300 text-black
+                          group-hover:translate-x-0 translate-x-4
+                        ">
+                          ⟶
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </main>
             </div>
-          </div>
-        </main>
+            {/* Big Life Box */}
+            <main className="px-4 py-32 md:mt-32 mt-10">
+              <div className="text-center mx-4">
+                <h1 className="text-xl md:text-3xl tracking-[0.2em] font-light text-gray-800">
+                  WE WANT YOU TO <span className="text-red-700">LIVE A BIG LIFE</span>
+                </h1>
+                <hr className="w-60 md:w-96 mx-auto bg-red-500 h-[1.5px] mt-6 md:mt-14" />
+                <div className="mt-10">
+                  <p className="text-[0.7rem] md:text-[0.8rem]">
+                    Our mission is to help you to build careers worth having, businesses worth owning, lives worth living, experiences worth giving and legacies worth leaving. To that end we want
+                  </p>
+                  <p className="text-[0.7rem] md:text-[0.8rem]">
+                    this to be the most amazing place to be an estate agent in the UK and globally. And we want the best leadership for our market centres.
+                  </p>
+                </div>
+              </div>
+            </main>
+          </>
+        ) : (
+          // Desktop: Big Life Box first, then Black Box (original order)
+          <>
+            {/* Big Life Box */}
+            <main className="px-4 py-6 md:mt-32 mt-10">
+              <div className="mx-auto text-center">
+                <h1 className="text-xl md:text-3xl font-light text-gray-800">
+                  WE WANT YOU TO <span className="text-red-700">LIVE A BIG LIFE</span>
+                </h1>
+                <hr className="w-60 md:w-96 mx-auto bg-red-500 h-[1.5px] mt-6 md:mt-14" />
+                <div className="mt-10">
+                  <p className="text-xs md:text-[0.8rem]">
+                    Our mission is to help you to build careers worth having, businesses worth owning, lives worth living, experiences worth giving and legacies worth leaving. To that end we want
+                  </p>
+                  <p className="text-xs md:text-[0.8rem]">
+                    this to be the most amazing place to be an estate agent in the UK and globally. And we want the best leadership for our market centres.
+                  </p>
+                </div>
+              </div>
+            </main>
+            {/* Black Strip Section */}
+            <div className="relative min-h-[40vh] md:min-h-screen bg-black flex items-center justify-center md:mt-35">
+              <main className="px-4 py-6">
+                <div className="mx-auto text-center md:mt-6">
+                  <p className="text-white md:text-[0.6rem]">WHERE</p>
+                  <h1 className="text-xl md:text-3xl font-light text-white mt-4">
+                    TRUE FINANCIAL FREEDOM BEGINS
+                  </h1>
+                  <hr className="w-48 md:w-96 mx-auto bg-red-700 h-[2px] rounded-full mt-6 md:mt-14" />
+                  <div className="mt-10">
+                    <p className="text-xs md:text-[0.8rem] text-white">
+                      As A Company Founded On Proven Systems And Models, Keller Williams Provides The Blueprint For Building A Big Business And An Even Bigger Life.
+                    </p>
+                    <div className="flex justify-center md:justify-center mt-6 md:mt-10">
+                      <button className="
+                        w-56 bg-red-700 text-white py-3 rounded-full text-sm
+                        relative overflow-hidden
+                        group transition-all duration-300
+                        hover:pr-8 hover:pl-4
+                      ">
+                        <span className="inline-block transition-all duration-300 group-hover:-translate-x-3">
+                          GET STARTED
+                        </span>
+                        <span className="
+                          absolute right-4 top-1/2 -translate-y-1/2
+                          opacity-0 group-hover:opacity-100
+                          transition-all duration-300 text-black
+                          group-hover:translate-x-0 translate-x-4
+                        ">
+                          ⟶
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </main>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Form Section */}
       <div className="min-h-screen">
         {/* Title Banner */}
-        <div className="bg-red-700 py-2 flex justify-center relative">
+        <div className="bg-[rgba(202,3,32,255)] py-2 flex justify-center relative">
+
           <div className="relative">
             {/* KW Logo */}
             <Image
@@ -70,7 +167,7 @@ const franchise = () => {
               className="object-contain"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-white font-normal text-2xl whitespace-nowrap">
+              <span className="text-white font-normal md:text-2xl text-xl whitespace-nowrap tracking-[0.2em]" >
                 FRANCHISE APPLICATION
               </span>
             </div>
@@ -80,7 +177,7 @@ const franchise = () => {
         {/* Form + Sidebar Container */}
         <div className="flex flex-col lg:flex-row bg-gray-200 min-h-screen">
           {/* Left Black Sidebar */}
-          <div className="bg-black text-white flex flex-col items-center w-full lg:w-72 border-r-2 rounded-r-2xl relative min-h-full">
+          <div className="hidden md:flex bg-black text-white flex-col items-center w-full lg:w-72 border-r-2 rounded-r-2xl relative min-h-full">
             <div className="flex flex-col items-center top-0 left-10 absolute">
               {/* Logo in sidebar */}
               <Image
@@ -94,7 +191,7 @@ const franchise = () => {
 
             <div className="pt-24 space-y-12 group">
               {/* Target Icon */}
-              <div className="relative h-[120px] w-[110px] ml-4 mb-4">
+              <div className="relative h-[120px] w-[110px] ml-4 mb-4 transition-transform duration-300 ease-in-out group-hover:-translate-y-2">
                 <Image
                   src="https://static.wixstatic.com/media/36a881_b93011b55c3c4cc5a3fec96a287e4564~mv2.png/v1/crop/x_0,y_37,w_289,h_255/fill/w_171,h_188,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-02-18%20135420.png"
                   alt="Target Icon"
@@ -119,14 +216,13 @@ const franchise = () => {
           </div>
 
           {/* Right Form Section */}
-          <div className="flex-1 md:py-20 md:p-10 min-h-full py-10">
-            <div className="px-6 sm:px-10 lg:px-20">
+          <div className="flex-1 md:py-20 md:p-10 min-h-full py-28">
+            <div className="px-10 sm:px-10 lg:px-20">
               <form className="space-y-6">
                 {[
                   "Your Name",
                   "Your Surname",
                   "Your Email Address",
-                  "Your Mobile Phone",
                   "Your Company Name",
                 ].map((label, i) => (
                   <div key={i}>
@@ -140,6 +236,28 @@ const franchise = () => {
                     />
                   </div>
                 ))}
+                {/* Separate Mobile Phone Input */}
+                <div>
+                  <label className="block mb-2 md:text-[0.7rem] font-thin">
+                    Your Mobile Phone *
+                  </label>
+                  <div className="flex items-center bg-white rounded-2xl border border-gray-300 px-2 py-1">
+                    {/* World Map Icon */}
+                    <span className="mr-2 text-gray-500">
+                      <FaGlobe className="w-4 h-4" />
+                    </span>
+                    {/* Country Code Dropdown */}
+                   
+
+                    {/* Phone Number Input */}
+                    <input
+                      type="tel"
+                      required
+                      
+                      className="flex-1 bg-white border-none focus:outline-none text-sm"
+                    />
+                  </div>
+                </div>
 
                 {/* Date of Birth */}
                 <div className="mb-8">
@@ -243,7 +361,7 @@ const franchise = () => {
                 <div className="mt-8 flex justify-end">
                   <button
                     type="submit"
-                    className="w-32 md:w-32 bg-red-800 text-white py-2 rounded-full text-sm hover:bg-red-700 transition"
+                    className="w-32 md:w-32 bg-red-700 text-white py-2 rounded-full text-sm hover:bg-red-700 transition"
                   >
                     Submit
                   </button>
@@ -254,10 +372,16 @@ const franchise = () => {
         </div>
       </div>
 
-      <div className="bg-red-700 py-4 flex justify-center">
-        <Image src="/kwline.png" alt="KW Logo Center" width={80} height={80} />
-      </div>
-      <hr className="w-5/12 mx-auto bg-red-500 h-[1.5px] mt-4 md:mt-20 mb-10" />
+      <div className="order-2 md:order-1 bg-red-700 flex items-center justify-center h-[25px] md:h-[76px]">
+    <Image
+      src="/kwline.png"
+      alt="KW Logo Center"
+      width={80}
+      height={80}
+      className="object-contain mx-auto w-7 h-7 md:w-20 md:h-20"
+    />
+  </div>
+      <hr className="hidden md:clock w-5/12 mx-auto bg-red-500 h-[1.5px] mt-4 md:mt-20 mb-10" />
       <Footer />
     </div>
   );

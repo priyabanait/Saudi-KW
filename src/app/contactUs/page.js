@@ -176,7 +176,7 @@ const Contact = ({ src, image, h3 }) => {
                      <div className="mt-8 flex justify-end">
                        <button
                          type="submit"
-                         className="w-32 md:w-32 bg-red-800 text-white py-2 rounded-full text-sm hover:bg-red-700 transition"
+                         className="w-32 md:w-32 bg-red-700 text-white py-2 rounded-full text-sm hover:bg-red-700 transition"
                        >
                          Submit
                        </button>

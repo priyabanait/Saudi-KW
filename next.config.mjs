@@ -5,7 +5,8 @@ const nextConfig = {
       'static.wixstatic.com',
       'storage.googleapis.com',
       'source.unsplash.com',
-      'avatar.kwconnect.com'
+      'avatar.kwconnect.com',
+      'static.kw.com'
     ],
   },
 };

@@ -4,6 +4,7 @@ import Header from '@/components/header';
 import Box from '@/components/box';
 import Footer from '@/components/footer';
 import Image from 'next/image';
+import Link from 'next/link';
 export default function Training() {
   return (
     <div>
@@ -12,35 +13,35 @@ export default function Training() {
         h3={"Kw Training"}
         src="/training.jpg"
         image={
-          'https://static.wixstatic.com/media/36a881_a82aacde83a9442dae07d99a846cadf4~mv2.png/v1/fill/w_271,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/8-removebg-preview%20(1).png'
+          '/ourculture2.jpg'
         }
       />
 
-      <section className="bg-white mt-4 md:mt-10 md:pb-16 mb-4 px-4 text-center">
+      <section className="bg-white mt-4 md:mt-10 md:pb-16 mb-4 px-4 text-center py-15 md:py-0">
         <div className="max-w-6xl mx-auto">
           
           <Image src="/keller.png" alt="Gary Keller" width={1800} height={600} className="mx-auto w-full h-auto" />
         </div>
       </section>
 
-      <section className="bg-white py-0 md:py-10 px-6 text-center">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-16 gap-y-10 max-w-5xl mx-auto">
+      <section className="bg-white py-20 md:py-10 px-6 text-center">
+        <div className="grid grid-cols-3 sm:grid-cols-3 gap-x-16 gap-y-10 max-w-5xl md:mx-auto mx-6">
           <div>
-            <p className="text-xl md:text-4xl font-normal mb-2">1200+</p>
-            <hr className="max-w-[200px] mx-auto border-t border-gray-400 my-2" />
-            <p className="text-sm text-gray-600">Hours of On Demand<br />Learning</p>
+            <p className="text-sm md:text-4xl md:font-normal font-bold mb-2">1200+</p>
+            <hr className="max-w-[200px] w-18 mx-auto border-t border-gray-400 my-2" />
+            <p className="md:text-sm text-[0.6rem] text-gray-600">Hours of On Demand<br />Learning</p>
           </div>
 
           <div>
-            <p className="text-xl md:text-4xl font-normal mb-2">68+</p>
-            <hr className="max-w-[200px] mx-auto border-t border-gray-400 my-2" />
-            <p className="text-sm text-gray-600">Unique Courses<br />Available</p>
+          <p className="text-lg md:text-4xl md:font-normal font-bold mb-2">68+</p>
+          <hr className="max-w-[200px] w-18 mx-auto border-t border-gray-400 my-2" />
+          <p className="md:text-sm text-[0.6rem] text-gray-600">Unique Courses<br />Available</p>
           </div>
 
           <div>
-            <p className="text-xl md:text-4xl font-normal mb-2">100+</p>
-            <hr className="max-w-[200px] mx-auto border-t border-gray-400 my-2" />
-            <p className="text-sm text-gray-600">Live Training Events<br />Worldwide</p>
+          <p className="text-lg md:text-4xl md:font-normal font-bold mb-2">100+</p>
+          <hr className="max-w-[200px] w-18 mx-auto border-t border-gray-400 my-2" />
+          <p className="md:text-sm text-[0.6rem] text-gray-600">Live Training Events<br />Worldwide</p>
           </div>
         </div>
       </section>
@@ -55,25 +56,59 @@ export default function Training() {
         </div>
       </section>
 
-      <section className="md:py-16 py-4">
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
+      <section className="md:py-16 py-4  md:mx-auto mx-6 ">
+        <div className="container px-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
           <div className="text-center md:text-center">
-            <h2 className="text-xl md:text-2xl font-bold text-red-700 mb-6">In Person & Online Sessions</h2>
-            <p className="text-base text-gray-700 mb-8">At KW Saudi Arabia, we provide flexible training to suit your needs. 
+            <h2 className="text-xl md:text-2xl md:font-bold font-semibold text-red-700 mb-6">In Person & Online Sessions</h2>
+            <p className="md:text-base text-[0.6rem] text-gray-700 mb-8">At KW Saudi Arabia, we provide flexible training to suit your needs. 
               Join in-person events to connect and learn from top talent,
                or access online sessions for world-class training anytime. Elevate your career—explore our sessions today!</p>
-            <div className="flex justify-center md:justify-center">
-              <button className="w-56 bg-red-700 text-white py-3 rounded-full text-sm">CONTACT US</button>
-            </div>
-          </div>
+         <div className="flex justify-center md:justify-center">
+  <button className="
+    w-56 bg-red-700 text-white py-3 rounded-full text-sm
+    relative overflow-hidden
+    group transition-all duration-300
+    hover:pr-8 hover:pl-4
+  ">
+    <span className="inline-block transition-all duration-300 group-hover:-translate-x-3">
+      CONTACT US
+    </span>
+    <span className="
+      absolute right-4 top-1/2 -translate-y-1/2
+      opacity-0 group-hover:opacity-100
+      transition-all duration-300 text-black
+      group-hover:translate-x-0 translate-x-4
+    ">
+    ⟶
+    </span>
+  </button>
+</div>
+</div>
           <div className="text-center md:text-center">
-            <h2 className="text-xl md:text-2xl font-bold text-red-700 mb-6">Events</h2>
-            <p className="text-base text-gray-700 mb-8">Network and learn with top real estate talent at Keller Williams events. 
+          <h2 className="text-xl md:text-2xl md:font-bold font-semibold text-red-700 mb-6">Events</h2>
+          <p className="md:text-base text-[0.6rem] text-gray-700 mb-8">Network and learn with top real estate talent at Keller Williams events. 
               From Family Reunion to Mega Agent Camp and Masterminds, connect with top producers, bold thinkers, 
               and market makers. No other event compares.</p>
-            <div className="flex justify-center md:justify-center">
-              <button className="w-56 bg-red-700 text-white py-3 rounded-full text-sm">LEARN MORE</button>
-            </div>
+           <div className="flex justify-center md:justify-center">
+  <button className="
+    w-56 bg-red-700 text-white py-3 rounded-full text-sm
+    relative overflow-hidden
+    group transition-all duration-300
+    hover:pr-8 hover:pl-4
+  ">
+    <span className="inline-block transition-all duration-300 group-hover:-translate-x-3">
+    LEARN MORE
+    </span>
+    <span className="
+      absolute right-4 top-1/2 -translate-y-1/2
+      opacity-0 group-hover:opacity-100
+      transition-all duration-300 text-black
+      group-hover:translate-x-0 translate-x-4
+    ">
+    ⟶
+    </span>
+  </button>
+</div>
           </div>
         </div>
       </section>
@@ -196,11 +231,16 @@ export default function Training() {
         </div>
       </main>
 
-      <div className="flex justify-center">
-        <button className="w-48 md:w-7/12 bg-red-700 text-white py-3 rounded-full text-sm hover:bg-red-950 transition mt-6 mx-auto">
-          Join a KellerWilliams Market Center Near You
-        </button>
-      </div>
+      <div className="flex justify-center mt-6">
+  <Link 
+    href="/contactUs"
+    className="block w-full max-w-xs md:max-w-md"
+  >
+    <button className="w-full bg-red-700 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-full text-sm md:text-base transition-colors duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 shadow-md">
+      Join a Keller Williams Market Center Near You
+    </button>
+  </Link>
+</div>
 
       <hr className="w-48 md:w-6/12 mx-auto bg-red-500 h-[1.5px] md:mt-55 mt-10 mb-12" />
 

@@ -1,243 +1,488 @@
 'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import Header from '@/components/header';
+
 import Footer from '@/components/footer';
-import Box from '@/components/box';
+
+import { useState,useRef,useEffect } from 'react';
+import { FaSearch, FaCheckCircle,FaBars, FaGavel, FaTimes,FaStar, FaGlobeAmericas, FaHome } from 'react-icons/fa';
+import Link from 'next/link';
 
 const Properties = () => {
-  const [price, setPrice] = useState(750000);
-
-  const properties = [
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+       const [isVisible, setIsVisible] = useState(true);  
+       const [isAtTop, setIsAtTop] = useState(true);  
+       const prevScrollY = useRef(0);
+     
+       const toggleMenu = () => {
+         setIsMenuOpen(!isMenuOpen);
+       };
+     
+       useEffect(() => {  
+         const handleScroll = () => {  
+           const currentScrollY = window.scrollY;  
+     
+           // At the very top  
+           if (currentScrollY < 10) {  
+             setIsAtTop(true);  
+             setIsVisible(true);  
+             return;  
+           } else {  
+             setIsAtTop(false);  
+           }  
+     
+           // Scrolling down → Hide header  
+           if (currentScrollY > prevScrollY.current) {  
+             setIsVisible(false);  
+           }  
+           // Scrolling up → Show header  
+           else {  
+             setIsVisible(true);  
+           }  
+     
+           prevScrollY.current = currentScrollY;  
+         };  
+     
+         window.addEventListener('scroll', handleScroll, { passive: true });  
+         return () => window.removeEventListener('scroll', handleScroll);  
+       }, []);
+     
+  const categories = [
     {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000043179/listing/734aaecdaf1936be42f85a35/cv7r6851g1lc70qjejgg.jpeg",
-      price: 750000,
-      agent: "Meshary Almalki",
-      type: "Residential",
-      beds: 4,
-      baths: 2,
-      area: 280,
-      location: "Jeddah, Saudi Arabia",
-    },
-     {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000095310/listing/266bf11f6f1a642adf96b812/cukvcdqhr9cs770mt8h0.png",
-      price: 960000,
-      agent: "Saad Alotaibi",
-      type: "Commercial",
-      beds: 0,
-      baths: 2,
-      area: 850,
-      location: "Tabuk, Saudi Arabia",
-    },
-    {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000043542/listing/30cbbba08226bd44d555e39b/cu4ddknndonc773t63hg.png",
-      price: 580000,
-      agent: "Aisha Alghamdi",
-      type: "Residential",
-      beds: 2,
-      baths: 1,
-      area: 200,
-      location: "Hail, Saudi Arabia",
-    },
-    {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000043542/listing/46a12c34c40bc918adfe272e/cu940vrpaooc70pb9f4g.png",
-      price: 715000,
-      agent: "Khaled Alrashid",
-      type: "Residential",
-      beds: 3,
-      baths: 2,
-      area: 310,
-      location: "Taif, Saudi Arabia",
-    },
-    
-    {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000043179/listing/e36de373fe8179a94c991478/cudvqtahr9cs770mmdi0.jpeg",
-      price: 980000,
-      agent: "Badr Alzahrani",
-      type: "Residential",
-      beds: 4,
-      baths: 3,
-      area: 370,
-      location: "Al Khobar, Saudi Arabia",
+      image:'/residential.png',
+      title: 'Residential',
+      subtitle: 'Active Properties',
+      href: '/residential'
     },
     {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000043179/listing/4a588fa29f9735dc22d6a40a/cudvs69u8mjc70kegq9g.jpeg",
-      price: 675000,
-      agent: "Huda Aljohani",
-      type: "Residential",
-      beds: 3,
-      baths: 2,
-      area: 290,
-      location: "Jazan, Saudi Arabia",
+      image:'/commercial.png',
+      title: 'Commercial',
+      subtitle: 'Active Properties',
+      href: '/commercial'
     },
     {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000043179/listing/7a67ea5d225fc6d8aab293b9/cudvognklprc7765jj0g.jpeg",
-      price: 870000,
-      agent: "Talal Alnasser",
-      type: "Commercial",
-      beds: 0,
-      baths: 2,
-      area: 720,
-      location: "Najran, Saudi Arabia",
+      image:'/sold.png',
+      title: 'Sold',
+      subtitle: 'Properties',
+      href: '/sold'
     },
     {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000095310/listing/5d94e50f0f72b839a8d718fb/cukvipfklprc7765qgc0.png",
-      price: 535000,
-      agent: "Sarah Alotaibi",
-      type: "Residential",
-      beds: 2,
-      baths: 1,
-      area: 230,
-      location: "Al Baha, Saudi Arabia",
+      image:'/rental.png',
+      title: 'Rental',
+      subtitle: 'Properties',
+      href: '/rental'
     },
     {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000043542/listing/5c1a9082279a92531156e9f1/cuksspqhr9cs770mt59g.png",
-      price: 1020000,
-      agent: "Mansour Aljaber",
-      type: "Residential",
-      beds: 5,
-      baths: 4,
-      area: 450,
-      location: "Sakaka, Saudi Arabia",
+      image:'/auction.png',
+      title: 'Auction',
+      subtitle: 'Properties',
+      href: '/auction'
     },
     {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000043542/listing/d4ec15602aac7608656baa02/cuhn3vihr9cs770mpu1g.png",
-      price: 780000,
-      agent: "Laila Alnami",
-      type: "Commercial",
-      beds: 0,
-      baths: 2,
-      area: 640,
-      location: "Madinah, Saudi Arabia",
-    },
-     {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000043179/listing/e36de373fe8179a94c991478/cudvqtahr9cs770mmdi0.jpeg",
-      price: 980000,
-      agent: "Badr Alzahrani",
-      type: "Residential",
-      beds: 4,
-      baths: 3,
-      area: 370,
-      location: "Al Khobar, Saudi Arabia",
+      image:'/newdevelopment.png',
+      title: 'New',
+      subtitle: 'Development',
+      href: '/new-development'
     },
     {
-      image: "https://storage.googleapis.com/attachment-listing-prod-5af4/2000043542/listing/f5f164daabf06943d4ee27d4/cuh2t42hr9cs770mp0n0.png",
-      price: 695000,
-      agent: "Salem Alsuwailem",
-      type: "Residential",
-      beds: 3,
-      baths: 2,
-      area: 305,
-      location: "Buraydah, Saudi Arabia",
-    },
+      image:'/international.png',
+      title: 'International',
+      subtitle: 'Properties',
+      href: '/international'
+    }
   ];
 
-  const bedIconUrl = "/bed.png";
-  const bathIconUrl = "/bath.png";
-  const areaIconUrl = "/area.png";
-
   return (
-    <div className="relative">
-      <Header />
-      <Box h3={"Search Listings"} src="/kwbg-image.jpg" image="/properties.png" />
-
-      <div className="grid grid-cols-2 md:grid-cols-5 md:mt-40 mt-8 gap-4 text-[10px] md:text-xs w-full max-w-6xl px-4 md:px-40">
-        <select className="text-[0.6rem] leading-tight">
-          <option>PROPERTY TYPE</option>
-        </select>
-        <select className="text-[0.6rem] leading-tight">
-          <option>MARKET CENTER</option>
-        </select>
-        <select className="text-[0.6rem] leading-tight">
-          <option>PROPERTY SUBTYPE</option>
-        </select>
-        <select className="text-[0.6rem] leading-tight w-[100px] px-3 py-2 pr-7">
-          <option>CITY</option>
-        </select>
-
-        <div className="flex flex-col col-span-2 md:col-span-1">
-          <label htmlFor="price" className="mb-1 text-gray-700 text-[0.6rem] leading-tight">PRICE</label>
-          <input
-            type="range"
-            id="price"
-            min="0"
-            max="1000000"
-            step="10000"
-            defaultValue="1000000"
-            className="w-full h-1 bg-black rounded-lg appearance-none [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-red-600"
-          />
-          <span className="text-right text-[0.6rem] mt-4">750000 SAR</span>
+    <div className="min-h-screen ">
+       <header className={`  
+        fixed top-0 w-full z-50  
+        flex justify-between items-center px-4 sm:px-6 py-2
+        transition-all duration-300 ease-in-out  
+        ${isVisible ? 'translate-y-0' : '-translate-y-full'}  
+        ${isAtTop ? 'bg-gray-950/90 backdrop-blur-sm' : 'bg-gray-950/90 backdrop-blur-sm'}  
+      `}>
+        {/* Logo */}
+        <div className="flex-shrink-0">
+          <Link href="/">
+            <Image 
+              src="https://static.wixstatic.com/media/36a881_0cd959d32d904bd7be76303fb23dec0a~mv2.png/v1/fill/w_279,h_63,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled%20design.png" 
+              alt="KW Saudi Arabia Logo" 
+              width={279}
+              height={63}
+              className="h-12 w-auto object-contain"
+              priority
+            />
+          </Link>
         </div>
-      </div>
 
-      <p className="md:mt-6 mt-2 text-[0.7rem] leading-tight ml-4 text-gray-700">
-        Total Listings : <span className="text-red-600 font-semibold">74</span>
-      </p>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
+          <Link href="/ourCulture" className="text-[0.6rem]  text-white hover:text-gray-300 transition-colors">
+            About Us
+          </Link>
+          <div className="w-px h-4 bg-gray-300/50"></div>
+          <Link href="/properties" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
+            Search
+          </Link>
+          <div className="w-px h-4 bg-gray-300/50"></div>
+          <Link href="/franchise" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
+            Join Us
+          </Link>
+          <div className="w-px h-4 bg-gray-300/50"></div>
+          <Link href="/contactUs" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
+            Contact Us
+          </Link>
+          <div className="w-px h-4 bg-gray-300/50"></div>
+          <Link href="/contactUs" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
+            Instant Valuation
+          </Link>
+          <div className="w-px h-4 bg-gray-300/50"></div>
+          <Link href="#" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
+            عربي
+          </Link>
+          <Link 
+            href="#" 
+            className="border border-white px-4 py-1.5 rounded-full text-white hover:bg-white hover:text-black transition-colors text-[0.6rem]"
+          >
+            Sign In/Register
+          </Link>
+        </nav>
 
-      <div className="min-h-screen p-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {properties.map((prop, idx) => (
-            <div key={idx} className="bg-gray-100 rounded-3xl overflow-hidden w-full">
-              <div className="relative w-full h-60">
-                <Image
-                  src={prop.image}
-                  alt="property"
-                  fill
-                  className="object-cover rounded-3xl"
-                />
-              </div>
-              <div className="p-4">
-                <div className="flex justify-between items-baseline mb-1">
-                  <h2 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
-                    <span className="relative w-5 h-5">
-                      <Image src='/currency.png' alt="currency" fill className="object-cover rounded-3xl" />
-                    </span>
-                    {prop.price.toLocaleString()}
-                  </h2>
-                  <p className="text-sm">{prop.agent}</p>
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden text-white focus:outline-none p-2" 
+          onClick={toggleMenu}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMenuOpen ? (
+            <FaTimes size={20} className="text-white" />
+          ) : (
+            <FaBars size={20} className="text-white" />
+          )}
+        </button>
+
+        {/* Mobile Menu Dropdown */}
+        {isMenuOpen && (
+          <div className={`absolute md:hidden top-full left-0 right-0 py-4 px-6 space-y-4 shadow-lg bg-gray-950/95 backdrop-blur-sm`}>
+            <Link href="/ourCulture" className="block py-2 text-white hover:text-gray-300 transition-colors">
+              About Us
+            </Link>
+            <Link href="/properties" className="block py-2 text-white hover:text-gray-300 transition-colors">
+              Search
+            </Link>
+            <Link href="/franchise" className="block py-2 text-white hover:text-gray-300 transition-colors">
+              Join Us
+            </Link>
+            <Link href="/contactUs" className="block py-2 text-white hover:text-gray-300 transition-colors">
+              Contact Us
+            </Link>
+            <Link href="/contactUs" className="block py-2 text-white hover:text-gray-300 transition-colors">
+              Instant Valuation
+            </Link>
+            <Link href="#" className="block py-2 text-white hover:text-gray-300 transition-colors">
+              عربي
+            </Link>
+            <Link 
+              href="#" 
+              className="w-full border border-white px-4 py-2 rounded-full text-white hover:bg-white hover:text-black transition-colors mt-2 inline-block text-center"
+            >
+              Sign In/Register
+            </Link>
+          </div>
+        )}
+      </header>
+
+      <main className="max-w-7xl mx-auto px-4 mt-10 md:mt-23 py-8 md:py-4">
+        {/* Icon and Title */}
+        <div className="text-center mb-10">
+        <div className="mx-auto md:mb-0 mb-2 relative w-15 h-15 md:w-[90px] md:h-[90px]">
+  <Image 
+    src="/property.jpg" 
+    alt="property" 
+    fill 
+    className="object-cover rounded-full"
+  />
+</div>
+
+  <h1 className="text-3xl mx-10 md:text-lg font-normal mb-4">Properties In Saudi Arabia</h1>
+  <p className="text-[0.7rem] md:text-[0.7rem] text-gray-600 max-w-3xl mx-auto px-4">
+    Looking For A New Home And Not Sure Which Neighborhood Suits You? Explore Everything You 
+  </p>
+  <p className="text-[0.7rem] md:text-[0.7rem] text-gray-600 max-w-3xl mx-auto px-4">
+   Need To Know About The Communities In Doha. View Nearby Locations, Landmarks, Reviews, 
+  </p>
+  <p className="text-[0.7rem] md:text-[0.7rem] text-gray-600 max-w-3xl mx-auto px-4">
+   Prices, FAQ's, And More.
+  </p>
+</div>
+
+{/* Search Section */}
+<div className="max-w-[750px] mx-auto md:mb-20">
+  {/* Laptop View (unchanged) */}
+  <div className="hidden md:flex flex-row">
+    {/* Search Input */}
+    <div className="flex-1 relative">
+      <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 z-10" />
+      <input
+        type="text"
+        placeholder="City, Area or Building"
+        className="w-full pl-12 pr-4 py-1.5 text-sm border border-r-0 rounded-l-full focus:outline-none focus:ring-0"
+      />
+    </div>
+
+    {/* Property Type Dropdown with vertical line */}
+    <div className="md:w-48 border-l border-gray-500">
+      <select className="w-full py-1.5 px-4 text-sm border-t border-b focus:outline-none focus:ring-0">
+        <option value="">Property Type</option>
+        <option value="apartment">Apartment</option>
+        <option value="villa">Villa</option>
+        <option value="office">Office</option>
+      </select>
+    </div>
+
+    {/* Search Button */}
+    <button className="bg-red-700 text-white px-8 py-1.5 text-sm rounded-r-full focus:outline-none focus:ring-0">
+      Search
+    </button>
+  </div>
+
+  {/* Mobile View (search input and dropdown in one group, button below) */}
+  <div className="md:hidden flex flex-col gap-2 mx-4">
+  <div className="flex w-full max-w-md mx-auto">
+  {/* Search Input */}
+  <div className="flex-1 relative">
+    <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 z-10" />
+    <input
+      type="text"
+      placeholder="City, Area or Building"
+      className="w-full pl-10 pr-2 py-2 text-[0.8rem] md:text-sm border border-gray-500 rounded-l-lg focus:outline-none focus:ring-0"
+    />
+  </div>
+
+  {/* Property Type Dropdown */}
+  <select className="w-32 py-2 px-2 text-sm border border-gray-500 border-l-0 rounded-r-lg focus:outline-none focus:ring-0">
+    <option value="">Type</option>
+    <option value="apartment">Apartment</option>
+    <option value="villa">Villa</option>
+  </select>
+</div>
+
+    {/* Search Button (full width below) */}
+    <button className="bg-red-700 text-white justify-center items-center w-30 py-2 text-[0.6rem] rounded-full mt-1 focus:outline-none focus:ring-0 block mx-auto">
+  Search
+</button>
+  </div>
+</div>
+
+
+        {/* Property Categories */}
+        {/* Mobile: horizontal scroll for first 4, rest centered below */}
+        <div className="md:hidden">
+          <div className="flex overflow-x-auto gap-4 pb-2 mx-1 mt-2">
+            {categories.slice(0, 4).map((category, index) => (
+              <Link href={category.href} key={index} className="flex-shrink-0">
+                <div className="flex flex-col items-center p-2 rounded-lg text-center bg-white">
+                  <Image 
+                    src={category.image} 
+                    alt={category.title + ' icon'} 
+                    width={48} 
+                    height={48} 
+                    className="object-contain w-8 h-8" 
+                  />
+                  <p className="text-[0.5rem] text-gray-700 mt-1">{category.title}</p>
+                  <p className="text-[0.5rem] text-gray-700">{category.subtitle}</p>
                 </div>
-
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center text-sm mb-2">
-                    <span className="flex items-center gap-2 mr-4">
-                      <span className="relative w-6 h-6">
-                        <Image src={bathIconUrl} alt="bath" fill className="object-contain" />
-                      </span>
-                      {prop.baths}
-                    </span>
-                    <span className="flex items-center gap-2 mr-4">
-                      <span className="relative w-6 h-6">
-                        <Image src={bedIconUrl} alt="bed" fill className="object-contain" />
-                      </span>
-                      {prop.beds}
-                    </span>
-                    <span className="flex items-center gap-2">
-                      <span className="relative w-6 h-6">
-                        <Image src={areaIconUrl} alt="area" fill className="object-contain" />
-                      </span>
-                      {prop.area}
-                    </span>
-                  </div>
-                  <p className="text-[0.7rem] mb-2">{prop.type}</p>
+              </Link>
+            ))}
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 mt-4">
+            {categories.slice(4).map((category, index) => (
+              <Link href={category.href} key={index + 4} className="">
+                <div className="flex flex-col items-center p-2 rounded-lg text-center bg-white">
+                  <Image 
+                    src={category.image} 
+                    alt={category.title + ' icon'} 
+                    width={48} 
+                    height={48} 
+                    className="object-contain w-8 h-8" 
+                  />
+                  <p className="text-[0.5rem] text-gray-700 mt-1">{category.title}</p>
+                  <p className="text-[0.5rem] text-gray-700">{category.subtitle}</p>
                 </div>
-
-                <p className="text-xs">{prop.location}</p>
-                <button className="mt-10 w-full bg-black text-white py-2 rounded-full text-sm hover:bg-red-700 transition">
-                  View Property Details
-                </button>
+              </Link>
+            ))}
+          </div>
+        </div>
+        {/* Desktop: grid layout */}
+        <div className="hidden md:grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2 max-w-7xl mx-12">
+          {categories.map((category, index) => (
+            <Link href={category.href} key={index} className="group">
+              <div className="flex flex-col items-center p-0 rounded-lg text-center ">
+                <div className="mb-2">
+                  <Image 
+                    src={category.image} 
+                    alt={category.title + ' icon'} 
+                    width={48} 
+                    height={48} 
+                    className="object-contain w-8 h-8" 
+                  />
+                </div>
+                <p className="text-sm text-gray-500 mb-1">{category.title}</p>
+                <p className="text-sm text-gray-500">{category.subtitle}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
-      </div>
+        <div className="flex justify-center items-center md:my-18 my-4 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8">
+  <hr className="md:w-140 w-50 mx-auto bg-red-500 h-[1.5px]" />
+</div>
+        {/* New Property Cards Section */}
+        <div className="md:mt-10 md:mx-12">
+          <p className="flex items-center text-xl font-normal md:mx-6">
+            <Image src="/residential.png" alt="Residential" width={32} height={32} className="mr-6" /><span className='text-gray-500'> Residential Active Properties</span>
+          </p>
+          {/* First Home Block */}
+          <div className="mb-4 md:mb-10">
+            <Link href="/properties">
+              <Image
+                src="/marinaView.jpg"
+                alt="Modern Home"
+                width={1920}
+                height={1080}
+                className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
+              />
+            </Link>
+           
+          </div>
+        </div>
+         {/* sold Property Cards Section */}
+         <div className="md:mt-10 mt-4 md:mx-12">
+          <p className="flex items-center text-xl font-normal md:mx-6">
+            <Image src="/sold.png" alt="Residential" width={32} height={32} className="mr-6" /><span className='text-gray-500'> Sold Properties</span>
+          </p>
+          {/* First Home Block */}
+          <div className=" mb-4 md:mb-10">
+            <Link href="/properties">
+              <Image
+                src="/marinaView.jpg"
+                alt="Modern Home"
+                width={1920}
+                height={1080}
+                className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
+              />
+            </Link>
+           
+          </div>
+        </div>
+         {/* sold Property Cards Section */}
+         <div className="md:mt-10 mt-4 md:mx-12">
+          <p className="flex items-center text-xl font-normal md:mx-6">
+            <Image src="/rental.png" alt="Residential" width={32} height={32} className="mr-6" /><span className='text-gray-500'> Rental Properties</span>
+          </p>
+          {/* First Home Block */}
+          <div className="mb-4 md:mb-10">
+            <Link href="/properties">
+              <Image
+                src="/marinaView.jpg"
+                alt="Modern Home"
+                width={1920}
+                height={1080}
+                className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
+              />
+            </Link>
+           
+          </div>
+        </div>
+         {/* sold Property Cards Section */}
+         <div className="md:mt-10 mt-4d:mx-12">
+          <p className="flex items-center text-xl font-normal md:mx-6">
+            <Image src="/auction.png" alt="Residential" width={32} height={32} className="mr-6" /><span className='text-gray-500'> Auction Properties</span>
+          </p>
+          {/* First Home Block */}
+          <div className=" mb-4 md:mb-10">
+            <Link href="/properties">
+              <Image
+                src="/marinaView.jpg"
+                alt="Modern Home"
+                width={1920}
+                height={1080}
+                className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
+              />
+            </Link>
+           
+          </div>
+        </div>
+       
+         {/* sold Property Cards Section */}
+         <div className="md:mt-10 mt-4 md:mx-12">
+          <p className="flex items-center text-xl font-normal md:mx-6">
+            <Image src="/newdevelopment.png" alt="Residential" width={32} height={32} className="mr-6" /><span className='text-gray-500'> New Development</span>
+          </p>
+          {/* First Home Block */}
+          <div className=" mb-4 md:mb-10">
+            <Link href="/properties">
+              <Image
+                src="/marinaView.jpg"
+                alt="Modern Home"
+                width={1920}
+                height={1080}
+                className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
+              />
+            </Link>
+           
+          </div>
+        </div>
+         {/* sold Property Cards Section */}
+         <div className="md:mt-10 mt-4md:mx-12">
+          <p className="flex items-center text-xl font-normal md:mx-6">
+            <Image src="/international.png" alt="Residential" width={32} height={32} className="mr-6" /><span className='text-gray-500'> International Properties</span>
+          </p>
+          {/* First Home Block */}
+          <div className=" mb-0">
+            <Link href="/properties">
+              <Image
+                src="/marinaView.jpg"
+                alt="Modern Home"
+                width={1920}
+                height={1080}
+                className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
+              />
+            </Link>
+           
+          </div>
+        </div>
+      </main>
+      <div className="flex flex-col">
+  {/* How Will You Think image */}
+  <div className="order-1 md:order-2 flex flex-col items-center justify-center">
+    <Image
+      src="/howwillyouthink.png"
+      alt="How Will You Thrive"
+      width={800}
+      height={400}
+      className="w-70 h-20 md:w-[800px] md:h-[400px] object-contain"
+    />
+    <button className="bg-red-700 w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
+      JOIN US
+    </button>
+  </div>
+  {/* Red bar with centered KW logo */}
+  <div className="order-2 md:order-1 bg-red-700 flex items-center justify-center h-[25px] md:h-[76px]">
+    <Image
+      src="/kwline.png"
+      alt="KW Logo Center"
+      width={80}
+      height={80}
+      className="object-contain mx-auto w-7 h-7 md:w-20 md:h-20"
+    />
+  </div>
+</div>
 
-      <div className="flex justify-center items-center md:mt-5">
-        <button className="w-3/6 py-2 px-8 bg-red-700 hover:bg-red-950 text-white font-normal rounded-full transition">
-          View More Properties..
-        </button>
-      </div>
+{/* Red horizontal line */}
+<div className="hidden md:flex justify-center items-center my-10 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8">
+  <hr className="md:w-140 w-60 mx-auto bg-red-500 h-[1.5px]" />
+</div>
 
-      <hr className="w-6/12 mx-auto bg-red-500 h-[1.5px] mt-5 md:mt-20 mb-16" />
       <Footer />
     </div>
   );

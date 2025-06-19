@@ -50,11 +50,11 @@ const Tenant = () => {
       <Box
         src="/agentbg.jpg"
         h3="Tenant Guide"
-        image="https://static.wixstatic.com/media/36a881_c580b86333874ddca3fad0d685aa3c7e~mv2.png/v1/fill/w_271,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/6-removebg-preview.png"
+        image="/tenant2.jpg"
       />
 
       {/* Intro */}
-      <main className="px-4 py-6 md:mt-30 mt-10">
+      <main className="px-4 py-6 md:mt-2 mt-10">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-xs md:text-sm">
             Before you start your search for a rental property it&rsquo;s worth asking yourself
@@ -64,64 +64,88 @@ const Tenant = () => {
 
       {/* Section Boxes */}
       <div className="max-w-7xl mx-auto mt-14 bg-gray-100">
-        <hr className="w-full border-t border-gray-300" />
+        <hr className="w-full border-t border-gray-500" />
         {sections.map((section, index) => (
           <React.Fragment key={index}>
-            <div className="grid grid-cols-12 items-stretch hover:bg-red-800 group transition duration-300 px-4 min-h-[120px]">
+            {/* Mobile: stacked vertical layout */}
+            <div className="md:hidden px-4 py-6 mx-6">
+              <div className="text-3xl py-2 text-gray-400 font-normal mb-1">{section.number}</div>
+              <div className="text-xs font-semibold text-black mb-4 tracking-[0.1em] md:tracking-tight">{section.title}</div>
+              <div className="text-[0.6rem] leading-relaxed text-gray-700">{section.description}</div>
+            </div>
+            {/* Desktop: grid layout */}
+            <div className="hidden md:grid grid-cols-12 items-stretch hover:bg-red-700 group transition duration-300 px-4 min-h-[200px]">
               {/* Number */}
-              <div className=" md:ml-30 col-span-2 md:col-span-1 flex items-center justify-center text-2xl md:text-4xl text-gray-400 group-hover:text-black font-light">
+              <div className="md:ml-30 col-span-2 md:col-span-1 flex items-center justify-center text-2xl md:text-4xl text-gray-500 group-hover:text-black font-normal">
                 {section.number}
               </div>
-
               {/* Title */}
-              <div className=" md:ml-46 col-span-4 md:col-span-4 flex items-center text-xs font-semibold tracking-wide text-black group-hover:text-white">
+              <div className="md:ml-46 col-span-4 md:col-span-4 flex items-center text-xs font-semibold tracking-wide text-black group-hover:text-white">
                 {section.title}
               </div>
-
-               {/* Vertical Line Between Title and Description - disappears on hover */}
+              {/* Vertical Line Between Title and Description - disappears on hover */}
               <div className="col-span-1 flex justify-center">
-                <div className=" ml-22 w-[1px] bg-red-500 h-auto md:h-28 my-4 group-hover:opacity-0 transition-opacity duration-300"></div>
+                <div className="ml-22 w-[1px] bg-red-500 h-auto md:h-40 my-4 group-hover:opacity-0 transition-opacity duration-300"></div>
               </div>
-
               {/* Description */}
               <div className="col-span-5 md:col-span-6 flex items-center text-[0.6rem] md:text-[0.6rem]  leading-relaxed text-gray-700 group-hover:text-white py-4">
                 {section.description}
               </div>
             </div>
-            
             {/* Horizontal divider between sections */}
             {index < sections.length - 1 && (
-              <hr className="w-full border-t border-gray-300" />
+              <hr className="w-full border-t border-gray-500" />
             )}
           </React.Fragment>
         ))}
       </div>
 
-       <main className="px-4 py-6 md:mt-2 mt-2">
+       <main className="hidden md:block px-4 py-6 md:mt-2 mt-2">
         <div className="max-w-7xl mx-auto text-center md:mt-16">
-          <p className="text-xl md:text-4xl font-normal">KW SAUDI ARABIA</p>
-          <hr className="w-32 md:w-96 mx-auto bg-red-500 h-[1.5px] mt-4 md:mt-8" />
+          <p className="text-xl md:text-3xl font-normal">KW SAUDI ARABIA</p>
+          <hr className="w-32 md:w-68 mx-auto bg-red-500 h-[1.5px] mt-4 md:mt-8" />
           <p className="mt-2 md:mt-8 text-xs md:text-xs">Together We Do More</p>
           <p className="px-4 md:px-0 text-xs md:text-xs">
             Keller Williams is there to help at every big step in the realestate journey.
           </p>
-          <button className="w-36 md:w-56 bg-red-800 text-white py-3 rounded-full text-xs md:text-xs hover:bg-red-700 transition mt-8 md:mt-16">
-            JOIN US
-          </button>
+        
+            <div className="flex justify-center md:justify-center mt-8 md:mt-16">
+  <button className="
+    w-56 bg-red-700 text-white py-3 rounded-full text-sm
+    relative overflow-hidden
+    group transition-all duration-300
+    hover:pr-8 hover:pl-4
+  ">
+    <span className="inline-block transition-all duration-300 group-hover:-translate-x-3">
+    JOIN US
+    </span>
+    <span className="
+      absolute right-4 top-1/2 -translate-y-1/2
+      opacity-0 group-hover:opacity-100
+      transition-all duration-300 text-black
+      group-hover:translate-x-0 translate-x-4
+    ">
+    ⟶
+    </span>
+  </button>
+</div>
         </div>
       </main>
 
- <div className="flex justify-center py-4 md:py-16">
-        <Image
-          src="/howwillyouthink.png"
-          alt="How Will You Thrive"
-          width={800}
-          height={400}
-        
-        />
-      </div>
+      <div className="order-1 md:order-2 mt-10 flex flex-col items-center justify-center">
+    <Image
+      src="/howwillyouthink.png"
+      alt="How Will You Thrive"
+      width={800}
+      height={400}
+      className="w-70 h-20 md:w-[800px] md:h-[400px] object-contain"
+    />
+    <button className="bg-red-700 w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
+      JOIN US
+    </button>
+  </div>
 
-      <hr className="w-8/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-14 mb-10" />
+      <hr className=" hidden md:block w-8/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-16 mb-10" />
       <Footer />
     </div>
   );

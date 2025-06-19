@@ -72,10 +72,7 @@ The CMA reports usually contain  +`,
   return (
     <div className="relative">
       <Header />
-
-      
-
-        <Box
+    <Box
         src='/agentbg.jpg'
           h3="Steps for Sell Your Home"
           image="https://static.wixstatic.com/media/36a881_0ed2d4fa08bb4022acbbb9e48b783092~mv2.png/v1/fill/w_271,h_180,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4-removebg-preview.png"
@@ -83,16 +80,15 @@ The CMA reports usually contain  +`,
     
 
       {/* Main Content Section */}
-      <main className="px-4 md:px-46 py-6 mt-4 md:mt-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+      <main className="px-4 md:px-46 py-6 mt-4 md:mt-2">
+        <div className="max-w-7xl mx-12 px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
             <div className="w-full md:w-auto text-center">
 <p className='text-xs md:text-[0.6rem]'>
-  You&rsquo;re ready to sell your property. And, while you&rsquo;re looking forward to seeing the word &quot;SOLD&quot; posted from the curb, you know there&rsquo;s a lot to consider along the way.
+  You&rsquo;re ready to sell your property. And, while you&rsquo;re looking forward to seeing the word &quot;SOLD&quot; 
+  posted from the curb, you know there&rsquo;s a lot to consider along the way. One of your first decisions is to select a real estate company and real estate agent who&rsquo;ll join you in the process.
 </p>
-<p className='text-xs md:text-[0.6rem]'>
-  One of your first decisions is to select a real estate company and real estate agent who&rsquo;ll join you in the process.
-</p>
+
 
             </div>
           </div>
@@ -115,64 +111,64 @@ The CMA reports usually contain  +`,
       }}
     >
      <div className="w-4 h-4 relative flex items-start justify-center">
-  <span className="w-4 h-0.5 bg-red-800" />
+  <span className="w-4 h-0.5 bg-red-700" />
 </div>
 
     </div>
       </div>
       {/* Content Sections */}
         <div className="max-w-7xl mx-auto space-y-12 md:space-y-48">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className={`grid grid-cols-1 md:grid-cols-2 gap-4 items-start px-4 md:px-8 lg:px-24`}
-            >
-              {/* Mobile: Always show title first */}
-              <div className="md:hidden text-center mb-4">
-                <h2 className="text-red-800 text-lg md:text-xl font-normal uppercase">
-                  {step.title}
-                </h2>
-              </div>
+        {steps.map((step, index) => (
+  <div
+    key={index}
+    className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start px-4 md:px-8 lg:px-24"
+  >
+    {/* ✅ MOBILE ONLY */}
+    <div className={`md:hidden mx-4 mb-4 ${step.align === 'right' ? 'text-left' : 'text-right'}`}>
+    
+      <h2 className="text-red-700 text-3xl font-normal uppercase inline-block">
+      {step.title}
+    </h2>
+      <p className="whitespace-pre-line mt-2 text-xs">{step.content}</p>
+    </div>
 
-              {/* Desktop: Keep original layout */}
-              {step.align === 'right' ? (
-                <>
-                  <div className="hidden md:block" />
-                  <div className="text-left px-0 md:px-8">
-                    <h2 className="hidden md:block text-red-800 text-xl font-normal uppercase">
-                      {step.title}
-                    </h2>
-                    <p className="whitespace-pre-line mt-2 md:mt-4 text-xs md:text-[0.6rem]">{step.content}</p>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="text-left md:text-right px-0 md:px-8">
-                    <h2 className="hidden md:block text-red-800 text-xl font-normal uppercase">
-                      {step.title}
-                    </h2>
-                    <p className="whitespace-pre-line mt-2 md:mt-4 text-xs md:text-[0.6rem]">{step.content}</p>
-                  </div>
-                  <div className="hidden md:block" />
-                </>
-              )}
-            </div>
-          ))}
+    {/* ✅ DESKTOP ONLY */}
+    {step.align === 'right' ? (
+      <>
+        <div className="hidden md:block" />
+        <div className="hidden md:block text-left px-0 md:px-12">
+          <h2 className="text-red-700 text-xl font-normal uppercase">{step.title}</h2>
+          <p className="whitespace-pre-line mt-2 md:mt-4 text-[0.6rem]">{step.content}</p>
         </div>
-      </div>
+      </>
+    ) : (
+      <>
+        <div className="hidden md:block text-right px-0 md:px-12">
+          <h2 className="text-red-700 text-xl font-normal uppercase">{step.title}</h2>
+          <p className="whitespace-pre-line mt-2 md:mt-4 text-[0.6rem]">{step.content}</p>
+        </div>
+        <div className="hidden md:block" />
+      </>
+    )}
+  </div>
+))}
+</div>
+</div>
 
+<div className="order-1 md:order-2 flex flex-col items-center justify-center">
+    <Image
+      src="/howwillyouthink.png"
+      alt="How Will You Thrive"
+      width={800}
+      height={400}
+      className="w-70 h-20 md:w-[800px] md:h-[400px] object-contain"
+    />
+    <button className="bg-red-700 w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
+      JOIN US
+    </button>
+  </div>
  
-  <div className="flex justify-center py-2 md:py-16">
-         <Image
-           src="/howwillyouthink.png"
-           alt="How Will You Thrive"
-           width={800}
-           height={400}
-         
-         />
-       </div>
- 
-       <hr className="w-8/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-14 mb-10" />
+       <hr className="hidden md:blockw-8/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-14 mb-10" />
       <Footer />
     </div>
   );

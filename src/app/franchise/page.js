@@ -265,8 +265,8 @@ const franchise = () => {
                     Date of Birth *
                   </label>
                   <div className="flex gap-3">
-                    <select className="w-full px-3 py-2 rounded-2xl bg-white md:text-[0.6rem]">
-                      <option value="">Month</option>
+                    <select className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.6rem]">
+                      <option value="month">Month</option>
                       {[
                         "January",
                         "February",
@@ -290,13 +290,13 @@ const franchise = () => {
                       type="number"
                       placeholder="Day"
                       required
-                      className="w-full px-3 py-2 rounded-2xl bg-white md:text-[0.6rem]"
+                      className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.6rem]"
                     />
                     <input
                       type="number"
                       placeholder="Year"
                       required
-                      className="w-full px-3 py-2 rounded-2xl bg-white md:text-[0.6rem]"
+                      className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.6rem]"
                     />
                   </div>
                 </div>

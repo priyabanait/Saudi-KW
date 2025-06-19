@@ -116,10 +116,11 @@ const agents = [
 
           {/* Agent Info */}
           <div className="flex-1">
-            <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
-              <h3 className="text-xs font-serif uppercase">{agent.name}</h3>
-              <p className="text-sm md:ml-40 text-gray-500">{agent.city}</p>
-            </div>
+          <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
+  <h3 className="text-xs font-serif uppercase">{agent.name}</h3>
+  <p className="text-sm text-gray-500 ml-auto">{agent.city}</p>
+</div>
+
             <p className="md:text-sm text-[0.7rem] mt-2">{agent.phone}</p>
             <p className="md:text-sm text-[0.6rem] mb-2">{agent.email}</p>
 
@@ -131,6 +132,7 @@ const agents = [
 
           {/* Social Icons */}
           <div className=" hidden md:flex flex-row sm:flex-col space-x-4 sm:space-x-0 sm:space-y-3 absolute right-4 top-4 sm:top-14">
+            
             <a href="#" aria-label="Instagram" className="w-6 h-6 rounded-full bg-black flex items-center justify-center text-white hover:bg-gray-800 transition-colors">
               <BsInstagram size={12} />
             </a>

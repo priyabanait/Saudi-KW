@@ -34,9 +34,10 @@ const Box = ({ src, image, h3 }) => {
   />
 </div>
 <hr className='w-25 h-[1.3px] bg-red-500'/>
-<h3 className="text-lg font-normal py-4 text-center tracking-[0.2em] md:tracking-[0.3em] lg:tracking-[0.4em] leading-relaxed whitespace-nowrap">
+<h3 className="text-lg font-normal py-4 text-center tracking-[0.2em] md:tracking-[0.3em] lg:tracking-[0.4em] leading-relaxed">
   {h3}
 </h3>
+
               </div>
             </div>
           </div>

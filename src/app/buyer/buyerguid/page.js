@@ -139,8 +139,9 @@ WHAT'S NEXT? +`,
           Our Experience, A House Is Not A Dream Home Because Of Its Size Or Colour. Its About How You Feel When You Walk Through The Front Door – The Way You Can Instantly See
         </p>
         <p className="text-xs md:text-[0.6rem]">
-        Your Life Unfolding There. This Is About More Than Real Estate. It's About Your Life And Your Dreams..
-        </p>
+  Your Life Unfolding There. This Is About More Than Real Estate. It&rsquo;s About Your Life And Your Dreams..
+</p>
+
        </div>
       </div>
     </div>

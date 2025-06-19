@@ -6,7 +6,7 @@ import Footer from '@/components/footer';
 import Properties from '@/components/property';
 
 
-const newDevelopment = () => {
+const NewDevelopment = () => {
     return (
         <div>
           <Header />
@@ -17,4 +17,4 @@ const newDevelopment = () => {
     );
 }
 
-export default newDevelopment;
+export default NewDevelopment;

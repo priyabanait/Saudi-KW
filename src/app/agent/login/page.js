@@ -21,11 +21,15 @@ export default function Login() {
         <button
           className="flex items-center justify-center border border-gray-300 px-4 sm:px-6 lg:px-8 py-2 lg:py-3 rounded-md shadow-sm hover:shadow-md transition-all text-sm sm:text-base lg:text-lg gap-2"
         >
-          <img
-            src="https://developers.google.com/identity/images/g-logo.png"
-            alt="Google"
-            className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
-          />
+        <div className="relative w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6">
+  <Image
+    src="https://developers.google.com/identity/images/g-logo.png"
+    alt="Google"
+    fill
+    className="object-contain"
+  />
+</div>
+
           <span>Log in with Google</span>
         </button>
 

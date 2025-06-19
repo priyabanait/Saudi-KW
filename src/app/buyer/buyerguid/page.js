@@ -5,7 +5,7 @@ import Footer from '@/components/footer';
 import Box from '@/components/box';
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-const buyerguid = () => {
+const Buyerguid = () => {
   const timelineRef = useRef(null);
   const [markerTop, setMarkerTop] = useState(0);
   
@@ -242,4 +242,4 @@ WHAT'S NEXT? +`,
   );
 }
 
-export default buyerguid;
+export default Buyerguid;

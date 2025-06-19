@@ -6,7 +6,7 @@ import Footer from '@/components/footer';
 import Image from 'next/image';
 import { FaGlobe } from 'react-icons/fa'
 
-const franchise = () => {
+const Franchise = () => {
   // Add state to track screen size
   const [isMobile, setIsMobile] = useState(false);
 
@@ -387,4 +387,4 @@ const franchise = () => {
   );
 };
 
-export default franchise;
+export default Franchise;

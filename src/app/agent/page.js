@@ -6,7 +6,7 @@ import Image from 'next/image';
 import Footer from '@/components/footer';
 import Link from 'next/link';
 import { BsInstagram, BsTwitterX, BsLinkedin } from "react-icons/bs";
-
+const Agent = () => {
 const agents = [
   {
     name: "Ahmed Jaber Alamri",
@@ -38,7 +38,7 @@ const agents = [
   },
 ];
 
-const Agent = () => {
+
   return (
     <div className="relative">
       <Header />

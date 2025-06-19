@@ -30,14 +30,16 @@ const Page = () => {
       {/* Post Card with Image Above Text */}
       <div className="mb-8 w-60 h-80">
         {/* Image Container - adjust width/height as needed */}
-         <div className="w-60 h-60 bg-gray-200 mr-4 flex-shrink-0">
-          {/* Replace with your actual image */}
-          <img 
-            src="/event.png" 
-            alt="Family Reunion" 
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <div className="w-60 h-60 bg-gray-200 mr-4 flex-shrink-0">
+  <Image 
+    src="/event.png" 
+    alt="Family Reunion" 
+    width={240}
+    height={240}
+    className="w-full h-full object-cover"
+  />
+</div>
+
         
         {/* Text Content Below Image */}
         <div>

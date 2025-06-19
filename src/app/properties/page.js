@@ -212,8 +212,9 @@ const Properties = () => {
    Need To Know About The Communities In Doha. View Nearby Locations, Landmarks, Reviews, 
   </p>
   <p className="text-[0.7rem] md:text-[0.7rem] text-gray-600 max-w-3xl mx-auto px-4">
-   Prices, FAQ's, And More.
-  </p>
+  Prices, FAQ&rsquo;s, And More.
+</p>
+
 </div>
 
 {/* Search Section */}

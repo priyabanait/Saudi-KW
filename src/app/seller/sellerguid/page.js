@@ -145,7 +145,7 @@ What's next?  +`,
     </div>
       </div>
       {/* Content Sections */}
-        <div className="max-w-7xl mx-auto space-y-12 md:space-y-42">
+        <div className="max-w-full mx-auto space-y-12 md:space-y-42">
           {steps.map((step, index) => (
             <div
               key={index}

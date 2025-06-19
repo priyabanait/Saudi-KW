@@ -117,7 +117,7 @@ The CMA reports usually contain  +`,
     </div>
       </div>
       {/* Content Sections */}
-        <div className="max-w-7xl mx-auto space-y-12 md:space-y-48">
+        <div className="max-w-full mx-auto space-y-12 md:space-y-48">
         {steps.map((step, index) => (
   <div
     key={index}

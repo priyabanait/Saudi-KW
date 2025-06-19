@@ -93,7 +93,7 @@ By partnering with KW, you gain access to our state-of-the-art technology, empow
       
 
       {/* Section Boxes */}
-      <div className="max-w-7xl mx-auto mt-14 bg-gray-100">
+      <div className="max-w-full mx-auto mt-14 bg-gray-100">
         <hr className="w-full border-t border-gray-300" />
         {sections.map((section, index) => (
           <React.Fragment key={index}>
@@ -138,7 +138,7 @@ By partnering with KW, you gain access to our state-of-the-art technology, empow
       </main>
 
  {/* Section Boxes */}
-      <div className="max-w-7xl mx-auto mt-14 bg-gray-100">
+      <div className="max-w-full mx-auto mt-14 bg-gray-100">
         <hr className="w-full border-t border-gray-300" />
         {sections2.map((section, index) => (
           <React.Fragment key={index}>

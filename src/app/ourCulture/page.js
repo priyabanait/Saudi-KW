@@ -159,7 +159,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
       </main>
 
       {/* Cards Grid */}
-<div className="hidden md:block max-w-7xl mx-auto px-10 py-10 md:mt-7 md:mb-0">
+<div className="hidden md:block max-w-full mx-auto px-10 py-10 md:mt-7 md:mb-0">
   {/* First 3 Cards */}
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
     {cards.slice(0, 3).map((card, index) => (

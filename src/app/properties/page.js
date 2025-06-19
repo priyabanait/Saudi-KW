@@ -192,7 +192,7 @@ const Properties = () => {
         )}
       </header>
 
-      <main className="max-w-7xl mx-auto px-4 mt-10 md:mt-23 py-8 md:py-4">
+      <main className="max-w-full mx-auto px-4 mt-10 md:mt-23 py-8 md:py-4">
         {/* Icon and Title */}
         <div className="text-center mb-10">
         <div className="mx-auto md:mb-0 mb-2 relative w-15 h-15 md:w-[90px] md:h-[90px]">
@@ -315,7 +315,7 @@ const Properties = () => {
           </div>
         </div>
         {/* Desktop: grid layout */}
-        <div className="hidden md:grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2 max-w-7xl mx-12">
+        <div className="hidden md:grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2 max-w-full mx-12">
           {categories.map((category, index) => (
             <Link href={category.href} key={index} className="group">
               <div className="flex flex-col items-center p-0 rounded-lg text-center ">

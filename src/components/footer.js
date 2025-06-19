@@ -16,7 +16,7 @@ const Footer = () => {
       {/* Footer Grid */}
       <hr className="block md:hidden w-full bg-gray-100" />
 
-      <div className="md:mt-1 px-4 md:px-5 w-full max-w-7xl mx-auto">
+      <div className="md:mt-1 px-4 md:px-5 w-full max-w-full mx-auto">
         {/* Top Contact Info */}
         <div className="flex flex-col md:flex-row md:justify-between border border-gray-100 rounded-xl items-center md:items-start text-center md:text-left border-b md:p-8 pb-2 md:pb-4 text-xs md:text-sm md:bg-gray-100 md:text-gray-700">
           {/* Contact Us Title */}
@@ -211,7 +211,7 @@ const Footer = () => {
 
       {/* Bottom Footer Info - Desktop */}
       <div className="hidden md:block bg-gray-100 px-4 py-3 text-gray-50 border-t mt-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+        <div className="max-w-full mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
           {/* Logo */}
           <div className="flex items-center h-12 md:h-14">
             <Image

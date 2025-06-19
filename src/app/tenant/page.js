@@ -63,7 +63,7 @@ const Tenant = () => {
       </main>
 
       {/* Section Boxes */}
-      <div className="max-w-7xl mx-auto mt-14 bg-gray-100">
+      <div className="max-w-full mx-auto mt-14 bg-gray-100">
         <hr className="w-full border-t border-gray-500" />
         {sections.map((section, index) => (
           <React.Fragment key={index}>

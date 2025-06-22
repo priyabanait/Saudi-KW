@@ -163,11 +163,11 @@ const Properties = () => {
   const areaIconUrl = "/area.png";
     return (
         <div>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 text-[10px] md:text-xs w-full mt-4 md:mt-10 max-w-6xl px-4 md:px-34">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 text-[10px] md:text-xs w-full mt-4 md:mt-12 max-w-full px-4 md:px-34">
   {/* Row 1 - First two dropdowns */}
   <div className="col-span-1">
-    <select className="w-full text-sm md:text-[0.6rem] md:leading-tight p-1.5 md:p-0 flex justify-center text-center">
-      <option>Property Type</option>
+    <select className="w-full text-sm md:text-[0.9rem] md:leading-normal p-1.5 md:p-0 flex justify-center text-center">
+      <option>PROPERTY TYPE</option>
       <option>All</option>
       <option>Commercial</option>
       <option>Farm and Agriculture</option>
@@ -177,7 +177,7 @@ const Properties = () => {
   </div>
   
   <div className="col-span-1">
-    <select className="w-full text-sm md:text-[0.6rem] md:leading-tight p-1.5 md:p-0 flex justify-center text-center">
+    <select className="w-full text-sm md:text-[0.9rem] md:leading-normal p-1.5 md:p-0 flex justify-center text-center">
       <option>MARKET CENTER</option>
       <option>All</option>
       <option>Jasmin</option>
@@ -187,7 +187,7 @@ const Properties = () => {
 
   {/* Row 2 - Next two dropdowns */}
   <div className="col-span-1 mt-3 md:mt-0">
-    <select className="w-full text-sm md:text-[0.6rem] md:leading-tight p-1.5 md:p-0 flex justify-center text-center">
+    <select className="w-full text-sm md:text-[0.9rem] md:leading-normal p-1.5 md:p-0 flex justify-center text-center">
       <option>PROPERTY SUBTYPE</option>
       <option>All</option>
       <option>Apartment</option>
@@ -209,7 +209,7 @@ const Properties = () => {
   </div>
 
   <div className="col-span-1 mt-3 md:mt-0">
-    <select className="w-full text-sm md:text-[0.6rem] md:leading-tight p-1.5 md:p-0 flex justify-center text-center">
+    <select className="w-full text-sm md:text-[0.9rem] md:leading-normal p-1.5 md:p-0 flex justify-center text-center">
       <option>CITY</option>
       <option>All</option>
       <option>ALRIYADH</option>
@@ -234,8 +234,8 @@ const Properties = () => {
 
  
 
-  <div className="flex flex-col col-span-2 md:col-span-1 items-center md:items-start text-center md:text-left">
-  <label htmlFor="price" className="mb-1 mr-33 md:mr-0 text-gray-700 text-sm md:text-[0.6rem] leading-tight">
+  <div className="flex flex-col col-span-2 md:col-span-1 items-center md:items-start text-center md:text-left md:ml-10">
+  <label htmlFor="price" className="mb-1 mr-33 md:mr-0 text-gray-700 text-sm md:text-[0.9rem] leading-tight ">
     PRICE
   </label>
   <input
@@ -250,15 +250,15 @@ const Properties = () => {
       [&::-webkit-slider-thumb]:h-4 
       [&::-webkit-slider-thumb]:w-4 
       [&::-webkit-slider-thumb]:rounded-full 
-      [&::-webkit-slider-thumb]:bg-red-600"
+      [&::-webkit-slider-thumb]:bg-[rgba(202,3,32,255)]"
   />
-  <span className="md:text-[0.6rem] text-sm mt-4 ml-35 md:ml-28">750000 SAR</span>
+  <span className="md:text-[0.9rem] text-sm mt-4 ml-35 md:ml-28">750000 SAR</span>
 </div>
 
       </div>
 
-      <p className="md:mt-6 mt-2 md:text-[0.7rem] text-sm leading-tight ml-6 text-gray-700">
-        Total Listings : <span className="text-red-600 font-semibold">{properties.length}</span>
+      <p className="md:mt-6 mt-2 md:text-[0.9rem] text-sm leading-tight ml-6 text-gray-700">
+        Total Listings : <span className="text-[rgba(202,3,32,255)] font-semibold">{properties.length}</span>
       </p>
 
       <div className="min-h-screen p-6">
@@ -314,7 +314,7 @@ const Properties = () => {
                 </div>
 
                 <p className="text-xs">{prop.location}</p>
-                <button className="mt-10 w-full bg-black text-white py-2 rounded-full text-sm hover:bg-red-700 transition">
+                <button className="mt-10 w-full bg-black text-white py-2 rounded-full md:text-base text-sm hover:bg-[rgba(202,3,32,255)] transition">
                   View Property Details
                 </button>
               </div>
@@ -326,7 +326,7 @@ const Properties = () => {
       {visibleCount < properties.length && (
         <div className="flex justify-center items-center md:mt-5">
           <button
-            className="md:w-3/6 w-40 md:py-2 py-1 mb-10 md:mb-0 px-8 bg-red-700 hover:bg-red-950 text-white text-[0.6rem] md:text-sm md:font-normal rounded-full transition"
+            className="md:w-3/6 w-40 md:py-2 py-1 mb-10 md:mb-0 px-8 bg-[rgba(202,3,32,255)] hover:bg-red-950 text-white text-[0.6rem] md:text-lg md:font-normal rounded-full transition"
             onClick={() => setVisibleCount(c => c + 6)}
           >
             View More Properties..
@@ -339,11 +339,11 @@ const Properties = () => {
           alt="How Will You Thrive"
           width={800}
           height={400}
-        
+         className="w-70 h-20 md:w-[950px] md:h-[400px] object-contain"
         />
       </div>
 
-      <hr className="hidden md:block w-6/12 mx-auto bg-red-500 h-[1.5px] mt-5 md:mt-20 mb-16" />
+      <hr className="hidden md:block w-6/12 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px] mt-5 md:mt-20 mb-16" />
      
    
         </div>

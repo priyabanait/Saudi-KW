@@ -59,7 +59,7 @@ const RiyadhJedah = (props) => {
          <div className="flex-1 p-6 flex justify-center items-center">
   <div className="w-full md:max-w-md">
     <div className="text-center mb-4">
-      <div className="font-bold uppercase tracking-widest text-sm flex justify-between max-w-xs mx-auto border-b border-red-500 pb-1">
+      <div className="font-bold uppercase tracking-widest text-sm flex justify-between max-w-xs mx-auto border-b border-[rgba(202,3,32,255)] pb-1">
         <span>EMAIL</span>
         <span>TELEPHONE</span>
       </div>
@@ -88,39 +88,39 @@ const RiyadhJedah = (props) => {
 <div className="flex-1 p-6 flex justify-center items-center">
   <form className="w-full md:max-w-md space-y-4 py-10">
     <div>
-      <label className="block mb-1 text-[0.7rem] font-sm">First Name</label>
+      <label className="block mb-1 md:text-sm text-[0.7rem] font-sm">First Name</label>
       <input
         type="text"
         placeholder="First name"
-        className="w-full text-xs p-2 border-white rounded bg-white focus:outline-none"
+        className="w-full text-sm p-2 border-white rounded bg-white focus:outline-none"
       />
     </div>
     <div>
-      <label className="block mb-1 text-[0.7rem] font-sm">Last Name</label>
+      <label className="block mb-1 md:text-sm text-[0.7rem] font-sm">Last Name</label>
       <input
         type="text"
         placeholder="Last name"
-        className="w-full p-2 text-xs border-white rounded bg-white focus:outline-none"
+        className="w-full p-2 text-sm border-white rounded bg-white focus:outline-none"
       />
     </div>
     <div>
-      <label className="block mb-1 text-[0.7rem] font-sm">Email *</label>
+      <label className="block mb-1 md:text-sm text-[0.7rem] font-sm">Email *</label>
       <input
         type="email"
         placeholder="Email"
-        className="w-full p-2 text-xs border-white rounded bg-white focus:outline-none"
+        className="w-full p-2 text-sm border-white rounded bg-white focus:outline-none"
       />
     </div>
     <div>
-      <label className="block mb-1 text-[0.7rem] font-sm">Address To</label>
-      <select className="w-full p-2 text-xs border-white rounded bg-white focus:outline-none">
+      <label className="block mb-1 md:text-sm text-[0.7rem] font-sm">Address To</label>
+      <select className="w-full p-2 text-sm border-white rounded bg-white focus:outline-none">
         <option value="">Select</option>
         <option value="sales">Sales</option>
         <option value="support">Support</option>
       </select>
     </div>
     <div>
-      <label className="block mb-1  text-[0.7rem] font-sm">Message *</label>
+      <label className="block mb-1  md:text-sm text-[0.7rem] font-sm">Message *</label>
       <textarea
         placeholder="Message"
         rows="2"
@@ -149,7 +149,7 @@ const RiyadhJedah = (props) => {
                          py-4 md:py-0">
             <div className="text-center px-4">
               <h2 className="text-3xl font-semibold mb-2">OUR TEAM</h2>
-              <div className="w-30 h-0.5 bg-red-500 mb-2 mx-auto mt-4 md:mt-10"></div>
+              <div className="w-30 h-0.5 bg-[rgba(202,3,32,255)] mb-2 mx-auto border-0 mt-4 md:mt-10"></div>
               <p className="text-sm tracking-wider mt-4 md:mt-10 text-gray-600">{props.p}</p>
             </div>
           </div>
@@ -168,26 +168,12 @@ const RiyadhJedah = (props) => {
                     className="rounded-xl object-cover w-full max-w-[200px] mx-auto md:mx-0"
                   />
                   <div className="pt-2 text-center md:text-left">
-                    <p style={{ 
-                      fontFamily: "wfont_0694d6_cf4b47fcc9af483482e7689365efadb1, wf_cf4b47fcc9af483482e768936, orig_alt_riviera_light !important",
-                      letterSpacing: "0em",
-                      fontWeight: 'normal',
-                      textDecoration: 'none',
-                      fontSize: 'max(18px, min(22px, max(0.5px, 0.0142522 * (var(--scaling-factor) - var(--scrollbar-width)))) !important',
-                      lineHeight: 1.2,
-                    }}>
+                  <p className="font-sans font-normal no-underline text-[18px] md:text-[22px] leading-[1.2] tracking-normal">
                       {member.name}
                     </p>
-                    <div className="w-60 h-0.5 bg-red-500 my-2 mx-auto md:mx-0"></div>
-                    <p style={{ 
-                      fontFamily: "montserrat,sans-serif",
-                      letterSpacing: "0em !important",
-                      fontWeight: 'normal !important',
-                      fontStyle: 'normal !important',
-                      textDecoration: 'none !important',
-                      fontSize: '12px !important',
-                      lineHeight: 1.6,
-                    }}>
+                    <hr className="w-37 md:w-60 h-[1px] bg-[rgba(202,3,32,1)] border-0 my-2 mx-auto" />
+
+                    <p className=" font-normal  no-underline text-[0.8rem] leading-[1.6] tracking-normal">
                       {member.title}
                     </p>
                     <p className="text-sm mb-1 text-gray-600 mt-8 md:mt-16">{member.email}</p>
@@ -210,10 +196,10 @@ const RiyadhJedah = (props) => {
                       alt="How Will You Thrive"
                       width={800}
                       height={400}
-                    
+                      className="w-70 h-20 md:w-[950px] md:h-[400px] object-contain"
                     />
                   </div>
-                   <hr className="w-8/12 md:w-6/12 mx-auto bg-red-500 h-[1.5px] mt-10 mb-10" />
+                   <hr className="w-8/12 md:w-6/12 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px] mt-10 mb-10" />
           <Footer></Footer>
         </div>
     );

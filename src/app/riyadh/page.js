@@ -15,7 +15,7 @@ const Riyadh = () => {
       /> 
          
 
-     <RiyadhJedah p={'JEDDAH'} map={'https://www.google.com/maps?q=2740+King+Fahd+Branch+Rd,+Riyadh,+Saudi+Arabia&output=embed'}  address={'DIST, 2740 KING FAHD BRANCH RD, AS SAHAFAH, 6403, RIYADH 13315'}></RiyadhJedah>
+     <RiyadhJedah p={'JASMIN'} map={'https://www.google.com/maps?q=2740+King+Fahd+Branch+Rd,+Riyadh,+Saudi+Arabia&output=embed'}  address={'DIST, 2740 KING FAHD BRANCH RD, AS SAHAFAH, 6403, RIYADH 13315'}></RiyadhJedah>
     </div>
   );
 }

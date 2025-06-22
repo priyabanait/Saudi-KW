@@ -12,13 +12,13 @@ const Seller = () => {
 
   const steps = [
     {
-      title: 'REASON FOR SELLING',
-      content: `DECIDING TO SELL YOUR HOME CAN BE A VERY EMOTIONAL PROCESS, NO MATTER THE REASON. THE FIRST STEP IN SELLING IS TO UNDERSTAND YOUR MOTIVATION AND GOAL. IF YOU ARE SELLING BECAUSE OF OUTSIDE CIRCUMSTANCES, YOU PROBABLY HAVE A TIMELINE TO WORK WITHIN\n\nWHY DO YOU WANT TO SELL YOUR HOME ? +\n\nTALK WITH YOUR KELLER WILLIAMS AGENT ABOUT THEIR STRATEGY TO SELL YOUR HOME.`,
+      title: 'Reason For Selling',
+      content: `Deciding To Sell Your Home Can Be A Very Emotional Process, No Matter The Reason. The First Step In Selling Is To Understand Your Motivation And Goal. If You Are Selling Because Of Outside Circumstances, You Probably Have A Timeline To Work Within\n\nWhy Do You Want To Sell Your Home ? +\n\nTalk With Your Keller Williams Agent About Their Strategy To Sell Your Home.`,
       align: 'right',
     },
     {
-      title: 'HIRE THE RIGHT AGENT',
-      content: `IN THIS FAST-PACED REAL ESTATE ENVIRONMENT, HAVING THE RIGHT REAL ESTATE AGENT SELL YOUR HOME IS EXTREMELY IMPORTANT. IN MOST URBAN AREAS, INVENTORY IS LOW, SO YOU DON'T WANT TO UNDERPRICE NOR OVER-PRICE YOUR HOME FOR TODAY'S MARKET. SELLING IS A COMBINATION OF PRICING RIGHT, STRATEGIC MARKETING, STAGING, AND BRINGING IN THE RIGHT BUYER AT THE RIGHT TIME.\n\nWHEN CHOOSING A REAL ESTATE PROFESSIONAL +`,
+      title: 'Hire The Right Agent',
+      content: `In This Fast-paced Real Estate Environment, Having The Right Real Estate Agent Sell Your Home Is Extremely Important. In Most Urban Areas, Inventory Is Low, So You Don't Want To Underprice Nor Over-price Your Home For Today's Market. Selling Is A Combination Of Pricing Right, Strategic Marketing, Staging, And Bringing In The Right Buyer At The Right Time.\n\nThen Choosing A Real Estate Professional +`,
       align: 'left',
     },
     {
@@ -39,9 +39,9 @@ Your KW Agent will guide you with a few suggestions such as  +`,
       title: 'Be Ready',
       content: `To sell your home, you must be flexible and ready. Living in a home for sale isn't always the easiest, especially with children.
 
-Have a schedule  +.
+      Have a schedule  +.
 
-The CMA reports usually contain  +`,
+      The CMA reports usually contain  +`,
       align: 'right',
     },
   ];
@@ -81,12 +81,12 @@ The CMA reports usually contain  +`,
 
       {/* Main Content Section */}
       <main className="px-4 md:px-46 py-6 mt-4 md:mt-2">
-        <div className="max-w-7xl mx-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-full mx-12 px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
             <div className="w-full md:w-auto text-center">
-<p className='text-xs md:text-[0.6rem]'>
-  You&rsquo;re ready to sell your property. And, while you&rsquo;re looking forward to seeing the word &quot;SOLD&quot; 
-  posted from the curb, you know there&rsquo;s a lot to consider along the way. One of your first decisions is to select a real estate company and real estate agent who&rsquo;ll join you in the process.
+<p className='text-xs md:text-[0.8rem]'>
+  You&rsquo;re Ready To Sell Your Property. And, While You&rsquo;re Looking Forward To Seeing The Word &quot;sold&quot; 
+  Posted From The Curb, You Know There&rsquo;s A Lot To Consider Along The Way. One Of Your First Decisions Is To Select A Real Estate Company And Real Estate Agent Who&rsquo;ll Join You In The Process.
 </p>
 
 
@@ -111,7 +111,7 @@ The CMA reports usually contain  +`,
       }}
     >
      <div className="w-4 h-4 relative flex items-start justify-center">
-  <span className="w-4 h-0.5 bg-red-700" />
+  <span className="w-4 h-0.5 bg-[rgba(202,3,32,255)]" />
 </div>
 
     </div>
@@ -126,7 +126,7 @@ The CMA reports usually contain  +`,
     {/* ✅ MOBILE ONLY */}
     <div className={`md:hidden mx-4 mb-4 ${step.align === 'right' ? 'text-left' : 'text-right'}`}>
     
-      <h2 className="text-red-700 text-3xl font-normal uppercase inline-block">
+      <h2 className="text-[rgba(202,3,32,255)] text-3xl font-normal  inline-block">
       {step.title}
     </h2>
       <p className="whitespace-pre-line mt-2 text-xs">{step.content}</p>
@@ -137,15 +137,15 @@ The CMA reports usually contain  +`,
       <>
         <div className="hidden md:block" />
         <div className="hidden md:block text-left px-0 md:px-12">
-          <h2 className="text-red-700 text-xl font-normal uppercase">{step.title}</h2>
-          <p className="whitespace-pre-line mt-2 md:mt-4 text-[0.6rem]">{step.content}</p>
+          <h2 className="text-[rgba(202,3,32,255)] text-xl md:text-2xl font-normal ">{step.title}</h2>
+          <p className="whitespace-pre-line mt-2 md:mt-4 md:text-[0.8rem] text-[0.8rem]">{step.content}</p>
         </div>
       </>
     ) : (
       <>
         <div className="hidden md:block text-right px-0 md:px-12">
-          <h2 className="text-red-700 text-xl font-normal uppercase">{step.title}</h2>
-          <p className="whitespace-pre-line mt-2 md:mt-4 text-[0.6rem]">{step.content}</p>
+          <h2 className="text-[rgba(202,3,32,255)] text-xl md:text-2xl font-normal ">{step.title}</h2>
+          <p className="whitespace-pre-line mt-2 md:mt-4 md:text-[0.8rem] text-[0.8rem]">{step.content}</p>
         </div>
         <div className="hidden md:block" />
       </>
@@ -161,14 +161,15 @@ The CMA reports usually contain  +`,
       alt="How Will You Thrive"
       width={800}
       height={400}
-      className="w-70 h-20 md:w-[800px] md:h-[400px] object-contain"
+      className="w-70 h-20 md:w-[950px] md:h-[400px] object-contain"
+      
     />
-    <button className="bg-red-700 w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
+    <button className="bg-[rgba(202,3,32,255)] w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
       JOIN US
     </button>
   </div>
  
-       <hr className="hidden md:blockw-8/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-14 mb-10" />
+       <hr className="hidden md:block w-8/12 md:w-5/12 mx-auto border-0 bg-[rgba(202,3,32,255)] h-[1.5px] mt-2 md:mt-14 mb-10" />
       <Footer />
     </div>
   );

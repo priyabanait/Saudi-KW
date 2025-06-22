@@ -12,59 +12,53 @@ const Sellerguid = () => {
 
   const steps = [
     {
-      title: 'MANAGEVIEWINGS',
-      content: `ONCE YOU'VE CHOSEN YOUR KELLER WILLIAMS AGENT, AND TOGETHER HAVE PREPPED YOUR HOUSE FOR SALE AND SET A PRICE, YOU'RE READY FOR THE PUBLIC TO SEE YOUR HOME.
+      title: 'Manageviewings',
+      content: `Once You've Chosen Your Keller Williams Agent, And Together Have Prepped Your House For Sale And Set A Price, You're Ready For The Public To See Your Home.
 
-​
+​What Is A Viewing?   +
 
-WHAT IS A VIEWING?   +
+How Do I Prepare My House For A Viewing?   +
 
-HOW DO I PREPARE MY HOUSE FOR A VIEWING?   +
+What Can I Expect When People View My House?   +
 
-WHAT CAN I EXPECT WHEN PEOPLE VIEW MY HOUSE?   +
-
-SELLING YOUR HOME GUIDE.`,
+Selling Your Home Guide.`,
       align: 'right',
     },
     {
-      title: 'REVIEW OFFERS',
-      content: `CONGRATULATIONS! YOU RECEIVED A MESSAGE FROM YOUR KW AGENT THAT YOU HAVE AN OFFER ON YOUR HOME. NOW YOU NEED TO EVALUATE THAT OFFER AND DECIDE HOW TO RESPOND
+      title: 'Review Offers',
+      content: `Congratulations! You Received A Message From Your Kw Agent That You Have An Offer On Your Home. Now You Need To Evaluate That Offer And Decide How To Respond
 
-WHAT IS AN OFFER?   +
+What Is An Offer?   +
 
-HOW DO I EVALUATE EACH OFFER?  +
+How Do I Evaluate Each Offer?  +
 
-WHAT HAPPENS IF I RECEIVE MULTIPLE OFFERS?  +`,
+What Happens If I Receive Multiple Offers?  +`,
       align: 'left',
     },
     {
-      title: 'PREPARE FOR INSPECTION',
-      content: `Most buyers request a home inspection as a condition of their offer. While a home inspector will dig more deeply into your home than a buyer, the preparation you made before your first viewing should help you get ready for the inspection. Your Keller Williams agent can give you personalised advice, too.
+      title: 'Prepare For Inspection',
+      content: `Most Buyers Request A Home Inspection As A Condition Of Their Offer. While A Home Inspector Will Dig More Deeply Into Your Home Than A Buyer, The Preparation You Made Before Your First Viewing Should Help You Get Ready For The Inspection. Your Keller Williams Agent Can Give You Personalised Advice, Too.
 
-​
+​What Is A Home Inspection?  +
 
-What is a home inspection?  +
+What Is Looked At During A Home Inspection? +
 
-What is looked at during a home inspection? +
+What's Not Looked At During A Home Inspection? +
 
-What's not looked at during a home inspection? +
+How Should I Prepare For An Inspection?  +
 
-How should I prepare for an inspection?  +
-
-What happens now? +`,
+What Happens Now? +`,
       align: 'right',
     },
     {
-      title: 'COMPLETION',
-      content: `While it's tempting to focus on your next move, your Keller Williams agent is likely to remind you that until the completion is over, you have some final responsibilities as a seller.
+      title: 'Completion',
+      content: `While It's Tempting To Focus On Your Next Move, Your Keller Williams Agent Is Likely To Remind You That Until The Completion Is Over, You Have Some Final Responsibilities As A Seller.
 
-.
+.What Should I Do Before The Completion?  +
 
-What should I do before the completion?  +
+What Can I Expect When We Complete?   +
 
-What can I expect when we complete?   +
-
-What's next?  +`,
+What's Next?  +`,
       align: 'left',
     },
    
@@ -108,15 +102,15 @@ What's next?  +`,
 
       {/* Main Content Section */}
 <main className="px-4 md:px-46 py-6 mt-4 md:mt-2">
-  <div className=" p-4 md:p-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <div className=" p-4 md:p-0 max-w-full mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
       <div className="w-full md:w-auto"> {/* Removed text-center from here since parent has it */}
-        <h1 className="text-lg md:text-2xl md:py-8 py-4">Selling Your <span className='text-red-700'>Home</span> Guide</h1>
-        <p className="text-xs md:text-[0.6rem]">
-          You&rsquo;re ready to sell your property. And, while you&rsquo;re looking forward to seeing the word &quot;SOLD&quot; posted from the curb, you know there&rsquo;s a lot to consider along the way.
-        </p>
-        <p className="text-xs md:text-[0.6rem]">
-          One of your first decisions is to select a real estate company and real estate agent who&rsquo;ll join you in the process.
+        <h1 className="text-lg md:text-3xl md:py-8 py-4">Selling Your <span className='text-[rgba(202,3,32,255)]'>Home</span> Guide</h1>
+        <p className="text-xs md:text-[0.8rem]">
+        You&rsquo;re Ready To Sell Your Property. And, While You&rsquo;re Looking Forward To Seeing The Word &quot;sold&quot; Posted From The Curb, You Know There&rsquo;s A Lot To Consider Along The Way.
+       
+        
+        One Of Your First Decisions Is To Select A Real Estate Company And Real Estate Agent Who&rsquo;ll Join You In The Process.
         </p>
       </div>
     </div>
@@ -139,7 +133,7 @@ What's next?  +`,
       }}
     >
      <div className="w-4 h-4 relative flex items-start justify-center">
-  <span className="w-4 h-0.5 bg-red-700" />
+  <span className="w-4 h-0.5 bg-[rgba(202,3,32,255)]" />
 </div>
 
     </div>
@@ -159,7 +153,7 @@ What's next?  +`,
 
   {/* Title - Reverse align compared to number */}
   <div className={`${step.align === 'right' ? 'text-left' : 'text-right'}`}>
-    <h2 className="text-red-700 text-3xl font-normal uppercase inline-block">
+    <h2 className="text-[rgba(202,3,32,255)] text-3xl font-normal  inline-block">
       {step.title}
     </h2>
     <p className="whitespace-pre-line mt-2 text-xs">{step.content}</p>
@@ -175,19 +169,19 @@ What's next?  +`,
                     <span className="text-gray-500 text-5xl font-normal md:mb-4">{`${index + 1}.`}</span>
                   </div>
                   <div className="hidden md:block text-left px-0 md:px-8">
-                    <h2 className="text-red-700 text-xl font-normal uppercase">
+                    <h2 className="text-[rgba(202,3,32,255)] text-xl font-normal ">
                       {step.title}
                     </h2>
-                    <p className="whitespace-pre-line mt-2 md:mt-4 text-[0.8rem]">{step.content}</p>
+                    <p className="whitespace-pre-line mt-2 md:mt-4 leading-5 text-[0.8rem]">{step.content}</p>
                   </div>
                 </>
               ) : (
                 <>
                   <div className="hidden md:block text-left md:text-right px-0 md:px-8">
-                    <h2 className="text-red-700 text-xl font-normal uppercase">
+                    <h2 className="text-[rgba(202,3,32,255)]  text-xl font-normal ">
                       {step.title}
                     </h2>
-                    <p className="whitespace-pre-line mt-2 md:mt-4 text-[0.8rem]">{step.content}</p>
+                    <p className="whitespace-pre-line mt-2 leading-5 md:mt-4 text-[0.8rem]">{step.content}</p>
                   </div>
                   {/* Number on the right side */}
                   <div className="hidden md:flex items-center justify-start pl-4">
@@ -207,11 +201,11 @@ What's next?  +`,
            alt="How Will You Thrive"
            width={800}
            height={400}
-         
+         className="w-70 h-20 md:w-[950px] md:h-[400px] object-contain"
          />
        </div>
  
-       <hr className="hidden md:block w-8/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-14 mb-10" />
+       <hr className="hidden md:block w-8/12 md:w-5/12 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px] mt-2 md:mt-14 mb-10" />
       <Footer />
     </div>
   );

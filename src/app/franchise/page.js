@@ -44,14 +44,14 @@ const Franchise = () => {
                   <h1 className="text-xl md:text-3xl tracking-[0.2em] md:tracking-[0.2em] font-normal text-white mt-4">
                     TRUE FINANCIAL FREEDOM BEGINS
                   </h1>
-                  <hr className="w-34 md:w-96 mx-auto bg-red-700 h-[2px] rounded-full mt-6 md:mt-14" />
-                  <div className="mt-10"> 
+                  <hr className="w-34 md:w-96 mx-auto bg-[rgba(202,3,32,255)] 0 h-[4px] md:h-[2px] rounded-full mt-6 md:mt-14" />
+                  <div className="mt-6"> 
                     <p className="text-[0.6rem] md:text-[0.8rem] text-white">
                       As A Company Founded On Proven Systems And Models, Keller Williams Provides The Blueprint For Building A Big Business And An Even Bigger Life.
                     </p>
                     <div className=" hidden md:flex justify-center md:justify-center mt-6 md:mt-10">
                       <button className="
-                        w-56 bg-red-700 text-white py-3 rounded-full text-sm
+                        w-56 bg-[rgba(202,3,32,255)] text-white py-3 rounded-full text-sm
                         relative overflow-hidden
                         group transition-all duration-300
                         hover:pr-8 hover:pl-4
@@ -76,10 +76,12 @@ const Franchise = () => {
             {/* Big Life Box */}
             <main className="px-4 py-32 md:mt-32 mt-10">
               <div className="text-center mx-4">
-                <h1 className="text-xl md:text-3xl tracking-[0.2em] font-light text-gray-800">
-                  WE WANT YOU TO <span className="text-red-700">LIVE A BIG LIFE</span>
+                <h1 className="text-xl md:text-4xl tracking-[0.2em]  font-light text-gray-800">
+                  WE WANT YOU TO <span className="
+                  text-[rgba(202,3,32,255)]">LIVE A BIG LIFE</span>
                 </h1>
-                <hr className="w-60 md:w-96 mx-auto bg-red-500 h-[1.5px] mt-6 md:mt-14" />
+                <hr className="w-60 md:w-96 mx-auto bg-[rgba(202,3,32,1)] h-[2px] border-0 mt-6 md:mt-14" />
+
                 <div className="mt-10">
                   <p className="text-[0.7rem] md:text-[0.8rem]">
                     Our mission is to help you to build careers worth having, businesses worth owning, lives worth living, experiences worth giving and legacies worth leaving. To that end we want
@@ -97,16 +99,15 @@ const Franchise = () => {
             {/* Big Life Box */}
             <main className="px-4 py-6 md:mt-32 mt-10">
               <div className="mx-auto text-center">
-                <h1 className="text-xl md:text-3xl font-light text-gray-800">
-                  WE WANT YOU TO <span className="text-red-700">LIVE A BIG LIFE</span>
+                <h1 className="text-xl md:text-4xl font-light md:font-normal tracking-[0.1em] text-gray-800">
+                  WE WANT YOU TO <span className="text-[rgba(202,3,32,255)]">LIVE A BIG LIFE</span>
                 </h1>
-                <hr className="w-60 md:w-96 mx-auto bg-red-500 h-[1.5px] mt-6 md:mt-14" />
-                <div className="mt-10">
-                  <p className="text-xs md:text-[0.8rem]">
+                <hr className="w-60 md:w-150 border-0 mx-auto bg-[rgba(202,3,32,255)]
+                 h-[1.5px] mt-6 md:mt-14" />
+                <div className="mt-10 mx-40">
+                  <p className="text-xs md:text-[1rem]">
                     Our mission is to help you to build careers worth having, businesses worth owning, lives worth living, experiences worth giving and legacies worth leaving. To that end we want
-                  </p>
-                  <p className="text-xs md:text-[0.8rem]">
-                    this to be the most amazing place to be an estate agent in the UK and globally. And we want the best leadership for our market centres.
+                   this to be the most amazing place to be an estate agent in the UK and globally. And we want the best leadership for our market centres.
                   </p>
                 </div>
               </div>
@@ -115,18 +116,18 @@ const Franchise = () => {
             <div className="relative min-h-[40vh] md:min-h-screen bg-black flex items-center justify-center md:mt-35">
               <main className="px-4 py-6">
                 <div className="mx-auto text-center md:mt-6">
-                  <p className="text-white md:text-[0.6rem]">WHERE</p>
-                  <h1 className="text-xl md:text-3xl font-light text-white mt-4">
+                  <p className="text-white md:text-[0.8rem]">WHERE</p>
+                  <h1 className="text-xl md:text-4xl font-normal text-white mt-4">
                     TRUE FINANCIAL FREEDOM BEGINS
                   </h1>
-                  <hr className="w-48 md:w-96 mx-auto bg-red-700 h-[2px] rounded-full mt-6 md:mt-14" />
+                  <hr className="w-48 md:w-120 border-0 mx-auto bg-[rgba(202,3,32,255)] h-[2px] rounded-full mt-6 md:mt-14" />
                   <div className="mt-10">
-                    <p className="text-xs md:text-[0.8rem] text-white">
+                    <p className="text-xs md:text-[1rem] text-white">
                       As A Company Founded On Proven Systems And Models, Keller Williams Provides The Blueprint For Building A Big Business And An Even Bigger Life.
                     </p>
                     <div className="flex justify-center md:justify-center mt-6 md:mt-10">
                       <button className="
-                        w-56 bg-red-700 text-white py-3 rounded-full text-sm
+                        w-56 bg-[rgba(202,3,32,255)] text-white py-4 rounded-full font-semibold text-sm
                         relative overflow-hidden
                         group transition-all duration-300
                         hover:pr-8 hover:pl-4
@@ -155,21 +156,22 @@ const Franchise = () => {
       {/* Form Section */}
       <div className="min-h-screen">
         {/* Title Banner */}
-        <div className="bg-[rgba(202,3,32,255)] py-2 flex justify-center relative">
+        <div className="bg-[rgba(202,3,32,255)] md:py-2 py-2 flex justify-center relative">
 
           <div className="relative">
             {/* KW Logo */}
             <Image
               src="/kwlinelogo.png"
               alt="KW Logo"
-              width={100}
-              height={100}
+              width={120}
+              height={120}
               className="object-contain"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-white font-normal md:text-2xl text-xl whitespace-nowrap tracking-[0.2em]" >
-                FRANCHISE APPLICATION
-              </span>
+            <span className="text-white font-normal text-xl md:text-3xl tracking-[0.2em] md:whitespace-nowrap">
+  FRANCHISE APPLICATION
+</span>
+
             </div>
           </div>
         </div>
@@ -177,21 +179,21 @@ const Franchise = () => {
         {/* Form + Sidebar Container */}
         <div className="flex flex-col lg:flex-row bg-gray-200 min-h-screen">
           {/* Left Black Sidebar */}
-          <div className="hidden md:flex bg-black text-white flex-col items-center w-full lg:w-72 border-r-2 rounded-r-2xl relative min-h-full">
+          <div className="hidden md:flex bg-black text-white flex-col items-center w-full lg:w-76 border-r-2 rounded-r-2xl relative min-h-full">
             <div className="flex flex-col items-center top-0 left-10 absolute">
               {/* Logo in sidebar */}
               <Image
                 src="/KellerWilliams_KSA.png"
                 alt="logo"
-                width={200}
-                height={200}
+                width={230}
+                height={230}
                 className="mb-2"
               />
             </div>
 
-            <div className="pt-24 space-y-12 group">
+            <div className="pt-30 space-y-2 group  ">
               {/* Target Icon */}
-              <div className="relative h-[120px] w-[110px] ml-4 mb-4 transition-transform duration-300 ease-in-out group-hover:-translate-y-2">
+              <div className="relative h-[140px] w-[1400px] ml-10 mb-4 transition-transform duration-300 ease-in-out group-hover:-translate-y-2">
                 <Image
                   src="https://static.wixstatic.com/media/36a881_b93011b55c3c4cc5a3fec96a287e4564~mv2.png/v1/crop/x_0,y_37,w_289,h_255/fill/w_171,h_188,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-02-18%20135420.png"
                   alt="Target Icon"
@@ -202,8 +204,8 @@ const Franchise = () => {
             </div>
 
             {[279, 568, 0, 279, 568].map((x, i) => (
-              <div key={i} className="flex flex-col items-center group">
-                <div className="relative h-[120px] w-[140px] mb-10 transition-transform duration-300 ease-in-out group-hover:-translate-y-2">
+              <div key={i} className={`flex flex-col items-center group ${i === 2 ? 'ml-10' : ''}`}>
+                <div className="relative h-[140px] w-[140px] mb-10 transition-transform duration-300 ease-in-out group-hover:-translate-y-2">
                   <Image
                     src={`https://static.wixstatic.com/media/36a881_b93011b55c3c4cc5a3fec96a287e4564~mv2.png/v1/crop/x_${x},y_${i < 2 ? 23 : 324},w_289,h_255/fill/w_211,h_188,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Screenshot%202025-02-18%20135420.png`}
                     alt="Rocket Icon"
@@ -216,9 +218,9 @@ const Franchise = () => {
           </div>
 
           {/* Right Form Section */}
-          <div className="flex-1 md:py-20 md:p-10 min-h-full py-28">
-            <div className="px-10 sm:px-10 lg:px-20">
-              <form className="space-y-6">
+          <div className="flex-1 md:py-20 md:p-10 min-h-full py-4">
+            <div className="px-10 sm:px-10 lg:px-20 text-gray-800 ">
+              <form className="space-y-6 ">
                 {[
                   "Your Name",
                   "Your Surname",
@@ -226,7 +228,7 @@ const Franchise = () => {
                   "Your Company Name",
                 ].map((label, i) => (
                   <div key={i}>
-                    <label className="block mb-2 md:text-[0.7rem] font-thin">
+                    <label className="block mb-2 md:text-[0.9rem] text-[0.8rem] font-normal md:font-thin ">
                       {label} *
                     </label>
                     <input
@@ -238,7 +240,7 @@ const Franchise = () => {
                 ))}
                 {/* Separate Mobile Phone Input */}
                 <div>
-                  <label className="block mb-2 md:text-[0.7rem] font-thin">
+                  <label className="block mb-2 md:text-[0.9rem] text-[0.8rem] font-normal md:font-thin">
                     Your Mobile Phone *
                   </label>
                   <div className="flex items-center bg-white rounded-2xl border border-gray-300 px-2 py-1">
@@ -261,11 +263,11 @@ const Franchise = () => {
 
                 {/* Date of Birth */}
                 <div className="mb-8">
-                  <label className="block mb-2 md:text-[0.7rem] font-extralight">
+                  <label className="block mb-2 md:text-[0.9rem] text-[0.7rem] font-normal md:font-thin">
                     Date of Birth *
                   </label>
                   <div className="flex gap-3">
-                    <select className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.6rem]">
+                    <select className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.9rem]">
                       <option value="month">Month</option>
                       {[
                         "January",
@@ -290,13 +292,13 @@ const Franchise = () => {
                       type="number"
                       placeholder="Day"
                       required
-                      className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.6rem]"
+                      className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.9rem]"
                     />
                     <input
                       type="number"
                       placeholder="Year"
                       required
-                      className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.6rem]"
+                      className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.9rem]"
                     />
                   </div>
                 </div>
@@ -307,7 +309,7 @@ const Franchise = () => {
                   "How Did You Hear About the Keller Williams Brand ?",
                 ].map((label, i) => (
                   <div key={i}>
-                    <label className="block mb-2 md:text-[0.7rem] font-extralight">
+                    <label className="block mb-2 md:text-[0.9rem] text-[0.8rem] font-normal md:font-thin">
                       {label} *
                     </label>
                     <input
@@ -318,25 +320,25 @@ const Franchise = () => {
                   </div>
                 ))}
 
-                <label className="md:text-[0.7rem] font-extralight">
+                <label className="md:text-[0.9rem] text-[0.8rem] font-normal md:font-thin">
                   Promotional Permissions*
                 </label>
-                <div className="flex items-start space-x-2">
+                <div className="flex items-start space-x-2  ">
                   <input
                     type="checkbox"
                     required
                     id="promoConsent"
-                    className="mt-1"
+                    className="mt-3"
                   />
                   <label
                     htmlFor="promoConsent"
-                    className="text-base md:text-[0.7rem] font-extralight"
+                    className="text-base md:text-[0.8rem] mt-2 text-[0.8rem] leading-5 font-normal md:font-thin"
                   >
                     I consent to receiving promotional emails, text messages, and calls regarding Keller Williams&apos; services.
                   </label>
                 </div>
 
-                <label className="md:text-[0.7rem] font-extralight">
+                <label className="md:text-[0.9rem] text-[0.8rem]  font-normal md:font-thin">
                   Personal Data Protection Declaration *
                 </label>
                 <div className="flex items-start space-x-2">
@@ -344,11 +346,11 @@ const Franchise = () => {
                     type="checkbox"
                     id="dataConsent"
                     required
-                    className="mt-4"
+                    className="mt-6"
                   />
                   <label
                     htmlFor="dataConsent"
-                    className="text-base md:text-[0.7rem] font-extralight"
+                    className="text-base md:text-[0.8rem] mt-2 text-[0.8rem] leading-5 font-normal md:font-thin"
                   >
                     As Keller Williams Saudi Arabia, we care about your security. In
                     order to fulfill our obligation to inform arising from Article 10
@@ -358,10 +360,10 @@ const Franchise = () => {
                     text in the link below.
                   </label>
                 </div>
-                <div className="mt-8 flex justify-end">
+                <div className="mt-8 flex md:justify-end justify-center">
                   <button
                     type="submit"
-                    className="w-32 md:w-32 bg-red-700 text-white py-2 rounded-full text-sm hover:bg-red-700 transition"
+                    className="w-full md:w-32 bg-[rgba(202,3,32,255)] text-white py-2 rounded-full text-sm hover:bg-gray-600 transition"
                   >
                     Submit
                   </button>
@@ -372,7 +374,7 @@ const Franchise = () => {
         </div>
       </div>
 
-      <div className="order-2 md:order-1 bg-red-700 flex items-center justify-center h-[25px] md:h-[76px]">
+      <div  className="hidden md:flex order-2 bg-[rgba(202,3,32,255)] md:order-1 items-center justify-center h-[25px] md:h-[76px]">
     <Image
       src="/kwline.png"
       alt="KW Logo Center"
@@ -381,7 +383,7 @@ const Franchise = () => {
       className="object-contain mx-auto w-7 h-7 md:w-20 md:h-20"
     />
   </div>
-      <hr className="hidden md:clock w-5/12 mx-auto bg-red-500 h-[1.5px] mt-4 md:mt-20 mb-10" />
+      <hr className="hidden md:block w-5/12 mx-auto bg-[rgba(202,3,32,255)] h-[2px] border-0 mt-4 md:mt-20 mb-10" />
       <Footer />
     </div>
   );

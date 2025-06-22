@@ -50,18 +50,18 @@ const agents = [
       />
 
     <main className="px-2 md:py-6 mt-4 md:mt-10 md:mx-10">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-2">
+  <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-2">
     {/* Search Filters */}
     <div className="flex flex-col md:flex-row items-start md:items-end justify-start gap-4 mb-8 w-full">
       
       {/* Agent Name Input */}
       <div className="flex-1 w-full md:ml-2 md:mr-70">
-        <label htmlFor="name" className="block mb-2 text-xs font-light">Agent Name</label>
+        <label htmlFor="name" className="block mb-2 md:text-base md:font-normal text-base font-normal">Agent Name</label>
         <input 
           type="text" 
           id="name"
-          placeholder="Type name.." 
-          className="w-full px-4 py-2 border rounded text-[0.7rem]"
+          placeholder="Type Name.." 
+          className="w-full px-4 py-2 border rounded md:text-sm text-black text-[0.7rem]"
         />
       </div>
 
@@ -69,7 +69,7 @@ const agents = [
       <div className="flex-1 w-full">
      
         <select id="market" 
-        className="w-full px-4 py-2 border border-transparent rounded text-[0.6rem] hover:border-gray-500 focus:border-gray-500 focus:outline-none">
+        className="w-full px-4 py-2 border border-transparent rounded md:text-[0.8rem] md:font-normal text-[0.8rem] hover:border-gray-500 focus:border-gray-500 focus:outline-none">
           <option>MARKET CENTER</option>
           <option>Jasmin</option>
           <option>Jeddah</option>
@@ -80,7 +80,7 @@ const agents = [
       <div className="flex-1 w-full">
       
         <select id="city" 
-        className="w-full px-4 py-2 border border-transparent rounded text-[0.6rem] hover:border-gray-500 focus:border-gray-500 focus:outline-none">
+        className="w-full px-4 py-2 md:text-[0.8rem] md:font-normal border border-transparent rounded text-[0.8rem] hover:border-gray-500 focus:border-gray-500 focus:outline-none">
           <option>CITY</option>
         </select>
       </div>
@@ -90,19 +90,21 @@ const agents = [
 
 
 
-<div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] bg-gray-100 md:mx-0 mx-4 p-2 md:p-4 gap-0 rounded-4xl">
+<div className="grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] bg-gray-100 md:mx-0 p-4 md:p-4 gap-0 rounded-4xl">
   {/* Left: Agents List */}
-  <div className="space-y-6 md:pr-6">
-    <h2 className="font-semibold text-center text-sm border-b pb-2">OUR AGENTS</h2>
+  <div className="space-y-6 md:pr-6 md:my-15">
+    <h2 className="font-semibold text-center text-sm ">OUR AGENTS</h2>
+    <hr className="bg-gray-500 h-[1px] border-0 w-160 mx-auto" />
+
 
     <div className="grid grid-cols-1 gap-6">
       {agents.map((agent, idx) => (
         <article
           key={idx}
-          className="bg-gray-200 p-4 rounded-xl shadow-md flex flex-row items-start gap-4 relative hover:shadow-lg transition-shadow"
+          className="bg-gray-200 p-4 rounded-xl md:mx-3 shadow-md flex flex-row items-start gap-4 relative hover:shadow-lg transition-shadow"
         >
           {/* Agent Image */}
-          <div className="w-32 h-32 flex-shrink-0 relative">
+          <div className="w-32 h-32 md:w-50 md:h-50 flex-shrink-0 relative md:mx-3">
             <Link href={'/agent/agentdetails'}>
               <Image 
                 src={agent.image} 
@@ -116,16 +118,18 @@ const agents = [
 
           {/* Agent Info */}
           <div className="flex-1">
-          <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
-  <h3 className="text-xs font-serif uppercase">{agent.name}</h3>
+          <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 ">
+  <h3 className="text-xs font-normal md:font-semibold md:text-base md:tracking-[0.2em] uppercase md:mb-2">{agent.name}</h3>
   <p className="text-sm text-gray-500 ml-auto">{agent.city}</p>
 </div>
 
-            <p className="md:text-sm text-[0.7rem] mt-2">{agent.phone}</p>
-            <p className="md:text-sm text-[0.6rem] mb-2">{agent.email}</p>
+            <p className="md:text-sm text-[0.7rem]  mb-2 md:mb-2">{agent.phone}</p>
+          
+            <p className="md:text-sm text-[0.6rem] mb-4 md:mb-12">{agent.email}</p>
 
             <div className="space-y-1">
               <a href="#" className="block md:text-sm text-[0.8rem]">Get Evaluation</a>
+              <hr  className='hidden md:flex w-60 bg-[rgba(202,3,32,255)] h-[1px] my-2 border-0'/>
               <a href="#" className="block md:text-sm text-[0.8rem]">View Details and Properties</a>
             </div>
           </div>
@@ -148,7 +152,7 @@ const agents = [
     </div>
 
     <div className="block md:hidden mt-4">
-      <button className="w-full bg-black text-white py-2 rounded-full text-sm hover:bg-red-700 transition">
+      <button className="w-full bg-black text-white py-2  rounded-full text-sm hover:bg-[rgba(202,3,32,255)] transition">
         Load More..
       </button>
     </div>
@@ -158,8 +162,8 @@ const agents = [
   <div className="hidden md:block w-px bg-gray-300 mx-2" />
 
   {/* Right: Map */}
-  <div className="pl-0 md:pl-6 mt-6 md:mt-0">
-    <div className="relative w-full h-full rounded-xl overflow-hidden border border-gray-200 min-h-[300px]">
+  <div className="pl-0 md:pl-6 my-6 md:my-10">
+    <div className="relative w-full h-full  overflow-hidden border border-gray-200 min-h-[300px]">
       <iframe
         title="Saudi Arabia Map"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4444535.330365576!2d41.51259970861697!3d23.8006960408425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15e8e4f105f8aaaf%3A0x70a8a6a2cb7f9405!2sSaudi%20Arabia!5e0!3m2!1sen!2sin!4v1717315040974!5m2!1sen!2sin"
@@ -175,23 +179,23 @@ const agents = [
 </div>
 
       <div className="hidden md:flex justify-start ml-42 mt-6">
-        <button className="w-56 bg-black text-white py-2 rounded-full text-sm hover:bg-red-700 transition">
+        <button className="w-70 bg-black text-white py-4 rounded-full text-sm md:text-base hover:bg-[rgba(202,3,32,255)] transition">
           Load More..
         </button>
       </div>
 
-     <div className="flex justify-center py-4 md:py-16">
+     <div className="order-1 md:order-2 flex flex-col items-center justify-center py-4 md:py-16">
             <Image
               src="/howwillyouthink.png"
               alt="How Will You Thrive"
               width={800}
               height={400}
-            
+             className="w-70 h-20 md:w-[950px] md:h-[400px] object-contain"
             />
           </div>
 
 
-      <hr className="w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-20 mb-10" />
+      <hr className="w-5/12 mx-auto bg-[rgba(202,3,32,255)] h-[1.5px] border-0 mt-2 md:mt-20 mb-10" />
       <Footer />
     </div>
   );

@@ -18,28 +18,28 @@ const Footer = () => {
 
       <div className="md:mt-1 px-4 md:px-5 w-full max-w-full mx-auto">
         {/* Top Contact Info */}
-        <div className="flex flex-col md:flex-row md:justify-between border border-gray-100 rounded-xl items-center md:items-start text-center md:text-left border-b md:p-8 pb-2 md:pb-4 text-xs md:text-sm md:bg-gray-100 md:text-gray-700">
+        <div className="flex flex-col md:flex-row md:justify-between md:border md:border-gray-100 md:rounded-xl items-center md:items-start text-center md:text-left md:border-b md:p-8 pb-2 md:pb-4 text-xs md:text-sm md:bg-gray-100 md:text-gray-700">
           {/* Contact Us Title */}
           <div className="flex items-center justify-center space-x-2 font-semibold mb-2 md:mb-0 mt-4 md:mt-0 md:py-0">
-            <span className="text-red-700 text-lg">CONTACT US</span>
+            <span className=" text-lg text-[rgba(202,3,32,255)]">CONTACT US</span>
           </div>
           
-          <hr className="block md:hidden w-30 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-1 md:mt-14 mb-5" />
+          <hr className="block md:hidden w-20 md:w-5/12 border-0 mx-auto bg-[rgba(202,3,32,255)]  h-[2px] mt-1 md:mt-14 mb-5" />
           
           <div className="flex flex-col items-center justify-center mb-2 md:hidden w-full">
-            <span className="text-sm mb-2">EMAIL - <span className="text-[0.7rem]">INFO@KWSAUDIARABIA.COM</span></span>
-            <span className="text-sm">TELEPHONE - <span className="text-[0.7rem]">9200-15671</span></span>
+            <span className="text-sm mb-2">EMAIL  <span className="inline-block w-2" />  - <span className="inline-block w-4" />  <span className="text-[0.8rem]">info@kwsaudiarabia.com</span></span>
+            <span className="text-sm">TELEPHONE  <span className="inline-block w-2" /> - <span className="inline-block w-4" />  <span className="text-[0.8rem]">9200-15671</span></span>
           </div>
           
           {/* Email - Desktop */}
-          <div className="hidden md:flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start text-[0.7rem] mb-1 md:mb-0">
-            <span className="font-semibold md:mr-1">EMAIL:</span>
+          <div className="hidden md:flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start text-[1rem] mb-1 md:mb-0">
+            <span className="font-semibold md:mr-1">EMAIL<span className="inline-block w-4" />-<span className="inline-block w-4" /></span>
             <span>INFO@KWSAUDIARABIA.COM</span>
           </div>
 
           {/* Telephone - Desktop */}
-          <div className="hidden md:flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start text-[0.7rem]">
-            <span className="font-semibold md:mr-1">TELEPHONE:</span>
+          <div className="hidden md:flex flex-col md:flex-row items-center md:items-start justify-center md:justify-start text-[1rem]">
+            <span className="font-semibold md:mr-1">TELEPHONE<span className="inline-block w-4" />-<span className="inline-block w-4" /></span>
             <span>9200-15671</span>
           </div>
 
@@ -77,21 +77,21 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr className="block md:hidden w-50 mx-auto bg-red-500 h-[1.5px]" />
+        <hr className="block md:hidden w-40 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[2px]" />
 
         {/* Main Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-6 md:gap-4 w-full md:mx-0 mx-auto px-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-0 md:gap-4 w-full md:mx-0 mx-4 px-2">
           {[
             {
               label: "Properties",
               imageUrl: "https://static.wixstatic.com/media/36a881_58e60526563049da91b5a702cb9995ac~mv2.png/v1/fill/w_230,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/1.png",
               path: "/properties",
               items: [
-                { name: "Active", path: "/properties" },
+                { name: "Active", path: "/properties/active" },
                 { name: "Sold", path: "/properties/sold" },
                 { name: "Rent", path: "/properties/rent" },
                 { name: "Auction", path: "/properties/auction" },
-                { name: "New Development", path: "/properties/newDevelopment" },
+                { name: "New Development", path: "/properties/newdevelopment" },
                 { name: "International", path: "https://www.kw.com/search/sale?viewport=56.41671222773751%2C120.63362495324327%2C-14.684966046563696%2C-6.807781296756721" },
               ],
             },
@@ -167,11 +167,12 @@ const Footer = () => {
                 { name: "KW University", path: "/ourCulture/kwuniversity" },
                 { name: "Events", path: "/ourCulture/event" },
                 { name: "News", path: "/ourCulture/event" },
+                { name: "Join Us", path: "/contactUs" },
                 { name: "Contact Us", path: "/contactUs" },
               ],
             },
           ].map(({ label, imageUrl, path, items }, i) => (
-            <div key={i} className="mb-4 md:mb-0">
+            <div key={i} className="mb-0 md:mb-0">
               {/* Image with link - Desktop only */}
               <div className="hidden md:flex rounded-xl flex-col transition-all cursor-pointer">
                 <a href={path}>
@@ -186,19 +187,20 @@ const Footer = () => {
               </div>
               
               {/* Label - Mobile only */}
-              <p className="block md:hidden text-red-700 text-[0.8rem] mt-4 mb-2">{label}</p>
+              <p className="block md:hidden text-[rgba(202,3,32,255)]  md:text-[0.8rem] mt-4 mb-2">{label}</p>
 
               {/* Items list */}
-              <div className="border-l border-red-700 md:border-gray-300 pl-3 ml-4">
-                <ul className="text-xs space-y-1 md:space-y-3 text-left">
+              <div className="border-l border-[rgba(202,3,32,255)] md:border-gray-300 pl-3 ml-4">
+                <ul className="md:text-base text-xs space-y-1 md:space-y-6 text-left">
                   {items.map((item, index) => (
                     <li key={index} className="hover:text-gray-600 transition-colors">
                       <a href={item.path} className="block w-full py-1">
-                        {item.name === "LOGIN" ? (
-                          <span className="text-red-600 font-semibold">{item.name}</span>
-                        ) : (
-                          item.name
-                        )}
+                      {["LOGIN", "Join Us", "Contact Us"].includes(item.name) ? (
+  <span className="text-[rgba(202,3,32,255)] font-semibold">{item.name}</span>
+) : (
+  item.name
+)}
+
                       </a>
                     </li>
                   ))}
@@ -219,23 +221,23 @@ const Footer = () => {
               alt="KW Saudi Arabia Logo"
               width={200}
               height={50}
-              className="h-44 w-44 object-contain"
+              className="h-55 w-55 object-contain"
             />
           </div>
           
           {/* Address + Links */}
           <div className="text-right space-y-1 text-xs p-2">
-            <a href="#" className='text-gray-500 md:text-xs text-[0.65rem] tracking-[0.2em]'>شركة الياسمين لإدارة وتطوير العقارات</a>
-            <p className="text-gray-500 md:text-xs text-[0.65rem] tracking-[0.1em] mt-2">REGA LICENSE NUMBER #1200018764</p>
-            <p className="text-gray-500 md:text-xs text-[0.65rem] tracking-[0.1em] mt-2">KW Saudi Arabia HQ - 2740 King Fahad Branch Rd, Al Sahafah, 6403, Riyadh 13515</p>
-            <div className="flex flex-wrap justify-end gap-2 text-gray-600 md:text-xs text-[0.65rem] tracking-[0.1em] mt-2">
-              <a href="#" className="hover:underline mr-4">© 2026 All Rights Reserved</a>
-              <div className="w-px h-3 bg-gray-500/50 mt-1"></div>
-              <a href="#" className="hover:underline mr-4">KW Saudi Arabia</a>
-              <div className="w-px h-3 bg-gray-500/50 mt-1"></div>
-              <a href="#" className="hover:underline mr-4">Privacy Policy</a>
-              <div className="w-px h-3 bg-gray-500/50 mt-1"></div>
-              <a href="#" className="hover:underline">Terms Of Use</a>
+            <a href="#" className='text-gray-500 md:text-sm text-[0.65rem] tracking-[0.2em]'>شركة الياسمين لإدارة وتطوير العقارات</a>
+            <p className="text-gray-500 md:text-sm text-[0.65rem] tracking-[0.1em] mt-2">REGA LICENSE NUMBER #1200018764</p>
+            <p className="text-gray-500 md:text-sm text-[0.65rem] tracking-[0.1em] mt-2">KW Saudi Arabia HQ - 2740 King Fahad Branch Rd, Al Sahafah, 6403, Riyadh 13515</p>
+            <div className="flex flex-wrap justify-end gap-2 text-gray-600 md:text-sm text-[0.65rem] tracking-[0.1em] mt-2">
+              <a href="#" className="hover:underline  mr-4">© 2026 All Rights Reserved</a>
+              <div className="w-px h-4 bg-gray-500/50  mt-1"></div>
+              <a href="#" className="hover:underline ml-2 mr-4">KW Saudi Arabia</a>
+              <div className="w-px h-4 bg-gray-500/50 mt-1"></div>
+              <a href="#" className="hover:underline ml-2 mr-4">Privacy Policy</a>
+              <div className="w-px h-4 bg-gray-500/50 mt-1"></div>
+              <a href="#" className="hover:underline ml-2">Terms Of Use</a>
             </div>
           </div>
         </div>

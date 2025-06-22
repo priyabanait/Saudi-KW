@@ -55,9 +55,9 @@ const Tenant = () => {
 
       {/* Intro */}
       <main className="px-4 py-6 md:mt-2 mt-10">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-xs md:text-sm">
-            Before you start your search for a rental property it&rsquo;s worth asking yourself
+        <div className="max-w-full mx-auto text-center">
+          <p className="text-xs md:text-base">
+          Before You Start Your Search For A Rental Property It&rsquo;s Worth Asking Yourself
           </p>
         </div>
       </main>
@@ -74,44 +74,44 @@ const Tenant = () => {
               <div className="text-[0.6rem] leading-relaxed text-gray-700">{section.description}</div>
             </div>
             {/* Desktop: grid layout */}
-            <div className="hidden md:grid grid-cols-12 items-stretch hover:bg-red-700 group transition duration-300 px-4 min-h-[200px]">
+            <div className="hidden md:grid grid-cols-12 items-stretch hover:bg-[rgba(202,3,32,255)] group transition duration-300 px-4 min-h-[200px]">
               {/* Number */}
-              <div className="md:ml-30 col-span-2 md:col-span-1 flex items-center justify-center text-2xl md:text-4xl text-gray-500 group-hover:text-black font-normal">
+              <div className="md:ml-30 col-span-2 md:col-span-1 flex items-center justify-center text-5xl  text-gray-500 group-hover:text-black font-normal">
                 {section.number}
               </div>
               {/* Title */}
-              <div className="md:ml-46 col-span-4 md:col-span-4 flex items-center text-xs font-semibold tracking-wide text-black group-hover:text-white">
+              <div className="md:ml-46 col-span-4 md:col-span-4 flex items-center text-base font-semibold tracking-wide text-black group-hover:text-white">
                 {section.title}
               </div>
               {/* Vertical Line Between Title and Description - disappears on hover */}
               <div className="col-span-1 flex justify-center">
-                <div className="ml-22 w-[1px] bg-red-500 h-auto md:h-40 my-4 group-hover:opacity-0 transition-opacity duration-300"></div>
+                <div className="ml-22 w-[1px] bg-[rgba(202,3,32,255)] h-auto md:h-40 my-4 group-hover:opacity-0 transition-opacity duration-300"></div>
               </div>
               {/* Description */}
-              <div className="col-span-5 md:col-span-6 flex items-center text-[0.6rem] md:text-[0.6rem]  leading-relaxed text-gray-700 group-hover:text-white py-4">
+              <div className="col-span-5 md:col-span-6 flex items-center text-[0.6rem] md:text-[0.9rem]  leading-relaxed text-gray-700 group-hover:text-white py-4">
                 {section.description}
               </div>
             </div>
             {/* Horizontal divider between sections */}
             {index < sections.length - 1 && (
-              <hr className="w-full border-t border-gray-500" />
+              <hr className="w-full border-t bordeer-0 border-gray-500" />
             )}
           </React.Fragment>
         ))}
       </div>
 
        <main className="hidden md:block px-4 py-6 md:mt-2 mt-2">
-        <div className="max-w-7xl mx-auto text-center md:mt-16">
-          <p className="text-xl md:text-3xl font-normal">KW SAUDI ARABIA</p>
-          <hr className="w-32 md:w-68 mx-auto bg-red-500 h-[1.5px] mt-4 md:mt-8" />
-          <p className="mt-2 md:mt-8 text-xs md:text-xs">Together We Do More</p>
-          <p className="px-4 md:px-0 text-xs md:text-xs">
+        <div className="max-w-full mx-auto text-center md:mt-16">
+          <p className="text-xl md:text-4xl font-normal">KW SAUDI ARABIA</p>
+          <hr className="w-32 md:w-68 mx-auto border-0 bg-[rgba(202,3,32,255)] h-[1.5px] mt-4 md:mt-8" />
+          <p className="mt-2 md:mt-8 text-xs md:text-base">Together We Do More</p>
+          <p className="px-4 md:px-0 text-xs md:text-base">
             Keller Williams is there to help at every big step in the realestate journey.
           </p>
         
             <div className="flex justify-center md:justify-center mt-8 md:mt-16">
   <button className="
-    w-56 bg-red-700 text-white py-3 rounded-full text-sm
+    w-56 bg-[rgba(202,3,32,255)] text-white py-3 rounded-full text-base
     relative overflow-hidden
     group transition-all duration-300
     hover:pr-8 hover:pl-4
@@ -138,14 +138,14 @@ const Tenant = () => {
       alt="How Will You Thrive"
       width={800}
       height={400}
-      className="w-70 h-20 md:w-[800px] md:h-[400px] object-contain"
+      className="w-70 h-20 md:w-[950px] md:h-[400px] object-contain"
     />
-    <button className="bg-red-700 w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
+    <button className="bg-[rgba(202,3,32,255)]w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
       JOIN US
     </button>
   </div>
 
-      <hr className=" hidden md:block w-8/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-16 mb-10" />
+      <hr className=" hidden md:block w-8/12 md:w-5/12 mx-auto border-0 bg-[rgba(202,3,32,255)] h-[1.5px] mt-2 md:mt-16 mb-10" />
       <Footer />
     </div>
   );

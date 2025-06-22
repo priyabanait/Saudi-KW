@@ -116,7 +116,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
       height={400}
       className="w-70 h-20 md:w-[800px] md:h-[400px] object-contain"
     />
-    <button className="bg-red-700 w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
+    <button className="bg-[rgba(202,3,32,255)] w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
       JOIN US
     </button>
   </div>
@@ -139,19 +139,19 @@ SUCCESS: RESULTS THROUGH PEOPLE`
       {/* Intro Text */}
       <main className="px-4 mt-10">
         <div className="mx-auto text-center">
-        <span className="md:font-[montserrat] text-lg tracking-[0.2em] md:text-[30px] no-underline bg-transparent leading-[1.3]">
+        <span className="md:font-normal text-lg tracking-[0.2em] md:text-4xl no-underline bg-transparent leading-[1.3]">
   OUR BELIEFS
 </span>
 
 
-          <hr className="w-30 md:w-46 mx-auto bg-red-500 h-[1.5px] mt-1 md:mt-8" />
+          <hr className="w-30 md:w-46 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px] mt-1 md:mt-8" />
           <div className="md:mt-10 md:py-0 py-10">
-          <p className="md:mx-0 mx-4 font-[montserrat] tracking-[0em] md:text-[0.7rem] text-[0.7rem] md:font-normal font-semibold no-underline bg-transparent leading-[1.6]">
+          <p className="md:mx-0 mx-4 font-[montserrat] tracking-[0em] md:text-[0.9rem] text-[0.7rem] md:font-normal font-semibold no-underline bg-transparent leading-[1.6]">
   We believe that the company we keep can contribute to our lives in untold ways.
   To help cement this understanding we&rsquo;ve formalized a
 </p>
 
-<p className="md:mx-0 mx-4 font-[montserrat] tracking-[0em] md:text-[0.7rem] text-[0.7rem] md:font-normal font-semibold no-underline bg-transparent leading-[1.6]">
+<p className="md:mx-0 mx-4 font-[montserrat] tracking-[0em] md:text-[0.9rem] text-[0.7rem] md:font-normal font-semibold no-underline bg-transparent leading-[1.6]">
               Belief system that guides how we treat each other.
             </p>
           </div>
@@ -173,10 +173,10 @@ SUCCESS: RESULTS THROUGH PEOPLE`
         </div>
         {/* Text moves up */}
         <div className="group-hover:-translate-y-2 transition-transform duration-300 ease-in-out">
-          <h3 className="mb-4 text-medium font-semibold tracking-wide">
+          <h3 className="mb-4 text-xl font-semibold tracking-wide">
             {card.title}
           </h3>
-          <p className="md:text-[0.6rem] leading-5 tracking-wide uppercase text-neutral-600 whitespace-pre-line">
+          <p className="md:text-[0.8rem] leading-5 tracking-wide uppercase text-neutral-600 whitespace-pre-line">
             {card.text}
           </p>
         </div>
@@ -198,14 +198,14 @@ SUCCESS: RESULTS THROUGH PEOPLE`
         
         {/* Content moves up */}
         <div className="group-hover:-translate-y-2 transition-transform duration-300 ease-in-out">
-          <h3 className="mb-4 text-medium font-semibold tracking-wide line-clamp-2">
+          <h3 className="mb-4 text-xl font-semibold tracking-wide line-clamp-2">
             {card.title}
           </h3>
         </div>
         
         {/* Text content moves up */}
         <div className="flex-1 overflow-y-auto w-full group-hover:-translate-y-2 transition-transform duration-300 ease-in-out">
-          <p className="md:text-[0.6rem] leading-5 text-neutral-600 whitespace-pre-line">
+          <p className="md:text-[0.8rem] leading-5 text-neutral-600 whitespace-pre-line">
             {card.text}
           </p>
         </div>
@@ -218,22 +218,22 @@ SUCCESS: RESULTS THROUGH PEOPLE`
         <div className="mx-auto text-center">
          
           <div className="mt-1">
-            <p className="text-xs md:text-[0.7rem]">
+            <p className="text-xs md:text-[0.8rem]">
             We are looking to introduce the individuals who are instrumental in driving our success. We believe that every moment holds great promise, and we are passionate about our daily
             </p>
-            <p className="text-xs md:text-[0.7rem]">
+            <p className="text-xs md:text-[0.8rem]">
               work. We have the most skilled employees at every stage of our operations. Our leadership team is a diverse group of individuals who bring a wealth of experience from various
             </p>
-              <p className="text-xs md:text-[0.7rem]">
+              <p className="text-xs md:text-[0.8rem]">
              areas within the company.
             </p>
           </div>
         </div>
       </main>
-<div className="min-h-screen flex flex-col items-center justify-start pt-25 md:pt-10 md:mx-auto mx-6 tracking-[0.2em">
-  <div className="flex flex-col md:flex-row w-full max-w-6xl ">
+<div className="min-h-screen flex flex-col items-center justify-start pt-25 md:pt-10 md:mx-10 mx-6 tracking-[0.2em">
+  <div className="flex flex-col md:flex-row w-full ">
     {/* Left Image */}
-    <div className="w-full md:w-1/2 flex justify-center items-start ">
+    <div className="w-full md:w-full flex justify-center items-start ">
       <Image
         src="https://static.wixstatic.com/media/36a881_b66311c7d0ce4bab88e85a84321bd1b0~mv2.jpg/v1/fill/w_798,h_934,fp_0.50_0.33,q_85,enc_avif,quality_auto/Pic153%20(4).jpg"
         alt="CEO"
@@ -244,40 +244,40 @@ SUCCESS: RESULTS THROUGH PEOPLE`
     </div>
 
     {/* Right Content - Changed to items-start */}
-    <div className="w-full md:w-1/2 flex flex-col justify-start items-center text-center mt-8 md:mt-12 px-2 md:px-10">
-      <h1 className="text-4xl font-normal tracking-wide">
-        MEET OUR <span className="text-red-700 font-bold">CEO</span>
+    <div className="w-full md:w-full flex flex-col justify-start items-center text-center mt-8 md:mt-12 px-2 md:px-10">
+      <h1 className="text-4xl md:text-5xl font-normal tracking-wide">
+        MEET OUR <span className="text-[rgba(202,3,32,255)] font-bold">CEO</span>
       </h1>
 
-      <h2 className="text-red-700 py-4 md:py-0 mt-4 md:mt-14 text-[0.7rem] font-semibold tracking-wider">
+      <h2 className="text-[rgba(202,3,32,255)] py-4 md:py-0 mt-4 md:mt-14 text-[0.7rem] md:text-[0.9rem] font-semibold tracking-wider">
         CEO MESSAGE
       </h2>
 
-      <p className="mt-4 md:text-[0.6rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
+      <p className="mt-4 md:text-[0.8rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
         More than ever, we want to thank and recognize our agents and partners
-        for diligently bringing their very</p> 
+        for diligently bringing their very
         
-<p className=" md:text-[0.6rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
+
  best when their clients need it most.
-        As a company built by agents, and for agents, we wake up every day</p>
-       <p className="md:text-[0.6rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
+        As a company built by agents, and for agents, we wake up every day
+      
          asking
         ourselves how we can best support them.
       </p>
 
-      <p className="mt-6 md:text-[0.6rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
-        KW has cultivated a agent-  </p>
-        <p className="md:text-[0.6rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
-        centric, technology-driven, and</p>
-          <p className="md:text-[0.6rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
-        education-based culture that rewards agents as stakeholders.</p>
-        <p className="md:text-[0.6rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
-        Regional team members, market center team members, and </p>
-       <p className="md:text-[0.6rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normalmax-w-md">
-        agent partners. No
-        one succeeds alone, and  </p>
+      <p className="mt-6 md:text-[0.8rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
+        KW has cultivated a agent-  
+
+        centric, technology-driven, and
+
+        education-based culture that rewards agents as stakeholders.
       
-         <p className="md:text-[0.6rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
+        Regional team members, market center team members, and 
+      
+        agent partners. No
+        one succeeds alone, and  
+      
+
         this is truly a shared moment in recognition of
         our continuous achievements together.</p>
      
@@ -294,8 +294,8 @@ SUCCESS: RESULTS THROUGH PEOPLE`
                    border-b md:border-b-0 md:border-r border-black
                    py-6 md:py-0">
       <div className="text-center px-4">
-        <h2 className="text-3xl font-semibold mb-2">OUR TEAM</h2>
-        <div className="w-30 h-0.5 bg-red-500 mb-2 mx-auto mt-4 md:mt-10"></div>
+        <h2 className="text-3xl md:text-4xl md:font-normal font-semibold mb-2">OUR TEAM</h2>
+        <div className="w-30 h-0.5 bg-[rgba(202,3,32,255)] border-0 mb-2 mx-auto mt-4 md:mt-10"></div>
         <p className="text-sm tracking-wider mt-4 md:mt-10">REGION TEAM</p>
       </div>
     </div>
@@ -316,26 +316,12 @@ SUCCESS: RESULTS THROUGH PEOPLE`
 </div>
 
             <div className="flex-1 text-left">
-              <p style={{ 
-                fontFamily: "wfont_0694d6_cf4b47fcc9af483482e7689365efadb1, wf_cf4b47fcc9af483482e768936, orig_alt_riviera_light !important",
-                letterSpacing: "0em",
-                fontWeight: 'normal',
-                textDecoration: 'none',
-                fontSize: 'max(15px, min(20px, max(0.5px, 0.0142522 * (var(--scaling-factor) - var(--scrollbar-width)))) !important',
-                lineHeight: 1.2,
-              }}>
+            <p className="text-xs font-normal md:font-semibold md:text-base md:tracking-[0.2em] uppercase md:mb-2">
                 {member.name}
               </p>
-              <div className="w-37 md:w-60 h-0.5 bg-red-500 my-1 mx-0"></div>
-              <p style={{ 
-                fontFamily: "montserrat,sans-serif",
-                letterSpacing: "0em !important",
-                fontWeight: 'normal !important',
-                fontStyle: 'normal !important',
-                textDecoration: 'none !important',
-                fontSize: '10px !important',
-                lineHeight: 1.6,
-              }}>
+              <hr className="w-37 md:w-60 h-[1px] bg-[rgba(202,3,32,255)] border-0 my-2 mx-0"></hr>
+              <p className="font-sans font-normal not-italic no-underline md:text-[0.8rem] text-[10px] leading-[1.6] tracking-normal">
+ 
                 {member.title}
               </p>
               <p className="text-xs md:text-sm mb-1 text-gray-600 mt-8 md:mt-28">{member.email}</p>
@@ -350,13 +336,13 @@ SUCCESS: RESULTS THROUGH PEOPLE`
     </div>
   </div>
 </div>
-<div className="flex justify-center py-2 md:py-0">
+<div className="order-1 md:order-2 flex flex-col items-center justify-center py-2 md:py-0">
                    <Image
                      src="/howwillyouthink.png"
                      alt="How Will You Thrive"
                      width={800}
                      height={400}
-                   
+                     className="w-70 h-20 md:w-[950px] md:h-[400px] object-contain"
                    />
                  </div>
            
@@ -365,13 +351,13 @@ SUCCESS: RESULTS THROUGH PEOPLE`
           <p className="text-2xl md:text-4xl font-normal">
             KW SAUDI ARABIA
           </p>
-          <hr className="w-48 md:w-96 mx-auto bg-red-500 h-[1.5px] mt-6 md:mt-16" />
+          <hr className="w-48 md:w-96 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px] mt-6 md:mt-16" />
           <p className='mt-4 md:mt-8'>Together We Do More</p>
           <p className="px-4 md:px-0">Keller Williams Is There To Help At Every Big Step In The Realestate Journey.</p>
         
            <div className="flex justify-center md:justify-center mt-6 md:mt-10">
   <button className="
-    w-56 bg-red-700 text-white py-3 rounded-full text-sm
+    w-56 bg-[rgba(202,3,32,255)] text-white py-3 rounded-full text-sm
     relative overflow-hidden
     group transition-all duration-300
     hover:pr-8 hover:pl-4
@@ -391,7 +377,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
 </div>
         </div>
       </main>
-       <hr className=" hidden md:block w-8/12 md:w-6/12 mx-auto bg-red-500 h-[1.5px] mt-10 md:mt-20 mb-10" />
+       <hr className=" hidden md:block w-8/12 md:w-6/12 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px] mt-10 md:mt-20 mb-10" />
       <Footer />
     </div>
   );

@@ -14,80 +14,79 @@ const Buyerguid = () => {
     {
       id:'1.',
       title: ' Home Visit',
-      content: `WE'LL ARRANGE TO VISIT THE HOMES YOU'VE SELECTED, TOGETHER AND IN-PERSON, TO DETERMINE THE BEST FIT FOR YOU.
+      content: `We'll Arrange To Visit The Homes You've Selected, Together And In-person, To Determine The Best Fit For You.
 
+How Can I Make The Most Of My Time When Visiting Homes?   +
 
-HOW CAN I MAKE THE MOST OF MY TIME WHEN VISITING HOMES?   +
+What Should I Expect When Visiting Homes?  +
 
-WHAT SHOULD I EXPECT WHEN VISITING HOMES?  +
+How Many Homes Should I Visit?  +
 
-HOW MANY HOMES SHOULD I VISIT?  +
-
-WHAT SHOULD I LOOK FOR WHEN VISITING HOMES?   +`,
+What Should I Look For When Visiting Homes?   +`,
       align: 'right',
     },
     {
       id:'2.',
-      title: 'Making an Offer',
-      content: `ONCE YOU'VE NARROWED DOWN YOUR LIST AND HAVE A CLEAR FAVORITE, COLLABORATE WITH US TO MAKE AN OFFER ON A HOME.
+      title: 'Making An Offer',
+      content: `Once You've Narrowed Down Your List And Have A Clear Favorite, Collaborate With Us To Make An Offer On A Home.
 
-WHAT SHOULD I INCLUDE WITH MY OFFER?  +
+What Should I Include With My Offer?  +
 
-WHAT ARE THE MOST COMMON CONTINGENCIES? +
+What Are The Most Common Contingencies? +
 
-WHAT HAPPENS IF I FACE MULTIPLE OFFERS?  +
+What Happens If I Face Multiple Offers?  +
 
-WHAT IS A COUNTEROFFER? +`,
+What Is A Counteroffer? +`,
       align: 'left',
     },
     {
       id:'3.',
       title: 'Execute Contract',
-      content: `THE CRUCIAL PERIOD BETWEEN AN OFFER AND A FINAL CONTRACT IS AN IMPORTANT TIME TO STAY IN CLOSE CONTACT WITH YOUR KELLER WILLIAMS AGENT SO YOU'RE EQUIPPED WITH ALL THE INFORMATION YOU NEED TO MAKE SMART DECISIONS.
+      content: `The Crucial Period Between An Offer And A Final Contract Is An Important Time To Stay In Close Contact With Your Keller Williams Agent So You're Equipped With All The Information You Need To Make Smart Decisions.
 
-WHAT SHOULD I EXPECT TO SEE IN THE CONTRACT? +
+What Should I Expect To See In The Contract? +
 
-HOW DO I KNOW WHEN TO NEGOTIATE AND WHEN TO LET GO? +
+How Do I Know When To Negotiate And When To Let Go? +
 
-WHAT ARE COMMON CONTRACT PITFALLS I SHOULD AVOID? +`,
+What Are Common Contract Pitfalls I Should Avoid? +`,
       align: 'right',
     },
     {
       id:'4.',
       title: 'Schedule Home Inspection',
-      content: `AS SOON YOUR OFFER IS ACCEPTED, YOU SHOULD SCHEDULE YOUR HOME INSPECTION. IF YOU'RE BUYING IN A BUSY SEASON, IT MAY TAKE TIME TO FIND AN AVAILABLE INSPECTOR, SO RELY ON YOUR KELLER WILLIAMS AGENT TO RECOMMEND TRUSTED HOME INSPECTORS..
+      content: `As Soon Your Offer Is Accepted, You Should Schedule Your Home Inspection. If You're Buying In A Busy Season, It May Take Time To Find An Available Inspector, So Rely On Your Keller Williams Agent To Recommend Trusted Home Inspectors..
 
-WHAT'S INCLUDED ON A HOME INSPECTION?+
+What's Included On A Home Inspection?+
 
-WHAT SHOULD I WATCH FOR DURING THE HOME INSPECTION?  +
+What Should I Watch For During The Home Inspection?  +
 
-I'VE GOT THE HOME INSPECTION REPORT, NOW WHAT?  +`,
+I've Got The Home Inspection Report, Now What?  +`,
       align: 'left',
     },
    {
     id:'5.',
       title: 'Get a Home Warranty',
-      content: `SOME HOME SELLERS PAY FOR A HOME WARRANTY THAT COVERS THEM WHILE THEIR HOME IS ON THE MARKET AND CONVEYS TO THE BUYERS AFTER THE SALE. YOU CAN ASK YOUR REAL ESTATE AGENT FOR ADVICE ABOUT NEGOTIATING FOR THE SELLERS TO PAY FOR A WARRANTY OR BUYING ONE YOURSELF.
+      content: `Some Home Sellers Pay For A Home Warranty That Covers Them While Their Home Is On The Market And Conveys To The Buyers After The Sale. You Can Ask Your Real Estate Agent For Advice About Negotiating For The Sellers To Pay For A Warranty Or Buying One Yourself.
 
-WHAT IS A HOME WARRANTY?  +
+What Is A Home Warranty?  +
 
-DO I NEED A HOME WARRANTY? +
+Do I Need A Home Warranty? +
 
-WHAT SHOULD I LOOK FOR IN A HOME WARRANTY? +`,
+What Should I Look For In A Home Warranty? +`,
       align: 'right',
     },
     {
       id:'6.',
       title: 'Close',
-      content: `WHILE YOU MAY FEEL JITTERY BEFORE YOUR CLOSING, YOUR KW AGENT AND LENDER SHOULD HAVE YOU FULLY PREPARED FOR THE DAY. AS THE BUYER, YOU CHOOSE THE TITLE COMPANY FOR YOUR TITLE SEARCH AND THE CLOSING. YOUR AGENT AND LENDER CAN RECOMMEND RELIABLE TITLE COMPANIES..
+      content: `While You May Feel Jittery Before Your Closing, Your Kw Agent And Lender Should Have You Fully Prepared For The Day. As The Buyer, You Choose The Title Company For Your Title Search And The Closing. Your Agent And Lender Can Recommend Reliable Title Companies..
 
-WHAT SHOULD I DO BEFORE THE CLOSING?+
+What Should I Do Before The Closing?+
 
-WHAT CAN I EXPECT WHEN CLOSING? +
+What Can I Expect When Closing? +
 
-WHAT PAPERWORK IS REQUIRED TO CLOSE? +
+What Paperwork Is Required To Close? +
 
-WHAT'S NEXT? +`,
+What's Next? +`,
       align: 'left',
     }
   ];
@@ -128,17 +127,16 @@ WHAT'S NEXT? +`,
         />
     
 
-      {/* Main Content Section */}
-<main className="px-4 md:px-46 py-6  md:mt-2">
-  <div className=" md:p-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-      <div className="w-full md:w-auto"> {/* Removed text-center from here since parent has it */}
-        <h1 className="text-lg md:text-2xl tracking-[0.2em] md:tracking-[0.1em] py-4  md:py-8">Home <span className='text-red-700'>Buying </span> Tips from Keller Williams</h1>
+    <main className="px-4 md:px-46 py-6 mt-4 md:mt-2">
+  <div className=" p-4 md:p-0 max-w-full mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
+      <div className="w-full md:w-auto">  {/* Removed text-center from here since parent has it */}
+        <h1 className="text-lg md:text-3xl tracking-[0.2em] md:tracking-[0.1em] py-4  md:py-8">Home <span className='text-red-700'>Buying </span> Tips from Keller Williams</h1>
        <div className='mx-12 md:mx-0 tracking-[0.1em] md:tracking-normal'>
-       <p className="text-xs md:text-[0.6rem]">
+       <p className="text-xs md:text-[0.8rem]">
           Our Experience, A House Is Not A Dream Home Because Of Its Size Or Colour. Its About How You Feel When You Walk Through The Front Door – The Way You Can Instantly See
-        </p>
-        <p className="text-xs md:text-[0.6rem]">
+      
+       
   Your Life Unfolding There. This Is About More Than Real Estate. It&rsquo;s About Your Life And Your Dreams..
 </p>
 
@@ -149,7 +147,7 @@ WHAT'S NEXT? +`,
 </main>
 
       {/* Timeline Section */}
-      <div ref={timelineRef} className="relative bg-white pt-12 pb-24">
+      <div ref={timelineRef} className="relative bg-white pt-12 pb-24 md:mt-10">
         {/* Center Vertical Line - hidden on mobile */}
         <div className="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-black z-0" />
 
@@ -164,7 +162,7 @@ WHAT'S NEXT? +`,
       }}
     >
      <div className="w-4 h-4 relative flex items-start justify-center">
-  <span className="w-4 h-0.5 bg-red-700" />
+  <span className="w-4 h-0.5 bg-[rgba(202,3,32,255)]" />
 </div>
 
     </div>
@@ -182,7 +180,7 @@ WHAT'S NEXT? +`,
 
   {/* Title - Reverse align compared to number */}
   <div className={`${step.align === 'right' ? 'text-left' : 'text-right'}`}>
-    <h2 className="text-red-700 text-2xl font-normal uppercase inline-block">
+    <h2 className="text-[rgba(202,3,32,255)] text-2xl font-normal  inline-block">
       {step.title}
     </h2>
     <p className="whitespace-pre-line mt-2 text-xs">{step.content}</p>
@@ -193,29 +191,24 @@ WHAT'S NEXT? +`,
               {/* Desktop: Number on opposite side of vertical line */}
               {step.align === 'right' ? (
                 <>
-                  {/* Number on the left side */}
-                  <div className="hidden md:flex items-center justify-end pr-4">
-                    <span className="text-gray-500 text-5xl font-normal md:mb-4">{`${index + 1}.`}</span>
-                  </div>
+                  {/* Empty div for the left side */}
+                  <div className="hidden md:block"></div>
                   <div className="hidden md:block text-left px-0 md:px-8">
-                    <h2 className="text-red-700 text-xl font-normal uppercase">
-                      {step.title}
-                    </h2>
-                    <p className="whitespace-pre-line mt-2 md:mt-4 text-[0.8rem]">{step.content}</p>
+                    <span className="text-gray-500 text-5xl font-normal">{`${index + 1}.`}</span>
+                    <h2 className="text-[rgba(202,3,32,255)] text-2xl font-normal  mt-4">{step.title}</h2>
+                    <p className="whitespace-pre-line mt-2 leading-5 text-xs">{step.content}</p>
                   </div>
                 </>
               ) : (
                 <>
-                  <div className="hidden md:block text-left md:text-right px-0 md:px-8">
-                    <h2 className="text-red-700 text-xl font-normal uppercase">
-                      {step.title}
-                    </h2>
-                    <p className="whitespace-pre-line mt-2 md:mt-4 text-[0.8rem]">{step.content}</p>
+                  {/* Content on the left side */}
+                  <div className="hidden md:block text-right px-0 md:px-8">
+                    <span className="text-gray-500 text-5xl font-normal">{`${index + 1}.`}</span>
+                    <h2 className="text-[rgba(202,3,32,255)] text-2xl font-normal  mt-4">{step.title}</h2>
+                    <p className="whitespace-pre-line mt-2 leading-5 text-xs">{step.content}</p>
                   </div>
-                  {/* Number on the right side */}
-                  <div className="hidden md:flex items-center justify-start pl-4">
-                    <span className="text-gray-500 text-5xl font-normal md:mb-4">{`${index + 1}.`}</span>
-                  </div>
+                   {/* Empty div for the right side */}
+                   <div className="hidden md:block"></div>
                 </>
               )}
             </div>
@@ -230,14 +223,14 @@ WHAT'S NEXT? +`,
       alt="How Will You Thrive"
       width={800}
       height={400}
-      className="w-70 h-20 md:w-[800px] md:h-[400px] object-contain"
+      className="w-70 h-20 md:w-[950px] md:h-[400px] object-contain"
     />
-    <button className="bg-red-700 w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
+    <button className="bg-[rgba(202,3,32,255)] w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
       JOIN US
     </button>
   </div>
  
-       <hr className="hidden md:blockw-8/12 md:w-5/12 mx-auto bg-red-500 h-[1.5px] mt-2 md:mt-14 mb-10" />
+       <hr className="hidden md:block w-8/12 md:w-5/12 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px] mt-2 md:mt-14 mb-10" />
       <Footer />
     </div>
   );

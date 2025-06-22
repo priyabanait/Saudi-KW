@@ -6,7 +6,10 @@ const nextConfig = {
       'storage.googleapis.com',
       'source.unsplash.com',
       'avatar.kwconnect.com',
-      'static.kw.com'
+      'static.kw.com',
+      "c.pxhere.com",
+      "images.unsplash.com",
+      "images.pexels.com"
     ],
   },
 };

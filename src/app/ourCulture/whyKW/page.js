@@ -128,7 +128,7 @@ By partnering with KW, you gain access to our state-of-the-art technology, empow
       </div>
 
        <main className="px-4 py-6 md:mt-2 mt-2">
-        <div className="max-w-7xl mx-auto text-center md:mt-16">
+        <div className="max-w-full mx-auto text-center md:mt-16">
         
          
           <p className="mt-2 md:mt-8 text-xs md:text-xs">WHY KELLER WILLIAMS SAUDI ?</p>

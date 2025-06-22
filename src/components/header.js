@@ -54,7 +54,7 @@ const Header = () => {
       {/* Navbar */}
       <header className={`  
         fixed top-0 w-full z-50  
-        flex justify-between items-center px-4 sm:px-6 py-2
+        flex justify-between items-center px-4 sm:px-6 py-4
         transition-all duration-300 ease-in-out  
         ${isVisible ? 'translate-y-0' : '-translate-y-full'}  
         ${isAtTop ? 'bg-transparent' : 'bg-gray-950/90 backdrop-blur-sm'}  
@@ -74,35 +74,35 @@ const Header = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-4 lg:space-x-6">
-          <Link href="/ourCulture" className="text-[0.6rem]  text-white hover:text-gray-300 transition-colors">
+        <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 tracking-wider">
+          <Link href="/ourCulture" className="text-[0.8rem]  text-white hover:text-gray-300 transition-colors">
             About Us
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="/properties" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
+          <Link href="/properties" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
             Search
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="/franchise" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
+          <Link href="/franchise" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
             Join Us
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="/contactUs" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
+          <Link href="/contactUs" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
             Contact Us
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="/contactUs" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
+          <Link href="/contactUs" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
             Instant Valuation
           </Link>
-          <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="#" className="text-[0.6rem] text-white hover:text-gray-300 transition-colors">
+        
+          <Link href="#" className="text-[0.8rem] ml-4 mr-8 text-white hover:text-gray-300 transition-colors">
             عربي
           </Link>
           <Link 
             href="#" 
-            className="border border-white px-4 py-1.5 rounded-full text-white hover:bg-white hover:text-black transition-colors text-[0.6rem]"
+            className="border border-white px-4 py-1.5 rounded-full text-white hover:bg-white hover:text-black transition-colors text-[0.8rem]"
           >
-            Sign In/Register
+            Agent Login
           </Link>
         </nav>
 
@@ -122,31 +122,44 @@ const Header = () => {
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
           <div className={`absolute md:hidden top-full left-0 right-0 py-4 px-6 space-y-4 shadow-lg bg-gray-950/95 backdrop-blur-sm`}>
-            <Link href="/ourCulture" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              About Us
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+            PROPERTIES
             </Link>
-            <Link href="/properties" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              Search
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+              MARKET CENTER
             </Link>
-            <Link href="/franchise" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              Join Us
+           
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+              BUYER
             </Link>
-            <Link href="/contactUs" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              Contact Us
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+              TENANT
             </Link>
-            <Link href="/contactUs" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              Instant Valuation
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+              SELLER
             </Link>
-            <Link href="#" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              عربي
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+              OUR CULTURE
+            </Link> 
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+             FRANCHISE
             </Link>
-            <Link 
-              href="#" 
-              className="w-full border border-white px-4 py-2 rounded-full text-white hover:bg-white hover:text-black transition-colors mt-2 inline-block text-center"
-            >
-              Sign In/Register
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+              LOGIN
             </Link>
-          </div>
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+             CONTACT US
+            </Link>
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+              JOIN US
+            </Link>
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+              INSTANT VALUATION
+            </Link>  
+            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
+             TERMS & POLICY
+            </Link> 
+                    </div>
         )}
       </header>
     </div>

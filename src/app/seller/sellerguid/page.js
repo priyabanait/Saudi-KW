@@ -104,10 +104,10 @@ What's Next?  +`,
 <main className="px-4 md:px-46 py-6 mt-4 md:mt-2">
   <div className=" p-4 md:p-0 max-w-full mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
-      <div className="w-full md:w-auto"> {/* Removed text-center from here since parent has it */}
+      <div className="w-full md:w-auto"> 
         <h1 className="text-lg md:text-3xl md:py-8 py-4">Selling Your <span className='text-[rgba(202,3,32,255)]'>Home</span> Guide</h1>
-        <p className="text-xs md:text-[0.8rem]">
-        You&rsquo;re Ready To Sell Your Property. And, While You&rsquo;re Looking Forward To Seeing The Word &quot;sold&quot; Posted From The Curb, You Know There&rsquo;s A Lot To Consider Along The Way.
+        <p className="text-xs md:text-[1rem]">
+        You&rsquo;re Ready To Sell Your Property. And, While You&rsquo;re Looking Forward To Seeing The Word &quot;SOLD&quot; Posted From The Curb, You Know There&rsquo;s A Lot To Consider Along The Way.
        
         
         One Of Your First Decisions Is To Select A Real Estate Company And Real Estate Agent Who&rsquo;ll Join You In The Process.
@@ -132,8 +132,8 @@ What's Next?  +`,
         transition: 'top 0.1s ease-out',
       }}
     >
-     <div className="w-4 h-4 relative flex items-start justify-center">
-  <span className="w-4 h-0.5 bg-[rgba(202,3,32,255)]" />
+     <div className="w-6 h-6 relative flex items-start justify-center">
+  <span className="w-6 h-[2.5px] bg-[rgba(202,3,32,255)]" />
 </div>
 
     </div>
@@ -169,19 +169,19 @@ What's Next?  +`,
                     <span className="text-gray-500 text-5xl font-normal md:mb-4">{`${index + 1}.`}</span>
                   </div>
                   <div className="hidden md:block text-left px-0 md:px-8">
-                    <h2 className="text-[rgba(202,3,32,255)] text-xl font-normal ">
+                    <h2 className="text-[rgba(202,3,32,255)] md:text-3xl text-xl font-normal ">
                       {step.title}
                     </h2>
-                    <p className="whitespace-pre-line mt-2 md:mt-4 leading-5 text-[0.8rem]">{step.content}</p>
+                    <p className="whitespace-pre-line mt-2 md:mt-4 leading-5 text-[1rem]">{step.content}</p>
                   </div>
                 </>
               ) : (
                 <>
                   <div className="hidden md:block text-left md:text-right px-0 md:px-8">
-                    <h2 className="text-[rgba(202,3,32,255)]  text-xl font-normal ">
+                    <h2 className="text-[rgba(202,3,32,255)] md:text-3xl text-xl font-normal ">
                       {step.title}
                     </h2>
-                    <p className="whitespace-pre-line mt-2 leading-5 md:mt-4 text-[0.8rem]">{step.content}</p>
+                    <p className="whitespace-pre-line mt-2 leading-5 md:mt-4 text-[1rem]">{step.content}</p>
                   </div>
                   {/* Number on the right side */}
                   <div className="hidden md:flex items-center justify-start pl-4">

@@ -36,7 +36,7 @@ WORTH GIVING, AND LEGACIES WORTH LEAVING.`,
     {
       icon: <FaAnchor className="text-3xl mb-4" />,
       title: 'OUR PERSPECTIVE',
-      text: `A technology company that provides the real estate platform that our agents' buyers and sellers prefer. Keller Williams thinks like a top producer, acts like a trainer-consultant, and focuses all its activities on service, productivity, and profitability`,
+      text: `A TECHNOLOGY COMPANY THAT PROVIDES THE REAL ESTATE PLATFORM THAT OUR AGENTS' BUYERS AND SELLERS PREFER. KELLER WILLIAMS THINKS LIKE A TOP PRODUCER, ACTS LIKE A TRAINER-CONSULTANT, AND FOCUSES ALL ITS ACTIVITIES ON SERVICE, PRODUCTIVITY, AND PROFITABILITY`,
     },
     {
       icon: <FaShieldAlt className="text-3xl" />,
@@ -126,11 +126,11 @@ SUCCESS: RESULTS THROUGH PEOPLE`
           <div className="mt-1">
             <p className="text-xs text-[0.6rem]">
               We are looking to introduce the individuals who are instrumental in driving our success. We believe that every moment holds great promise, and we are passionate about our daily
-            </p>
-            <p className="text-xs text-[0.6rem]">
+          
+       
               work. We have the most skilled employees at every stage of our operations. Our leadership team is a diverse group of individuals who bring a wealth of experience from various
-            </p>
-            <p className="text-xs text-[0.6rem]">
+         
+           
               areas within the company.
             </p>
           </div>
@@ -146,13 +146,12 @@ SUCCESS: RESULTS THROUGH PEOPLE`
 
           <hr className="w-30 md:w-46 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px] mt-1 md:mt-8" />
           <div className="md:mt-10 md:py-0 py-10">
-          <p className="md:mx-0 mx-4 font-[montserrat] tracking-[0em] md:text-[0.9rem] text-[0.7rem] md:font-normal font-semibold no-underline bg-transparent leading-[1.6]">
-  We believe that the company we keep can contribute to our lives in untold ways.
-  To help cement this understanding we&rsquo;ve formalized a
-</p>
+          <p className="md:mx-65 mx-4 font-normal tracking-[0em] md:text-[1rem] text-[0.7rem] md:font-normal  no-underline bg-transparent leading-[1.6]">
+          We Believe That The Company We Keep Can Contribute To Our Lives In Untold Ways.
+  To Help Cement This Understanding We&rsquo;ve Formalized A
 
-<p className="md:mx-0 mx-4 font-[montserrat] tracking-[0em] md:text-[0.9rem] text-[0.7rem] md:font-normal font-semibold no-underline bg-transparent leading-[1.6]">
-              Belief system that guides how we treat each other.
+
+              Belief System That Guides How We Treat Each Other.
             </p>
           </div>
         </div>
@@ -218,19 +217,13 @@ SUCCESS: RESULTS THROUGH PEOPLE`
         <div className="mx-auto text-center">
          
           <div className="mt-1">
-            <p className="text-xs md:text-[0.8rem]">
-            We are looking to introduce the individuals who are instrumental in driving our success. We believe that every moment holds great promise, and we are passionate about our daily
-            </p>
-            <p className="text-xs md:text-[0.8rem]">
-              work. We have the most skilled employees at every stage of our operations. Our leadership team is a diverse group of individuals who bring a wealth of experience from various
-            </p>
-              <p className="text-xs md:text-[0.8rem]">
-             areas within the company.
+            <p className="text-xs md:mx-45 mx-0 md:text-[1rem]">
+            We Are Looking To Introduce The Individuals Who Are Instrumental In Driving Our Success. We Believe That Every Moment Holds Great Promise, And We Are Passionate About Our Daily Work. We Have The Most Skilled Employees At Every Stage Of Our Operations. Our Leadership Team Is A Diverse Group Of Individuals Who Bring A Wealth Of Experience From Various Areas Within The Company.
             </p>
           </div>
         </div>
       </main>
-<div className="min-h-screen flex flex-col items-center justify-start pt-25 md:pt-10 md:mx-10 mx-6 tracking-[0.2em">
+<div className="min-h-screen flex flex-col items-center justify-start pt-25 md:pt-10 md:mx-10 mx-6 ">
   <div className="flex flex-col md:flex-row w-full ">
     {/* Left Image */}
     <div className="w-full md:w-full flex justify-center items-start ">
@@ -249,11 +242,11 @@ SUCCESS: RESULTS THROUGH PEOPLE`
         MEET OUR <span className="text-[rgba(202,3,32,255)] font-bold">CEO</span>
       </h1>
 
-      <h2 className="text-[rgba(202,3,32,255)] py-4 md:py-0 mt-4 md:mt-14 text-[0.7rem] md:text-[0.9rem] font-semibold tracking-wider">
+      <h2 className="text-[rgba(202,3,32,255)] py-4 md:py-4 mt-4 md:mt-14 text-[0.7rem] md:text-[0.9rem] font-semibold tracking-wider">
         CEO MESSAGE
       </h2>
 
-      <p className="mt-4 md:text-[0.8rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
+      <p className="mt-4 md:text-[0.9rem] text-[0.7rem] text-gray-700 md:leading-5 leading-normal max-w-md">
         More than ever, we want to thank and recognize our agents and partners
         for diligently bringing their very
         
@@ -265,7 +258,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
         ourselves how we can best support them.
       </p>
 
-      <p className="mt-6 md:text-[0.8rem] text-[0.7rem] text-gray-700 md:leading-tight leading-normal max-w-md">
+      <p className="mt-6 md:text-[0.9rem] text-[0.7rem] text-gray-700 md:leading-5 leading-normal max-w-md">
         KW has cultivated a agent-  
 
         centric, technology-driven, and
@@ -324,7 +317,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
  
                 {member.title}
               </p>
-              <p className="text-xs md:text-sm mb-1 text-gray-600 mt-8 md:mt-28">{member.email}</p>
+              <p className="text-[0.6rem] md:text-sm mb-1 text-gray-600 mt-8 md:mt-28">{member.email}</p>
               <p className="text-xs md:text-sm text-gray-600">{member.phone}</p>
             </div>
           </div>
@@ -347,7 +340,7 @@ SUCCESS: RESULTS THROUGH PEOPLE`
                  </div>
            
       <main className=" hidden md:block px-4 py-2 md:py-6 md:mt-2">
-        <div className="max-w-7xl mx-auto text-center md:mt-14">
+        <div className="max-w-full mx-auto text-center md:mt-14">
           <p className="text-2xl md:text-4xl font-normal">
             KW SAUDI ARABIA
           </p>

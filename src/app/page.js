@@ -1,12 +1,65 @@
 'use client'
-import React, { useState } from "react";
+
 import { FaSearch, FaBars, FaTimes, FaBuilding, FaChevronDown } from "react-icons/fa";
 import Link from 'next/link';
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Image from 'next/image';
-
+import React, { useRef,useState,useEffect,useMemo  } from 'react';
+import { ArrowRight } from 'lucide-react';
 const Home = () => {
+ 
+  const scrollRef = useRef(null);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  const properties =useMemo(() => [
+    {
+      title: "Marina View Tower",
+      location: "Mecca, KSA",
+      price: "SAR 6,500",
+      image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29",
+    },
+    {
+      title: "Al Noor Villas",
+      location: "Medina, KSA",
+      price: "SAR 6,500",
+      image: "https://images.unsplash.com/photo-1523217582562-09d0def993a6",
+    },
+    {
+      title: "The Haven Residences",
+      location: "Dammam, KSA",
+      price: "SAR 6,500",
+      image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae",
+    },
+    {
+      title: "Pearl Gardens",
+      location: "Khobar, KSA",
+      price: "SAR 6,500",
+      image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
+    },
+  ], []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+
+    const checkOverflow = () => {
+      if (el && el.scrollWidth > el.clientWidth) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    checkOverflow(); // Initial check
+    window.addEventListener("resize", checkOverflow);
+    return () => window.removeEventListener("resize", checkOverflow);
+  }, [properties]);
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  }
   return (
     <div className="relative w-full">
   <Header />
@@ -32,13 +85,13 @@ const Home = () => {
       ONE MOVE COULD SHAPE YOUR FUTURE
     </h1>
 
-    <div className="w-full max-w-[920px] bg-gray-500/50 backdrop-blur-sm md:rounded-[40px] rounded-xl shadow-xl px-2.5 md:px-4 py-4  mx-auto">
+    <div className="w-full max-w-[920px] bg-gray-500/50 backdrop-blur-sm md:rounded-[40px] rounded-xl shadow-xl px-2.5 md:px-4 py-3 md:py-5  mx-auto">
   {/* Tabs - with reduced width */}
   <div className="flex justify-between items-center bg-white rounded-full  overflow-hidden text-xs md:text-base font-semibold w-3/4 mx-auto">
   {["Buy", "Rent", "Commercial"].map((tab, i, arr) => (
     <React.Fragment key={tab}>
       <div
-        className={`flex-1 text-center py- mx-4 cursor-pointer ${
+        className={`flex-1 text-center py-0 md:py-2 mx-4 cursor-pointer ${
           i === 0 
             ? "text-[rgba(202,3,32,255)] bg-white font-bold" 
             : "text-gray-600 font-normal"
@@ -48,7 +101,7 @@ const Home = () => {
       </div>
      {/* Divider with responsive spacing */}
 {i < arr.length - 1 && (
-  <div className="w-px h-8 bg-gray-400 mx-1 md:mx-2"></div>
+  <div className="w-px h-7 md:h-10 bg-gray-400 mx-1 md:mx-2"></div>
 )}
     </React.Fragment>
   ))}
@@ -109,7 +162,7 @@ const Home = () => {
 </div>
 
     {/* Search Button (full width below) */}
-    <button className="bg-[rgba(202,3,32,255)] text-white justify-center items-center w-30 py-2 text-[0.6rem] rounded-full mt-1 focus:outline-none focus:ring-0 block mx-auto">
+    <button className="bg-[rgba(202,3,32,255)] text-white justify-center  items-center w-30 py-2 text-[0.6rem] rounded-full mt-1 focus:outline-none focus:ring-0 block mx-auto">
   Search
 </button>
   </div>
@@ -228,22 +281,48 @@ const Home = () => {
   </div>
 </div>
 
-      <div className="flex justify-center items-center my-4 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8 mb-10 md:mb-0">
+      <div className="flex justify-center items-center mt-4 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8  md:mb-0">
         <hr className="md:w-140 w-44 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px]" />
       </div>
 
       {/* First Home Block */}
-      <div className="md:my-12 my-4">
-         <Link href="/properties">
-        <Image
-          src="/marinaView.jpg"
-          alt="Modern Home"
-          width={1920}
-          height={1080}
-          className="w-full h-auto md:h-auto border-2 border-white rounded-2xl object-contain"
-        />
-        </Link>
+      <div className="relative w-full px-6 md:py-30 py-15 bg-white">
+  <div
+    ref={scrollRef}
+    className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar w-full"
+  >
+    {properties.map((property, index) => (
+    <div
+    key={index}
+    className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3 max-w-[80%] sm:max-w-[50%] md:max-w-[30%] md:h-[330px] h-[200px] rounded-xl overflow-hidden shadow-md bg-white relative"
+  >
+    <Image
+      src={property.image}
+      alt={property.title}
+      fill
+      className="w-full h-full object-cover"
+    />
+ 
+        <div className="absolute bottom-4 left-4 text-white drop-shadow">
+          <h3 className="text-md font-semibold">{property.title}</h3>
+          <p className="text-sm">{property.location}</p>
+        </div>
+        <div className="absolute bottom-4 right-4 bg-black/70 text-white px-2 py-1 rounded-full text-sm font-semibold">
+          {property.price}
+        </div>
       </div>
+    ))}
+  </div>
+
+  {showScrollButton && (
+    <button
+      onClick={scrollRight}
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10"
+    >
+      <ArrowRight size={20} />
+    </button>
+  )}
+</div>
 
       <main className="w-full">
         <div className="flex flex-col lg:flex-row h-auto lg:h-screen">
@@ -343,7 +422,7 @@ const Home = () => {
             <h1 className="text-xs md:text-4xl font-bold mb-2">
               WHY WORK WITH US
             </h1>
-            <hr className="md:w-1/2 w-50 mx-auto border-0 border-gray-400" />
+            <hr className="md:w-1/2 w-44 mx-auto border-gray-400 h-[2px]" />
           </div>
 
           {/* Stats Grid */}

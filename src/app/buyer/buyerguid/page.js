@@ -133,7 +133,7 @@ What's Next? +`,
       <div className="w-full md:w-auto">  {/* Removed text-center from here since parent has it */}
         <h1 className="text-lg md:text-3xl tracking-[0.2em] md:tracking-[0.1em] py-4  md:py-8">Home <span className='text-red-700'>Buying </span> Tips from Keller Williams</h1>
        <div className='mx-12 md:mx-0 tracking-[0.1em] md:tracking-normal'>
-       <p className="text-xs md:text-[0.8rem]">
+       <p className="text-xs md:text-[1rem]">
           Our Experience, A House Is Not A Dream Home Because Of Its Size Or Colour. Its About How You Feel When You Walk Through The Front Door – The Way You Can Instantly See
       
        
@@ -161,8 +161,8 @@ What's Next? +`,
         transition: 'top 0.1s ease-out',
       }}
     >
-     <div className="w-4 h-4 relative flex items-start justify-center">
-  <span className="w-4 h-0.5 bg-[rgba(202,3,32,255)]" />
+     <div className="w-6 h-6 relative flex items-start justify-center">
+  <span className="w-6 h-[2.5px] bg-[rgba(202,3,32,255)]" />
 </div>
 
     </div>
@@ -195,8 +195,9 @@ What's Next? +`,
                   <div className="hidden md:block"></div>
                   <div className="hidden md:block text-left px-0 md:px-8">
                     <span className="text-gray-500 text-5xl font-normal">{`${index + 1}.`}</span>
-                    <h2 className="text-[rgba(202,3,32,255)] text-2xl font-normal  mt-4">{step.title}</h2>
-                    <p className="whitespace-pre-line mt-2 leading-5 text-xs">{step.content}</p>
+                    <h2 className="text-[rgba(202,3,32,255)] md:text-3xl text-xl font-normal mt-4">
+                      {step.title}</h2>
+                    <p className="whitespace-pre-line mt-2 leading-5 md:mt-4 text-[1rem]">{step.content}</p>
                   </div>
                 </>
               ) : (
@@ -204,8 +205,9 @@ What's Next? +`,
                   {/* Content on the left side */}
                   <div className="hidden md:block text-right px-0 md:px-8">
                     <span className="text-gray-500 text-5xl font-normal">{`${index + 1}.`}</span>
-                    <h2 className="text-[rgba(202,3,32,255)] text-2xl font-normal  mt-4">{step.title}</h2>
-                    <p className="whitespace-pre-line mt-2 leading-5 text-xs">{step.content}</p>
+                    <h2 className="text-[rgba(202,3,32,255)] md:text-3xl text-xl font-normal mt-4">
+                      {step.title}</h2>
+                    <p className="whitespace-pre-line mt-2 leading-5 md:mt-4 text-[1rem]">{step.content}</p>
                   </div>
                    {/* Empty div for the right side */}
                    <div className="hidden md:block"></div>

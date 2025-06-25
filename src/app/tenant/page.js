@@ -88,7 +88,7 @@ const Tenant = () => {
                 <div className="ml-22 w-[1px] bg-[rgba(202,3,32,255)] h-auto md:h-40 my-4 group-hover:opacity-0 transition-opacity duration-300"></div>
               </div>
               {/* Description */}
-              <div className="col-span-5 md:col-span-6 flex items-center text-[0.6rem] md:text-[0.9rem]  leading-relaxed text-gray-700 group-hover:text-white py-4">
+              <div className="col-span-5 md:col-span-6 flex items-center text-[0.6rem] md:text-[1rem]  leading-relaxed text-gray-700 group-hover:text-white py-4">
                 {section.description}
               </div>
             </div>

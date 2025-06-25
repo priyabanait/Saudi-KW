@@ -11,7 +11,7 @@ const Sold = () => {
           <Header />
       <Box h3={"Sold  Listings"} src="/kwbg-image.jpg" image="/properties2.jpg" />
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 text-[10px] md:text-xs w-full mt-4 md:mt-12 max-w-full px-4 md:px-34 mb-10">
-  {/* Row 1 - First two dropdowns */}
+  {/* Row 1 - First two dropdowns
   <div className="col-span-1">
     <select className="w-full text-sm md:text-[0.9rem] md:leading-normal p-1.5 md:p-0 flex justify-center text-center">
       <option>PROPERTY TYPE</option>
@@ -32,7 +32,7 @@ const Sold = () => {
     </select>
   </div>
 
-  {/* Row 2 - Next two dropdowns */}
+ 
   <div className="col-span-1 mt-3 md:mt-0">
     <select className="w-full text-sm md:text-[0.9rem] md:leading-normal p-1.5 md:p-0 flex justify-center text-center">
       <option>PROPERTY SUBTYPE</option>
@@ -100,7 +100,7 @@ const Sold = () => {
       [&::-webkit-slider-thumb]:bg-[rgba(202,3,32,255)]"
   />
   <span className="md:text-[0.9rem] text-sm mt-4 ml-35 md:ml-28">750000 SAR</span>
-</div>
+</div> */}
 
       </div>
    <PropertyType type='Sold'></PropertyType>

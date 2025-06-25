@@ -80,12 +80,12 @@ Your KW Agent will guide you with a few suggestions such as  +`,
     
 
       {/* Main Content Section */}
-      <main className="px-4 md:px-46 py-6 mt-4 md:mt-2">
+      <main className="px-4 md:px-40 py-6 mt-4 md:mt-2">
         <div className="max-w-full mx-12 px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-8">
             <div className="w-full md:w-auto text-center">
-<p className='text-xs md:text-[0.8rem]'>
-  You&rsquo;re Ready To Sell Your Property. And, While You&rsquo;re Looking Forward To Seeing The Word &quot;sold&quot; 
+<p className='text-xs md:text-[1rem]'>
+  You&rsquo;re Ready To Sell Your Property. And, While You&rsquo;re Looking Forward To Seeing The Word &quot;SOLD&quot; 
   Posted From The Curb, You Know There&rsquo;s A Lot To Consider Along The Way. One Of Your First Decisions Is To Select A Real Estate Company And Real Estate Agent Who&rsquo;ll Join You In The Process.
 </p>
 
@@ -110,8 +110,8 @@ Your KW Agent will guide you with a few suggestions such as  +`,
         transition: 'top 0.1s ease-out',
       }}
     >
-     <div className="w-4 h-4 relative flex items-start justify-center">
-  <span className="w-4 h-0.5 bg-[rgba(202,3,32,255)]" />
+     <div className="w-6 h-6 relative flex items-start justify-center">
+  <span className="w-8 h-[2.5px] bg-[rgba(202,3,32,255)]" />
 </div>
 
     </div>
@@ -137,15 +137,15 @@ Your KW Agent will guide you with a few suggestions such as  +`,
       <>
         <div className="hidden md:block" />
         <div className="hidden md:block text-left px-0 md:px-12">
-          <h2 className="text-[rgba(202,3,32,255)] text-xl md:text-2xl font-normal ">{step.title}</h2>
-          <p className="whitespace-pre-line mt-2 md:mt-4 md:text-[0.8rem] text-[0.8rem]">{step.content}</p>
+          <h2 className="text-[rgba(202,3,32,255)] text-xl md:text-3xl font-normal ">{step.title}</h2>
+          <p className="whitespace-pre-line mt-2 md:mt-4 md:text-[1rem] text-[0.8rem]">{step.content}</p>
         </div>
       </>
     ) : (
       <>
         <div className="hidden md:block text-right px-0 md:px-12">
-          <h2 className="text-[rgba(202,3,32,255)] text-xl md:text-2xl font-normal ">{step.title}</h2>
-          <p className="whitespace-pre-line mt-2 md:mt-4 md:text-[0.8rem] text-[0.8rem]">{step.content}</p>
+          <h2 className="text-[rgba(202,3,32,255)] text-xl md:text-3xl font-normal ">{step.title}</h2>
+          <p className="whitespace-pre-line mt-2 md:mt-4 md:text-[1rem] text-[0.8rem]">{step.content}</p>
         </div>
         <div className="hidden md:block" />
       </>

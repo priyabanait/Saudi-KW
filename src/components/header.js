@@ -9,13 +9,18 @@ import {
 } from "react-icons/fa";
 import Link from 'next/link';
 import Image from 'next/image';
-
+import { FaChevronUp } from 'react-icons/fa';
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpens, setIsMenuOpens] = useState(false);
   const [isVisible, setIsVisible] = useState(true);  
   const [isAtTop, setIsAtTop] = useState(true);  
   const prevScrollY = useRef(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // simulate toggle
+  const [openSubmenu, setOpenSubmenu] = useState(null);
 
+  const toggleSubmenu = (key) => {
+    setOpenSubmenu(prev => (prev === key ? null : key));
+  };
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -48,6 +53,48 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });  
     return () => window.removeEventListener('scroll', handleScroll);  
   }, []);
+  const menuItems = [
+    { label: 'PROPERTIES', key: 'properties',  submenu: [
+      { label: 'ACTIVE', href: '/properties/active' },
+      { label: 'SOLD', href: '/properties/sold' },
+      { label: 'RENT', href: '/properties/rent' },
+      { label: 'AUCTION', href: '/properties/auction' },
+      { label: 'INTERNATIONAL', href: 'https://www.kw.com/search/sale?viewport=56.41671222773751%2C120.63362495324327%2C-14.684966046563696%2C-6.807781296756721' }
+    ]},
+    { label: 'MARKET CENTER', key: 'market', submenu: [
+      { label: 'ALL MC', href: '/marketCenter' },
+      { label: 'JASMINE', href: '/riyadh' },
+      { label: 'JEDDAH', href: '/jeddah' }
+    ] },
+    { label: 'BUYER', key: 'buyer', submenu: [
+      { label: 'SEARCH PROPERTY', href: '/properties' },
+      { label: 'AUCTION', href: '/properties/auction' },
+      { label: 'NEW DEVELOPMENT', href: '/properties/newdevelopment' },
+      { label: 'BUYING GUIDE', href: '/buyer/buyerguid' }
+    ]},
+    { label: 'TENANT', key: 'tenant', submenu: [
+      { label: 'RENT SEARCH', href: '/properties/rent' },
+      { label: 'TENANT GUIDE', href: '/tenant' }
+    ] },
+    { label: 'SELLER', key: 'seller',  submenu: [
+      { label: 'SEARCH AGENT', href: '/agent' },
+      { label: 'FIVE STEPS TO SELL', href: '/seller' },
+      { label: 'SELLER GUIDE', href: 'seller/sellerguid' }
+    ]},
+    { label: 'OUR CULTURE', key: 'culture', submenu: [
+      { label: 'OUR PROMISE', href: '/ourpromise' },
+      { label: 'ABOUT US', href: '/ourCulture' },
+      { label: 'WHY KW', href: '/ourCulture/whyKW' },
+      { label: 'KW TRAINING', href: '/culture/training' },
+      { label: 'KW TECHNOLOGY', href: '/ourCulture/kwuniversity"' }
+    ] },
+    { label: 'FRANCHISE', key: 'franchise',href: '/franchise'   },
+    { label: 'LOGIN', key: 'login',href: '/franchise' },
+    { label: 'CONTACT US', key: 'contact',href: '/franchise' },
+    { label: 'JOIN US', key: 'join' ,href: '/franchise'},
+    { label: 'INSTANT VALUATION', key: 'valuation',href: '/franchise' },
+    { label: 'TERMS & POLICY', key: 'terms',href: '/franchise' },
+  ];
 
   return (
     <div className="relative">
@@ -57,7 +104,8 @@ const Header = () => {
         flex justify-between items-center px-4 sm:px-6 py-4
         transition-all duration-300 ease-in-out  
         ${isVisible ? 'translate-y-0' : '-translate-y-full'}  
-        ${isAtTop ? 'bg-transparent' : 'bg-gray-950/90 backdrop-blur-sm'}  
+      
+         ${isAtTop && !isMenuOpen ? 'bg-transparent' : 'bg-gray-950/90 backdrop-blur-sm'}  
       `}>
         {/* Logo */}
         <div className="flex-shrink-0">
@@ -91,7 +139,7 @@ const Header = () => {
             Contact Us
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="/contactUs" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
+          <Link href="/instantvaluation" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
             Instant Valuation
           </Link>
         
@@ -121,46 +169,54 @@ const Header = () => {
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
-          <div className={`absolute md:hidden top-full left-0 right-0 py-4 px-6 space-y-4 shadow-lg bg-gray-950/95 backdrop-blur-sm`}>
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-            PROPERTIES
-            </Link>
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-              MARKET CENTER
-            </Link>
-           
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-              BUYER
-            </Link>
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-              TENANT
-            </Link>
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-              SELLER
-            </Link>
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-              OUR CULTURE
-            </Link> 
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-             FRANCHISE
-            </Link>
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-              LOGIN
-            </Link>
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-             CONTACT US
-            </Link>
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-              JOIN US
-            </Link>
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-              INSTANT VALUATION
-            </Link>  
-            <Link href="#" className="block py-1 text-white hover:text-gray-300 transition-colors">
-             TERMS & POLICY
-            </Link> 
-                    </div>
-        )}
+          
+        <div className="absolute md:hidden top-full ml-10 left-0 right-0 py-4  px-6 space-y-4 shadow-lg bg-gray-950/90 backdrop-blur-sm z-50">
+          {menuItems.map(item => (
+            <div key={item.key}>
+              <div
+                onClick={() => item.submenu && toggleSubmenu(item.key)}
+                className="flex justify-between items-center text-white hover:text-gray-300 transition-colors cursor-pointer py-1"
+              >
+         <span
+  className={`${
+    openSubmenu === item.key
+      ? 'text-[rgba(202,3,32,255)] font-semibold underline'
+      : ["JOIN US", "CONTACT US"].includes(item.label)
+      ? 'text-[rgba(202,3,32,255)] font-semibold'
+      : 'text-white'
+  }`}
+>
+  {item.label}
+</span>
+
+
+
+
+                {item.submenu && (
+  openSubmenu === item.key ? (
+    <FaChevronUp size={14} className="text-white" />
+  ) : (
+    <FaChevronDown size={14} className="text-[rgba(202,3,32,255)]" />
+  )
+)}
+
+              </div>
+
+              {/* Submenu */}
+              {item.submenu && openSubmenu === item.key && (
+  <div className="mt-1 space-y-3 text-base text-gray-300">
+    {item.submenu.map(sub => (
+      <Link href={sub.href} key={sub.href} className="block hover:text-white">
+        {sub.label}
+      </Link>
+    ))}
+  </div>
+)}
+
+            </div>
+          ))}
+        </div>
+      )}
       </header>
     </div>
   );

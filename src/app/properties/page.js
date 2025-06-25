@@ -4,19 +4,152 @@ import Image from 'next/image';
 
 import Footer from '@/components/footer';
 
-import { useState,useRef,useEffect } from 'react';
+import { ArrowRight } from 'lucide-react';
+import { useState,useRef,useEffect,useMemo } from 'react';
+import { FaChevronUp,FaChevronDown } from 'react-icons/fa';
 import { FaSearch, FaCheckCircle,FaBars, FaGavel, FaTimes,FaStar, FaGlobeAmericas, FaHome } from 'react-icons/fa';
 import Link from 'next/link';
 
 const Properties = () => {
+  const scrollRef = useRef(null);
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  const properties = useMemo(() =>[
+    {
+      title: "Marina View Tower",
+      location: "Mecca, KSA",
+      price: "SAR 6,500",
+      image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29",
+    },
+    {
+      title: "Al Noor Villas",
+      location: "Medina, KSA",
+      price: "SAR 6,500",
+      image: "https://images.unsplash.com/photo-1523217582562-09d0def993a6",
+    },
+    {
+      title: "The Haven Residences",
+      location: "Dammam, KSA",
+      price: "SAR 6,500",
+      image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae",
+    },
+    {
+      title: "Pearl Gardens",
+      location: "Khobar, KSA",
+      price: "SAR 6,500",
+      image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
+    },
+  ], []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+
+    const checkOverflow = () => {
+      if (el && el.scrollWidth > el.clientWidth) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    checkOverflow(); // Initial check
+    window.addEventListener("resize", checkOverflow);
+    return () => window.removeEventListener("resize", checkOverflow);
+  }, [properties]);
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  }
   const [isMenuOpen, setIsMenuOpen] = useState(false);
        const [isVisible, setIsVisible] = useState(true);  
        const [isAtTop, setIsAtTop] = useState(true);  
        const prevScrollY = useRef(0);
+      
+   
+ 
+ 
+       const [openSubmenu, setOpenSubmenu] = useState(null);
      
+       const toggleSubmenu = (key) => {
+         setOpenSubmenu(prev => (prev === key ? null : key));
+       };
        const toggleMenu = () => {
          setIsMenuOpen(!isMenuOpen);
        };
+     
+       useEffect(() => {  
+         const handleScroll = () => {  
+           const currentScrollY = window.scrollY;  
+     
+           // At the very top  
+           if (currentScrollY < 10) {  
+             setIsAtTop(true);  
+             setIsVisible(true);  
+             return;  
+           } else {  
+             setIsAtTop(false);  
+           }  
+     
+           // Scrolling down → Hide header  
+           if (currentScrollY > prevScrollY.current) {  
+             setIsVisible(false);  
+           }  
+           // Scrolling up → Show header  
+           else {  
+             setIsVisible(true);  
+           }  
+     
+           prevScrollY.current = currentScrollY;  
+         };  
+     
+         window.addEventListener('scroll', handleScroll, { passive: true });  
+         return () => window.removeEventListener('scroll', handleScroll);  
+       }, []);
+       const menuItems = [
+         { label: 'PROPERTIES', key: 'properties',  submenu: [
+           { label: 'ACTIVE', href: '/properties/active' },
+           { label: 'SOLD', href: '/properties/sold' },
+           { label: 'RENT', href: '/properties/rent' },
+           { label: 'AUCTION', href: '/properties/auction' },
+           { label: 'INTERNATIONAL', href: 'https://www.kw.com/search/sale?viewport=56.41671222773751%2C120.63362495324327%2C-14.684966046563696%2C-6.807781296756721' }
+         ]},
+         { label: 'MARKET CENTER', key: 'market', submenu: [
+           { label: 'ALL MC', href: '/marketCenter' },
+           { label: 'JASMINE', href: '/riyadh' },
+           { label: 'JEDDAH', href: '/jeddah' }
+         ] },
+         { label: 'BUYER', key: 'buyer', submenu: [
+           { label: 'SEARCH PROPERTY', href: '/properties' },
+           { label: 'AUCTION', href: '/properties/auction' },
+           { label: 'NEW DEVELOPMENT', href: '/properties/newdevelopment' },
+           { label: 'BUYING GUIDE', href: '/buyer/buyerguid' }
+         ]},
+         { label: 'TENANT', key: 'tenant', submenu: [
+           { label: 'RENT SEARCH', href: '/properties/rent' },
+           { label: 'TENANT GUIDE', href: '/tenant' }
+         ] },
+         { label: 'SELLER', key: 'seller',  submenu: [
+           { label: 'SEARCH AGENT', href: '/agent' },
+           { label: 'FIVE STEPS TO SELL', href: '/seller' },
+           { label: 'SELLER GUIDE', href: 'seller/sellerguid' }
+         ]},
+         { label: 'OUR CULTURE', key: 'culture', submenu: [
+           { label: 'OUR PROMISE', href: '/ourpromise' },
+           { label: 'ABOUT US', href: '/ourCulture' },
+           { label: 'WHY KW', href: '/ourCulture/whyKW' },
+           { label: 'KW TRAINING', href: '/culture/training' },
+           { label: 'KW TECHNOLOGY', href: '/ourCulture/kwuniversity"' }
+         ] },
+         { label: 'FRANCHISE', key: 'franchise',href: '/franchise'   },
+         { label: 'LOGIN', key: 'login',href: '/franchise' },
+         { label: 'CONTACT US', key: 'contact',href: '/franchise' },
+         { label: 'JOIN US', key: 'join' ,href: '/franchise'},
+         { label: 'INSTANT VALUATION', key: 'valuation',href: '/franchise' },
+         { label: 'TERMS & POLICY', key: 'terms',href: '/franchise' },
+       ];
+      
      
        useEffect(() => {  
          const handleScroll = () => {  
@@ -61,7 +194,7 @@ const Properties = () => {
       href: '/commercial'
     },
     {
-      image:'/sold.png',
+      image:'/sold3.png',
       title: 'Sold',
       subtitle: 'Properties',
       href: '/sold'
@@ -161,36 +294,56 @@ const Properties = () => {
           )}
         </button>
 
-        {/* Mobile Menu Dropdown */}
-        {isMenuOpen && (
-          <div className={`absolute md:hidden top-full left-0 right-0 py-4 px-6 space-y-4 shadow-lg bg-gray-950/95 backdrop-blur-sm`}>
-            <Link href="/ourCulture" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              About Us
-            </Link>
-            <Link href="/properties" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              Search
-            </Link>
-            <Link href="/franchise" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              Join Us
-            </Link>
-            <Link href="/contactUs" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              Contact Us
-            </Link>
-            <Link href="/contactUs" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              Instant Valuation
-            </Link>
-            <Link href="#" className="block py-2 text-white hover:text-gray-300 transition-colors">
-              عربي
-            </Link>
-            <Link 
-              href="#" 
-              className="w-full border border-white px-4 py-2 rounded-full text-white hover:bg-white hover:text-black transition-colors mt-2 inline-block text-center"
-            >
-              Sign In/Register
-            </Link>
+       {/* Mobile Menu Dropdown */}
+       {isMenuOpen && (
+          
+          <div className="absolute md:hidden top-full ml-10 left-0 right-0 py-4  px-6 space-y-4 shadow-lg bg-gray-950/90 backdrop-blur-sm z-50">
+            {menuItems.map(item => (
+              <div key={item.key}>
+                <div
+                  onClick={() => item.submenu && toggleSubmenu(item.key)}
+                  className="flex justify-between items-center text-white hover:text-gray-300 transition-colors cursor-pointer py-1"
+                >
+            <span
+  className={`${
+    openSubmenu === item.key
+      ? 'text-[rgba(202,3,32,255)] font-semibold underline'
+      : ["JOIN US", "CONTACT US"].includes(item.label)
+      ? 'text-[rgba(202,3,32,255)] font-semibold'
+      : 'text-white'
+  }`}
+>
+  {item.label}
+</span>
+  
+  
+  
+                  {item.submenu && (
+    openSubmenu === item.key ? (
+      <FaChevronUp size={14} className="text-white" />
+    ) : (
+      <FaChevronDown size={14} className="text-[rgba(202,3,32,255)]" />
+    )
+  )}
+  
+                </div>
+  
+                {/* Submenu */}
+                {item.submenu && openSubmenu === item.key && (
+    <div className="mt-1 space-y-3 text-base text-gray-300">
+      {item.submenu.map(sub => (
+        <Link href={sub.href} key={sub.href} className="block hover:text-white">
+          {sub.label}
+        </Link>
+      ))}
+    </div>
+  )}
+  
+              </div>
+            ))}
           </div>
         )}
-      </header>
+        </header>
 
       <main className="max-w-full mx-auto px-4 mt-10 md:mt-35 py-8 md:py-4">
         {/* Icon and Title */}
@@ -341,7 +494,7 @@ const Properties = () => {
   <hr className="md:w-140 w-50 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px]" />
 </div>
         {/* New Property Cards Section */}
-        <div className="md:mt-10 mt-4 md:mx-12">
+        <div className="md:mt-10 mt-10 md:mx-12">
   <div className="flex items-center justify-between md:mx-6 flex-wrap gap-4">
     {/* Left: Icon + Heading */}
     <p className="flex items-center text-xl md:text-3xl font-normal">
@@ -350,51 +503,81 @@ const Properties = () => {
         alt="Residential"
         width={40}
         height={40}
-        className="w-8 h-8 md:w-16 md:h-16 mr-2"></Image>
+        className="w-8 h-8 md:w-16 md:h-16 mr-5"></Image>
     
       <span className="text-gray-500 ">Residential Active Properties</span>
     </p>
 
     {/* Right: Button */}
     <Link href="/properties/active">
-    <button className="hidden md:flex text-sm md:text-base mr-6 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+    <button className="hidden md:flex text-sm md:text-base  bg-[rgba(202,3,32,255)] text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
       Click Here To View All Residential Properties
     </button>
     </Link>
     </div>
-     <Link href="/properties/active">
-    <button className="block md:hidden text-sm md:text-base bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+    
+
+
+          {/* First Home Block */}
+          <div className="mb-2 md:mb-10">
+           {/* First Home Block */}
+      <div className="relative w-full px-6 md:py-10 py-5 bg-white">
+  <div
+    ref={scrollRef}
+    className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar w-full"
+  >
+    {properties.map((property, index) => (
+    <div
+    key={index}
+    className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3 max-w-[80%] sm:max-w-[50%] md:max-w-[30%] md:h-[330px] h-[200px] rounded-xl overflow-hidden shadow-md bg-white relative"
+  >
+    <Image
+      src={property.image}
+      alt={property.title}
+     fill
+      className="w-full h-full object-cover"
+    />
+ 
+        <div className="absolute bottom-4 left-4 text-white drop-shadow">
+          <h3 className="text-md font-semibold">{property.title}</h3>
+          <p className="text-sm">{property.location}</p>
+        </div>
+        <div className="absolute bottom-4 right-4 bg-black/70 text-white px-2 py-1 rounded-full text-sm font-semibold">
+          {property.price}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {showScrollButton && (
+    <button
+      onClick={scrollRight}
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10"
+    >
+      <ArrowRight size={20} />
+    </button>
+  )}
+</div>
+           
+          </div>
+        </div>
+        <Link href="/properties/active">
+    <button className="block md:hidden mx-auto text-sm mb-10 md:text-base bg-[rgba(202,3,32,255)] text-white px-4 py-1 rounded-lg hover:bg-red-700 transition">
       Click Here
     </button>
     </Link>
   
-
-
-          {/* First Home Block */}
-          <div className="mb-4 md:mb-10">
-            <Link href="/properties">
-              <Image
-                src="/marinaView.jpg"
-                alt="Modern Home"
-                width={1920}
-                height={1080}
-                className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
-              />
-            </Link>
-           
-          </div>
-        </div>
          {/* sold Property Cards Section */}
          <div className="md:mt-10 mt-4 md:mx-12">
   <div className="flex items-center justify-between md:mx-6">
     {/* Left: Icon + Text */}
     <p className="flex items-center text-xl md:text-3xl font-normal">
     <Image
-  src="/sold.png"
+  src="/sold3.png"
   alt="Residential"
   width={40} 
   height={40}
-  className="w-8 h-8 md:w-16 md:h-16 mr-2"
+  className="w-8 h-8 md:w-16 md:h-16 mr-5"
 />
 
 
@@ -403,33 +586,63 @@ const Properties = () => {
 
     {/* Right: Button */}
     <Link href="/properties/sold"> 
-    <button className="hidden md:flex text-sm md:text-base mr-6 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+    <button className="hidden md:flex text-sm md:text-base  bg-[rgba(202,3,32,255)] text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
       Click Here To View All Sold Properties
     </button>
     </Link>
     </div>
-    <Link href="/properties/sold">
-    <button className="block md:hidden text-sm md:text-base bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
-      Click Here
-    </button>
-    </Link>
+   
   
 
   {/* First Home Block */}
-  <div className="mb-4 md:mb-10">
-    <Link href="/properties">
-      <Image
-        src="/marinaView.jpg"
-        alt="Modern Home"
-        width={1920}
-        height={1080}
-        className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
-      />
-    </Link>
+  <div className="mb-2 md:mb-10">
+   {/* First Home Block */}
+   <div className="relative w-full px-6 md:py-10 py-5 bg-white">
+  <div
+    ref={scrollRef}
+    className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar w-full"
+  >
+    {properties.map((property, index) => (
+    <div
+    key={index}
+    className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3 max-w-[80%] sm:max-w-[50%] md:max-w-[30%] md:h-[330px] h-[200px] rounded-xl overflow-hidden shadow-md bg-white relative"
+  >
+    <Image
+      src={property.image}
+      alt={property.title}
+      fill
+      className="w-full h-full object-cover"
+    />
+ 
+        <div className="absolute bottom-4 left-4 text-white drop-shadow">
+          <h3 className="text-md font-semibold">{property.title}</h3>
+          <p className="text-sm">{property.location}</p>
+        </div>
+        <div className="absolute bottom-4 right-4 bg-black/70 text-white px-2 py-1 rounded-full text-sm font-semibold">
+          {property.price}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {showScrollButton && (
+    <button
+      onClick={scrollRight}
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10"
+    >
+      <ArrowRight size={20} />
+    </button>
+  )}
+</div>
   </div>
 
 
         </div>
+        <Link href="/properties/sold">
+    <button className="block md:hidden text-sm mb-10 md:text-base mx-auto bg-[rgba(202,3,32,255)] text-white px-4 py-1 rounded-lg hover:bg-red-700 transition">
+      Click Here
+    </button>
+    </Link>
          {/* sold Property Cards Section */}
          <div className="md:mt-10 mt-4 md:mx-12">
   {/* Flex container for text and button */}
@@ -438,39 +651,69 @@ const Properties = () => {
     <p className="flex items-center text-xl md:text-3xl font-normal">
       <Image src="/rental.png" alt="Residential" width={40} 
   height={40}
-  className="w-8 h-8 md:w-16 md:h-16 mr-2"></Image>
+  className="w-8 h-8 md:w-16 md:h-16 mr-5"></Image>
       <span className="text-gray-500">Rental Properties</span>
     </p>
 
     {/* Right: Button */}
     <Link href="/properties/rent">
-    <button className="hidden md:flex text-sm md:text-base mr-6 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+    <button className="hidden md:flex text-sm md:text-base  bg-[rgba(202,3,32,255)] text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
       Click Here To View All Rental Properties
     </button>
     </Link>
     </div>
-    <Link href="/properties/rent">
-    <button className="block md:hidden text-sm md:text-base bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
-      Click Here
-    </button>
-    </Link>
+   
 
 
 
           {/* First Home Block */}
-          <div className="mb-4 md:mb-10">
-            <Link href="/properties">
-              <Image
-                src="/marinaView.jpg"
-                alt="Modern Home"
-                width={1920}
-                height={1080}
-                className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
-              />
-            </Link>
+          <div className="mb-2 md:mb-10">
+            {/* First Home Block */}
+      <div className="relative w-full px-6 md:py-10 py-5 bg-white">
+  <div
+    ref={scrollRef}
+    className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar w-full"
+  >
+    {properties.map((property, index) => (
+    <div
+    key={index}
+    className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3 max-w-[80%] sm:max-w-[50%] md:max-w-[30%] md:h-[330px] h-[200px] rounded-xl overflow-hidden shadow-md bg-white relative"
+  >
+    <Image
+      src={property.image}
+      alt={property.title}
+      fill
+      className="w-full h-full object-cover"
+    />
+ 
+        <div className="absolute bottom-4 left-4 text-white drop-shadow">
+          <h3 className="text-md font-semibold">{property.title}</h3>
+          <p className="text-sm">{property.location}</p>
+        </div>
+        <div className="absolute bottom-4 right-4 bg-black/70 text-white px-2 py-1 rounded-full text-sm font-semibold">
+          {property.price}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {showScrollButton && (
+    <button
+      onClick={scrollRight}
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10"
+    >
+      <ArrowRight size={20} />
+    </button>
+  )}
+</div>
            
           </div>
         </div>
+        <Link href="/properties/rent">
+    <button className="block md:hidden mx-auto text-sm mb-10 md:text-base bg-[rgba(202,3,32,255)] text-white px-4 py-1 rounded-lg hover:bg-red-700 transition">
+      Click Here
+    </button>
+    </Link>
          {/* sold Property Cards Section */}
          <div className="md:mt-10 mt-4 md:mx-12">
   <div className="flex items-center justify-between md:mx-6 flex-wrap gap-4">
@@ -478,39 +721,68 @@ const Properties = () => {
     <p className="flex items-center text-xl md:text-3xl font-normal">
       <Image src="/auction.png" alt="Residential"width={40} 
   height={40}
-  className="w-8 h-8 md:w-16 md:h-16 mr-2"></Image>
+  className="w-8 h-8 md:w-16 md:h-16 mr-5"></Image>
       <span className="text-gray-500">Auction Properties</span>
     </p>
 
     {/* Right: Button */}
     <Link href="/properties/auction">
-    <button className="hidden md:flex text-sm md:text-base mr-6 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+    <button className="hidden md:flex text-sm md:text-base  bg-[rgba(202,3,32,255)] text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
       Click Here To View All Auction Properties
     </button>
     </Link>
     
   </div>
 
-  <Link href="/properties/auction">
-    <button className="block md:hidden text-sm md:text-base bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
-      Click Here
-    </button>
-    </Link>
+ 
           {/* First Home Block */}
-          <div className=" mb-4 md:mb-10">
-            <Link href="/properties">
-              <Image
-                src="/marinaView.jpg"
-                alt="Modern Home"
-                width={1920}
-                height={1080}
-                className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
-              />
-            </Link>
+          <div className=" mb-2 md:mb-10">
+           {/* First Home Block */}
+      <div className="relative w-full px-6 md:py-10 py-5 bg-white">
+  <div
+    ref={scrollRef}
+    className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar w-full"
+  >
+    {properties.map((property, index) => (
+    <div
+    key={index}
+    className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3 max-w-[80%] sm:max-w-[50%] md:max-w-[30%] md:h-[330px] h-[200px] rounded-xl overflow-hidden shadow-md bg-white relative"
+  >
+    <Image
+      src={property.image}
+      alt={property.title}
+      fill
+      className="w-full h-full object-cover"
+    />
+ 
+        <div className="absolute bottom-4 left-4 text-white drop-shadow">
+          <h3 className="text-md font-semibold">{property.title}</h3>
+          <p className="text-sm">{property.location}</p>
+        </div>
+        <div className="absolute bottom-4 right-4 bg-black/70 text-white px-2 py-1 rounded-full text-sm font-semibold">
+          {property.price}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {showScrollButton && (
+    <button
+      onClick={scrollRight}
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10"
+    >
+      <ArrowRight size={20} />
+    </button>
+  )}
+</div>
            
           </div>
         </div>
-       
+        <Link href="/properties/auction">
+    <button className="block md:hidden mx-auto mb-10 text-sm md:text-base bg-[rgba(202,3,32,255)] text-white px-4 py-1 rounded-lg hover:bg-red-700 transition">
+      Click Here
+    </button>
+    </Link>
          {/* sold Property Cards Section */}
          <div className="md:mt-10 mt-4 md:mx-12">
   <div className="flex items-center justify-between md:mx-6 flex-wrap gap-4">
@@ -521,39 +793,69 @@ const Properties = () => {
         alt="Residential"
         width={40} 
         height={40}
-        className="w-8 h-8 md:w-16 md:h-16 mr-2"></Image>
+        className="w-8 h-8 md:w-16 md:h-16 mr-5"></Image>
       <span className="text-gray-500">New Development</span>
     </p>
 
     {/* Right: Button */}
     <Link href="/properties/newdevelopment">
-    <button className="hidden md:flex text-sm md:text-base mr-6 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+    <button className="hidden md:flex text-sm md:text-base bg-[rgba(202,3,32,255)] text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
       Click Here To View All New Development Properties
     </button>
     </Link>
     
 
   </div>
-  <Link href="/properties/newdevelopment">
-  <button className="block md:hidden text-sm md:text-base bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
-    Click Here
-  </button>
-</Link>
+ 
 
           {/* First Home Block */}
-          <div className=" mb-4 md:mb-10">
-            <Link href="/properties">
-              <Image
-                src="/marinaView.jpg"
-                alt="Modern Home"
-                width={1920}
-                height={1080}
-                className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
-              />
-            </Link>
+          <div className=" mb-2 md:mb-10">
+         {/* First Home Block */}
+      <div className="relative w-full px-6 md:py-10 py-5 bg-white">
+  <div
+    ref={scrollRef}
+    className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar w-full"
+  >
+    {properties.map((property, index) => (
+    <div
+    key={index}
+    className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3 max-w-[80%] sm:max-w-[50%] md:max-w-[30%] md:h-[330px] h-[200px] rounded-xl overflow-hidden shadow-md bg-white relative"
+  >
+    <Image
+      src={property.image}
+      alt={property.title}
+      fill
+      className="w-full h-full object-cover"
+    />
+ 
+        <div className="absolute bottom-4 left-4 text-white drop-shadow">
+          <h3 className="text-md font-semibold">{property.title}</h3>
+          <p className="text-sm">{property.location}</p>
+        </div>
+        <div className="absolute bottom-4 right-4 bg-black/70 text-white px-2 py-1 rounded-full text-sm font-semibold">
+          {property.price}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {showScrollButton && (
+    <button
+      onClick={scrollRight}
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10"
+    >
+      <ArrowRight size={20} />
+    </button>
+  )}
+</div>
            
           </div>
         </div>
+        <Link href="/properties/newdevelopment">
+  <button className="block md:hidden mx-auto text-sm mb-10 md:text-base bg-[rgba(202,3,32,255)] text-white px-4 py-1 rounded-lg hover:bg-red-700 transition">
+    Click Here
+  </button>
+</Link>
          {/* sold Property Cards Section */}
          <div className="md:mt-10 mt-4 md:mx-12">
   <div className="flex items-center justify-between md:mx-6 flex-wrap gap-4">
@@ -564,71 +866,99 @@ const Properties = () => {
         alt="Residential"
         width={40} 
         height={40}
-        className="w-8 h-8 md:w-16 md:h-16 mr-2"></Image>
+        className="w-8 h-8 md:w-16 md:h-16 mr-5"></Image>
       <span className="text-gray-500">International Properties</span>
     </p>
 
     {/* Right: Button */}
     <Link href="https://www.kw.com/search/sale?viewport=56.41671222773751%2C120.63362495324327%2C-14.684966046563696%2C-6.807781296756721">
-    <button className="hidden md:flex text-sm md:text-base mr-6 bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+    <button className="hidden md:flex text-sm md:text-base  bg-[rgba(202,3,32,255)] text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
       Click Here To View All International Properties
     </button>
     </Link>
     </div>
-    <Link href="https://www.kw.com/search/sale?viewport=56.41671222773751%2C120.63362495324327%2C-14.684966046563696%2C-6.807781296756721">
-    <button className="block md:hidden text-sm md:text-base bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
-      Click Here
-    </button>
-    </Link>
+    
  
 
 
           {/* First Home Block */}
-          <div className=" mb-0">
-            <Link href="/properties">
-              <Image
-                src="/marinaView.jpg"
-                alt="Modern Home"
-                width={1920}
-                height={1080}
-                className="w-full h-auto md:h-full border-2 border-white rounded-2xl"
-              />
-            </Link>
+          <div className=" mb-2">
+            {/* First Home Block */}
+      <div className="relative w-full px-6 md:py-10 py-5 bg-white">
+  <div
+    ref={scrollRef}
+    className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar w-full"
+  >
+    {properties.map((property, index) => (
+    <div
+    key={index}
+    className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3 max-w-[80%] sm:max-w-[50%] md:max-w-[30%] md:h-[330px] h-[200px] rounded-xl overflow-hidden shadow-md bg-white relative"
+  >
+    <Image
+      src={property.image}
+      alt={property.title}
+      fill
+      className="w-full h-full object-cover"
+    />
+ 
+        <div className="absolute bottom-4 left-4 text-white drop-shadow">
+          <h3 className="text-md font-semibold">{property.title}</h3>
+          <p className="text-sm">{property.location}</p>
+        </div>
+        <div className="absolute bottom-4 right-4 bg-black/70 text-white px-2 py-1 rounded-full text-sm font-semibold">
+          {property.price}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {showScrollButton && (
+    <button
+      onClick={scrollRight}
+      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10"
+    >
+      <ArrowRight size={20} />
+    </button>
+  )}
+</div>
            
           </div>
         </div>
-      </main>
-      <div className="flex flex-col">
-  {/* How Will You Think image */}
-  <div className="order-1 md:order-2 flex flex-col items-center justify-center">
-    <Image
-      src="/howwillyouthink.png"
-      alt="How Will You Thrive"
-      width={800}
-      height={400}
-      className="w-70 h-20 md:w-[950px] md:h-[400px] object-contain"
-    />
-    <button className="bg-[rgba(202,3,32,255)] w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
-      JOIN US
+        <Link href="https://www.kw.com/search/sale?viewport=56.41671222773751%2C120.63362495324327%2C-14.684966046563696%2C-6.807781296756721">
+    <button className="block md:hidden mx-auto mb-10 text-sm md:text-base bg-[rgba(202,3,32,255)] text-white px-4 py-1 rounded-lg hover:bg-red-700 transition">
+      Click Here
     </button>
-  </div>
-  {/* Red bar with centered KW logo */}
-  <div className="order-2 md:order-1 bg-[rgba(202,3,32,255)] flex items-center justify-center h-[25px] md:h-[80px]">
-    <Image
-      src="/kwline.png"
-      alt="KW Logo Center"
-      width={80}
-      height={80}
-      className="object-contain mx-auto w-7 h-7 md:w-20 md:h-20"
-    />
-  </div>
-</div>
-
-{/* Red horizontal line */}
-<div className="hidden md:flex justify-center items-center my-20 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8">
-  <hr className="md:w-160 w-60 mx-auto bg-[rgba(202,3,32,255)] border-0  h-[1.5px]" />
-</div>
-
+    </Link>
+      </main>
+      {/* How Will You Think image and KW logo bar */}
+      <div className="flex flex-col">
+        <div className="order-1 md:order-2 flex flex-col items-center justify-center">
+          <Image
+            src="/howwillyouthink.png"
+            alt="How Will You Thrive"
+            width={800}
+            height={400}
+            className="w-70 h-20 md:w-[950px] md:h-[400px] object-contain"
+          />
+          <button className="bg-[rgba(202,3,32,255)] w-40 text-white px-8 py-1.5 text-[0.6rem] rounded-full block mx-auto md:hidden mt-4 mb-4">
+            JOIN US
+          </button>
+        </div>
+        {/* Red bar with centered KW logo */}
+        <div className="order-2 md:order-1 bg-[rgba(202,3,32,255)] flex items-center justify-center h-[25px] md:h-[80px]">
+          <Image
+            src="/kwline1.png"
+            alt="KW Logo Center"
+            width={80}
+            height={80}
+            className="object-contain mx-auto w-7 h-7 md:w-20 md:h-20"
+          />
+        </div>
+      </div>
+      {/* Red horizontal line */}
+      <div className="hidden md:flex justify-center items-center my-20 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8">
+        <hr className="md:w-160 w-60 mx-auto bg-[rgba(202,3,32,255)] border-0  h-[1.5px]" />
+      </div>
       <Footer />
     </div>
   );

@@ -57,19 +57,21 @@ const RiyadhJedah = (props) => {
         <div className="flex flex-col md:flex-row">
           {/* Left Side (Map + Address) */}
          <div className="flex-1 p-6 flex justify-center items-center">
-  <div className="w-full md:max-w-md">
-    <div className="text-center mb-4">
-      <div className="font-bold uppercase tracking-widest text-sm flex justify-between max-w-xs mx-auto border-b border-[rgba(202,3,32,255)] pb-1">
-        <span>EMAIL</span>
-        <span>TELEPHONE</span>
-      </div>
-      <p className="text-[0.6rem] font-medium mt-2 tracking-wide">
-       {props.address}
-      </p>
-    </div>
+  <div className="w-full md:max-w-full">
+  <div className="text-center mb-4">
+  <div className="font-bold uppercase tracking-widest text-sm flex justify-between max-w-xs mx-auto pb-4">
+    <span>EMAIL</span>
+    <span>TELEPHONE</span>
+  </div>
+  <hr className="border-t border-[rgba(202,3,32,255)] w-120 mx-auto mb-4" />
+  <p className="text-[0.6rem] md:text-sm font-medium mt-2 tracking-wide">
+    {props.address}
+  </p>
+</div>
+
 
     {/* Map */}
-    <div className="w-full h-[300px] mt-15">
+    <div className="w-full h-[300px] mt-15 md:px-15">
       <iframe
         src={props.map}
         className="w-full h-full rounded"
@@ -86,50 +88,50 @@ const RiyadhJedah = (props) => {
 
           {/* Right Side (Form) */}
 <div className="flex-1 p-6 flex justify-center items-center">
-  <form className="w-full md:max-w-md space-y-4 py-10">
+  <form className="w-full md:max-w-full space-y-4 py-10 md:px-15">
     <div>
       <label className="block mb-1 md:text-sm text-[0.7rem] font-sm">First Name</label>
       <input
         type="text"
         placeholder="First name"
-        className="w-full text-sm p-2 border-white rounded bg-white focus:outline-none"
+        className="w-full text-base p-3 mt-2 border-white rounded bg-white focus:outline-none"
       />
     </div>
-    <div>
+    <div className='py-2'>
       <label className="block mb-1 md:text-sm text-[0.7rem] font-sm">Last Name</label>
       <input
         type="text"
         placeholder="Last name"
-        className="w-full p-2 text-sm border-white rounded bg-white focus:outline-none"
+        className="w-full p-3 text-base mt-2 border-white rounded bg-white focus:outline-none"
       />
     </div>
-    <div>
+    <div className='py-2'>
       <label className="block mb-1 md:text-sm text-[0.7rem] font-sm">Email *</label>
       <input
         type="email"
         placeholder="Email"
-        className="w-full p-2 text-sm border-white rounded bg-white focus:outline-none"
+        className="w-full p-3 text-base mt-2 border-white rounded bg-white focus:outline-none"
       />
     </div>
-    <div>
+    <div className='py-2'>
       <label className="block mb-1 md:text-sm text-[0.7rem] font-sm">Address To</label>
-      <select className="w-full p-2 text-sm border-white rounded bg-white focus:outline-none">
+      <select className="w-full p-3 text-base mt-2 border-white rounded bg-white focus:outline-none">
         <option value="">Select</option>
         <option value="sales">Sales</option>
         <option value="support">Support</option>
       </select>
     </div>
-    <div>
+    <div className='py-2'>
       <label className="block mb-1  md:text-sm text-[0.7rem] font-sm">Message *</label>
       <textarea
         placeholder="Message"
         rows="2"
-        className="w-full p-3 border-white rounded bg-white focus:outline-none"
+        className="w-full p-4 text-base border-white mt-2 rounded bg-white focus:outline-none"
       />
     </div>
     <button
       type="submit"
-      className="bg-red-700 text-white px-8 py-2 rounded-full float-right"
+      className="bg-[rgba(202,3,32,255)] text-white px-8 py-2 rounded-full float-right"
     >
       Submit
     </button>

@@ -3,9 +3,12 @@ import React from 'react';
 import Header from '@/components/header';
 import Box from '@/components/box';
 import Image from 'next/image';
-import Footer from '@/components/footer';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { BsInstagram, BsTwitterX, BsLinkedin } from "react-icons/bs";
+
+const Footer = dynamic(() => import('@/components/footer'), { ssr: false });
+
 const Agent = () => {
 const agents = [
   {
@@ -105,7 +108,7 @@ const agents = [
         >
           {/* Agent Image */}
           <div className="w-32 h-32 md:w-50 md:h-50 flex-shrink-0 relative md:mx-3">
-            <Link href={'/agent/agentdetails'}>
+            <Link href={'/agent/newdetails'}>
               <Image 
                 src={agent.image} 
                 alt={`Portrait of ${agent.name}`}

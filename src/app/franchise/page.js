@@ -106,8 +106,8 @@ const Franchise = () => {
                  h-[1.5px] mt-6 md:mt-14" />
                 <div className="mt-10 mx-40">
                   <p className="text-xs md:text-[1rem]">
-                    Our mission is to help you to build careers worth having, businesses worth owning, lives worth living, experiences worth giving and legacies worth leaving. To that end we want
-                   this to be the most amazing place to be an estate agent in the UK and globally. And we want the best leadership for our market centres.
+                  Our Mission Is To Help You To Build Careers Worth Having, Businesses Worth Owning, Lives Worth Living, Experiences Worth Giving And Legacies Worth Leaving. To That End We Want
+                  This To Be The Most Amazing Place To Be An Estate Agent In The Uk And Globally. And We Want The Best Leadership For Our Market Centres.
                   </p>
                 </div>
               </div>
@@ -160,26 +160,25 @@ const Franchise = () => {
 
           <div className="relative">
             {/* KW Logo */}
-            <Image
+            <Image 
               src="/kwlinelogo.png"
               alt="KW Logo"
               width={120}
               height={120}
-              className="object-contain"
+              className="object-contain w-12 h-12 md:w-36 md:h-36"
             />
             <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-white font-normal text-xl md:text-3xl tracking-[0.2em] md:whitespace-nowrap">
+  <span className="text-white font-normal text-base md:text-3xl tracking-[0.2em] whitespace-nowrap">
   FRANCHISE APPLICATION
-</span>
-
-            </div>
+  </span>
+</div>
           </div>
         </div>
-
+       
         {/* Form + Sidebar Container */}
         <div className="flex flex-col lg:flex-row bg-gray-200 min-h-screen">
           {/* Left Black Sidebar */}
-          <div className="hidden md:flex bg-black text-white flex-col items-center w-full lg:w-76 border-r-2 rounded-r-2xl relative min-h-full">
+          <div className="hidden md:flex bg-black text-white flex-col items-center w-full lg:w-95 border-r-2 rounded-r-2xl relative min-h-full">
             <div className="flex flex-col items-center top-0 left-10 absolute">
               {/* Logo in sidebar */}
               <Image
@@ -228,22 +227,22 @@ const Franchise = () => {
                   "Your Company Name",
                 ].map((label, i) => (
                   <div key={i}>
-                    <label className="block mb-2 md:text-[0.9rem] text-[0.8rem] font-normal md:font-thin ">
+                    <label className="block mb-2 ml-2 md:text-[1rem] text-[0.8rem] font-normal md:font-normal ">
                       {label} *
                     </label>
                     <input
                       type="text"
                       required
-                      className="w-full p-1 rounded-2xl bg-white"
+                      className="w-full p-1 py-2 md:py-3 rounded-2xl bg-white"
                     />
                   </div>
                 ))}
                 {/* Separate Mobile Phone Input */}
                 <div>
-                  <label className="block mb-2 md:text-[0.9rem] text-[0.8rem] font-normal md:font-thin">
+                  <label className="block mb-2 ml-2 md:text-[1rem] text-[0.8rem] font-normal md:font-normal">
                     Your Mobile Phone *
                   </label>
-                  <div className="flex items-center bg-white rounded-2xl border border-gray-300 px-2 py-1">
+                  <div className="flex items-center bg-white rounded-2xl  px-2 py-1">
                     {/* World Map Icon */}
                     <span className="mr-2 text-gray-500">
                       <FaGlobe className="w-4 h-4" />
@@ -256,18 +255,18 @@ const Franchise = () => {
                       type="tel"
                       required
                       
-                      className="flex-1 bg-white border-none focus:outline-none text-sm"
+                      className="flex-1 bg-white py-2 md:py-3 border-none focus:outline-none text-sm"
                     />
                   </div>
                 </div>
 
                 {/* Date of Birth */}
                 <div className="mb-8">
-                  <label className="block mb-2 md:text-[0.9rem] text-[0.7rem] font-normal md:font-thin">
+                  <label className="block mb-2 ml-2 md:text-[1rem] text-[0.7rem] font-normal md:font-normal">
                     Date of Birth *
                   </label>
                   <div className="flex gap-3">
-                    <select className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.9rem]">
+                    <select className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[1rem]">
                       <option value="month">Month</option>
                       {[
                         "January",
@@ -292,13 +291,13 @@ const Franchise = () => {
                       type="number"
                       placeholder="Day"
                       required
-                      className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.9rem]"
+                      className="w-full px-3 py-2 md:py-3 rounded-2xl bg-white text-[0.8rem] md:text-[0.9rem]"
                     />
                     <input
                       type="number"
                       placeholder="Year"
                       required
-                      className="w-full px-3 py-2 rounded-2xl bg-white text-[0.8rem] md:text-[0.9rem]"
+                      className="w-full px-3 py-2 md:py-3 rounded-2xl bg-white text-[0.8rem] md:text-[0.9rem]"
                     />
                   </div>
                 </div>
@@ -309,18 +308,18 @@ const Franchise = () => {
                   "How Did You Hear About the Keller Williams Brand ?",
                 ].map((label, i) => (
                   <div key={i}>
-                    <label className="block mb-2 md:text-[0.9rem] text-[0.8rem] font-normal md:font-thin">
+                    <label className="block mb-2 ml-2 md:text-[1rem] text-[0.8rem] font-normal md:font-normal">
                       {label} *
                     </label>
                     <input
                       type="text"
                       required
-                      className="w-full p-1 rounded-2xl bg-white"
+                      className="w-full p-1 py-2 md:py-3 rounded-2xl bg-white"
                     />
                   </div>
                 ))}
 
-                <label className="md:text-[0.9rem] text-[0.8rem] font-normal md:font-thin">
+                <label className="md:text-[1rem] ml-2  text-[0.8rem] font-normal md:font-normal">
                   Promotional Permissions*
                 </label>
                 <div className="flex items-start space-x-2  ">
@@ -332,13 +331,13 @@ const Franchise = () => {
                   />
                   <label
                     htmlFor="promoConsent"
-                    className="text-base md:text-[0.8rem] mt-2 text-[0.8rem] leading-5 font-normal md:font-thin"
+                    className="text-base md:text-[0.9rem] mt-2 text-[0.8rem] leading-5 font-normal md:font-thin"
                   >
                     I consent to receiving promotional emails, text messages, and calls regarding Keller Williams&apos; services.
                   </label>
                 </div>
 
-                <label className="md:text-[0.9rem] text-[0.8rem]  font-normal md:font-thin">
+                <label className="md:text-[1rem] ml-2 text-[0.8rem]  font-normal md:font-normal">
                   Personal Data Protection Declaration *
                 </label>
                 <div className="flex items-start space-x-2">
@@ -350,7 +349,7 @@ const Franchise = () => {
                   />
                   <label
                     htmlFor="dataConsent"
-                    className="text-base md:text-[0.8rem] mt-2 text-[0.8rem] leading-5 font-normal md:font-thin"
+                    className="text-base md:text-[0.9rem] mt-2 text-[0.8rem] leading-5 font-normal md:font-thin"
                   >
                     As Keller Williams Saudi Arabia, we care about your security. In
                     order to fulfill our obligation to inform arising from Article 10
@@ -363,7 +362,7 @@ const Franchise = () => {
                 <div className="mt-8 flex md:justify-end justify-center">
                   <button
                     type="submit"
-                    className="w-full md:w-32 bg-[rgba(202,3,32,255)] text-white py-2 rounded-full text-sm hover:bg-gray-600 transition"
+                    className="w-full md:w-32 bg-[rgba(202,3,32,255)] text-white py-2 rounded-full text-base font-semibold hover:bg-gray-600 transition"
                   >
                     Submit
                   </button>
@@ -374,9 +373,9 @@ const Franchise = () => {
         </div>
       </div>
 
-      <div  className="hidden md:flex order-2 bg-[rgba(202,3,32,255)] md:order-1 items-center justify-center h-[25px] md:h-[76px]">
+      <div  className="hidden md:flex order-2 bg-[rgba(204,0,31)] md:order-1 items-center justify-center h-[25px] md:h-[76px]">
     <Image
-      src="/kwline.png"
+      src="/kwline1.png"
       alt="KW Logo Center"
       width={80}
       height={80}

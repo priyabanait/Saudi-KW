@@ -24,27 +24,27 @@ export default function Training() {
         </div>
       </section>
 
-      <section className="bg-white py-20 md:py-10 px-6 text-center">
-        <div className="grid grid-cols-3 sm:grid-cols-3 gap-x-16 gap-y-10 max-w-5xl md:mx-auto mx-6">
+      <section className="bg-white py-10 md:py-10 px-6 text-center">
+        <div className="grid grid-cols-3 sm:grid-cols-3 gap-x-16 gap-y-10 max-w-full md:mx-auto mx-6">
           <div>
-            <p className="text-sm md:text-4xl md:font-normal font-bold mb-2">1200+</p>
+            <p className="text-sm md:text-5xl md:font-normal font-bold mb-2">1200+</p>
             <div className="mx-auto my-2 h-[1px] max-w-[200px] w-full bg-gradient-to-r from-[rgba(202,3,32,255)] via-[rgba(202,3,32,255)] to-black" />
 
-            <p className="md:text-sm text-[0.6rem] text-gray-600">Hours of On Demand<br />Learning</p>
+            <p className="md:text-base text-[0.6rem] text-gray-600">Hours of On Demand<br />Learning</p>
           </div>
 
           <div>
-          <p className="text-lg md:text-4xl md:font-normal font-bold mb-2">68+</p>
+          <p className="text-lg md:text-5xl md:font-normal font-bold mb-2">68+</p>
           <div className="mx-auto my-2 h-[1px] max-w-[200px] w-full bg-gradient-to-r from-[rgba(202,3,32,255)] via-[rgba(202,3,32,255)] to-black" />
 
-          <p className="md:text-sm text-[0.6rem] text-gray-600">Unique Courses<br />Available</p>
+          <p className="md:text-base text-[0.6rem] text-gray-600">Unique Courses<br />Available</p>
           </div>
 
           <div>
-          <p className="text-lg md:text-4xl md:font-normal font-bold mb-2">100+</p>
+          <p className="text-lg md:text-5xl md:font-normal font-bold mb-2">100+</p>
           <div className="mx-auto my-2 h-[1px] max-w-[200px] w-full bg-gradient-to-r from-[rgba(202,3,32,255)] via-[rgba(202,3,32,255)] to-black" />
 
-          <p className="md:text-sm text-[0.6rem] text-gray-600">Live Training Events<br />Worldwide</p>
+          <p className="md:text-base text-[0.6rem] text-gray-600">Live Training Events<br />Worldwide</p>
           </div>
         </div>
       </section>
@@ -54,8 +54,8 @@ export default function Training() {
           <hr className="w-25 md:w-72 mx-auto bg-[rgba(202,3,32,255)] h-[1.5px] mt-6" />
           <div className="mt-10">
           <p className="text-sm leading-relaxed mx-15">
-  The best information always comes from a face-to-face conversation with a local market expert — that&apos;s Your KW Team Leader. 
-  Reach out to discuss the market of the moment with a Team Leader today.
+          The Best Information Always Comes From A Face-to-face Conversation With A Local Market Expert — That&apos;s Your Kw Team Leader. 
+          Reach Out To Discuss The Market Of The Moment With A Team Leader Today.
 </p>
 
           </div>
@@ -78,9 +78,9 @@ export default function Training() {
         <div className="relative z-10 w-full max-w-full px-6 text-center">
           <h1 className="text-xl md:text-4xl md:font-normal font-bold mb-6">TRAINING & COACHING</h1>
           <hr className="w-30 md:w-72 mx-auto bg-[rgba(202,3,32,255)] h-[2px] border-0 md:mb-8 mb-10" />
-          <p className="text-xs md:text-sm leading-relaxed font-normal"> Named the #1 Training Organization in the world by Training Magazine in 2015,
-          we&apos;re often described as a training and coaching company cleverly</p>
-          <p className="text-xs md:text-sm leading-relaxed font-normal">disguised as a real estate franchise.</p>
+          <p className="text-xs md:text-[1rem] leading-relaxed font-normal md:px-70"> Named The #1 Training Organization In The World By Training Magazine In 2015,
+          We&apos;re Often Described As A Training And Coaching Company Cleverly
+     Disguised As A Real Estate Franchise.</p>
         </div>
       </section>
 
@@ -88,7 +88,7 @@ export default function Training() {
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12">
           <div className="text-center md:text-center">
             <h2 className="text-xl md:text-3xl md:font-semibold font-semibold text-[rgba(202,3,32,255)] mb-6">In Person & Online Sessions</h2>
-            <p className="md:text-[1.1rem] text-[0.7rem] text-gray-700 mb-8 mx-6 md:mx-0">At KW Saudi Arabia, we provide flexible training to suit your needs. 
+            <p className="md:text-[1.3rem] text-[0.8rem] text-gray-700 mb-8 mx-6 md:mx-0 md:px-20">At KW Saudi Arabia, we provide flexible training to suit your needs. 
               Join in-person events to connect and learn from top talent,
                or access online sessions for world-class training anytime. Elevate your career—explore our sessions today!</p>
          <div className="flex justify-center md:justify-center">
@@ -98,7 +98,7 @@ export default function Training() {
     group transition-all duration-300
     hover:pr-8 hover:pl-4
   ">
-    <span className="inline-block transition-all duration-300 group-hover:-translate-x-3">
+    <span className="inline-block text-base font-semibold transition-all duration-300 group-hover:-translate-x-3">
       CONTACT US
     </span>
     <span className="
@@ -114,7 +114,7 @@ export default function Training() {
 </div>
           <div className="text-center md:text-center mt-20 md:mt-0">
           <h2 className="text-xl md:text-3xl md:font-semibold font-semibold text-[rgba(202,3,32,255)] mb-6">Events</h2>
-          <p className="md:text-[1.1rem] text-[0.7rem] text-gray-700 mb-8">Network and learn with top real estate talent at Keller Williams events. 
+          <p className="md:text-[1.3rem] text-[0.8rem] text-gray-700 mx-6 md:mx-0 mb-8 md:px-20">Network and learn with top real estate talent at Keller Williams events. 
               From Family Reunion to Mega Agent Camp and Masterminds, connect with top producers, bold thinkers, 
               and market makers. No other event compares.</p>
            <div className="flex justify-center md:justify-center">
@@ -124,7 +124,7 @@ export default function Training() {
     group transition-all duration-300
     hover:pr-8 hover:pl-4
   ">
-    <span className="inline-block transition-all duration-300 group-hover:-translate-x-3">
+    <span className="inline-block text-base font-semibold transition-all duration-300 group-hover:-translate-x-3">
     LEARN MORE
     </span>
     <span className="
@@ -148,7 +148,7 @@ export default function Training() {
           <h1 className="text-2xl md:text-4xl font-normal md:tracking-[0.1rem] tracking-[0.2rem] md:mb-10 mb-5">BUILD EXPERTISE</h1>
           <hr className="w-30 md:w-72 mx-auto bg-[rgba(202,3,32,255)] h-[2px] border-0 md:mb-8 mb-10" />
 
-          <p className="text-[0.7rem] md:text-sm leading-relaxed md:font-normal md:mx-50 mx-8">Keller Williams University Provides The Most Advanced And Comprehensive Learning
+          <p className="text-[0.7rem] md:text-[1rem] leading-relaxed md:font-normal md:mx-50 mx-8">Keller Williams University Provides The Most Advanced And Comprehensive Learning
              Opportunities In Real 
             Estate And Empowers You To Become The
          Expert In Your Local Market.</p>
@@ -240,7 +240,7 @@ export default function Training() {
         <div className="relative z-10 w-full max-w-full px-6 text-center">
            <h1 className="text-2xl md:text-4xl font-normal md:tracking-[0.1rem] tracking-[0.2rem] md:mb-10 mb-5">REMOVE LIMITS</h1>
           <hr className="w-34 md:w-72 mx-auto bg-[rgba(202,3,32,255)] h-[2px] border-0 mb-8" />
-          <p className="text-[0.7rem] text-sm leading-relaxed md:font-normal md:mx-50 mx-6">Your Business Grows To The Extent That You Do! Award-winning Kw Maps Coaching Offers 
+          <p className="text-[0.7rem] md:text-[1rem] leading-relaxed md:font-normal md:mx-50 mx-6">Your Business Grows To The Extent That You Do! Award-winning Kw Maps Coaching Offers 
             A Breadth Of High-accountability Programs Designed To Turn Your
            Biggest Goals Into Realty. Our Coaches Are Experts On Industry Best Practices, The Models Of Mrea And Keller Williams Systems,
              Putting Them In A Unique Position
@@ -253,7 +253,7 @@ export default function Training() {
           <p className="text-2xl md:text-4xl tracking-[0.1em]">CONNECT WITH US</p>
           <hr className="w-48 md:w-72 mx-auto bg-[rgba(202,3,32,255)] h-[2px] border-0 mt-10" />
           <div className="mt-10">
-            <p className="text-[0.8rem] md:text-sm leading-relaxed mx-60 ">The Best Information Always Comes From A Face-to-face Conversation With A Local Market Expert – That’s Your Kw Team Leader. 
+            <p className="text-[0.8rem] md:text-base leading-relaxed mx-60 ">The Best Information Always Comes From A Face-to-face Conversation With A Local Market Expert – That’s Your Kw Team Leader. 
               Reach Out To Discuss The Market Of The Moment With A Team Leader Today.</p>
           </div>
         </div>
@@ -264,7 +264,7 @@ export default function Training() {
     href="/contactUs"
     className="block  md:max-w-full"
   >
-   <button className="hidden md:flex justify-center items-center w-170 bg-[rgba(202,3,32,255)] text-center hover:bg-gray-600 text-white  py-2 mt-5  rounded-full text-sm md:text-sm  focus:outline-none">
+   <button className="hidden md:flex justify-center text-base font-semibold items-center w-170 bg-[rgba(202,3,32,255)] text-center hover:bg-gray-600 text-white  py-2 mt-5  rounded-full  focus:outline-none">
   Join a Keller Williams Market Center Near You
 </button>
 

@@ -1,9 +1,104 @@
 'use client'
-import { useState } from 'react';
+
+import { useState,useRef,useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Phone, MessageCircle, Bed, Bath, Square, MapPin } from 'lucide-react';
 import Image from 'next/image';
+import Footer from '@/components/footer';
+import Link from 'next/link';
+import { FaChevronUp } from 'react-icons/fa';
+import { 
+  FaSearch, FaBars, FaTimes, FaBuilding,
+  FaNetworkWired, FaUserTie, FaKey, FaUser,
+  FaUsers, FaGlobe, FaHome, FaEnvelope, FaPhone,
+  FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube,
+  FaTwitter, FaTiktok, FaSnapchatGhost, FaWhatsapp, FaChevronDown,FaArrowLeft 
+} from "react-icons/fa";
+import Header from '@/components/header';
 export default function PropertyListing() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);  
+  const [isAtTop, setIsAtTop] = useState(true);  
+  const prevScrollY = useRef(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // simulate toggle
+  const [openSubmenu, setOpenSubmenu] = useState(null);
+
+  const toggleSubmenu = (key) => {
+    setOpenSubmenu(prev => (prev === key ? null : key));
+  };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {  
+    const handleScroll = () => {  
+      const currentScrollY = window.scrollY;  
+
+      // At the very top  
+      if (currentScrollY < 10) {  
+        setIsAtTop(true);  
+        setIsVisible(true);  
+        return;  
+      } else {  
+        setIsAtTop(false);  
+      }  
+
+      // Scrolling down → Hide header  
+      if (currentScrollY > prevScrollY.current) {  
+        setIsVisible(false);  
+      }  
+      // Scrolling up → Show header  
+      else {  
+        setIsVisible(true);  
+      }  
+
+      prevScrollY.current = currentScrollY;  
+    };  
+
+    window.addEventListener('scroll', handleScroll, { passive: true });  
+    return () => window.removeEventListener('scroll', handleScroll);  
+  }, []);
+  const menuItems = [
+    { label: 'PROPERTIES', key: 'properties',  submenu: [
+      { label: 'ACTIVE', href: '/properties/active' },
+      { label: 'SOLD', href: '/properties/sold' },
+      { label: 'RENT', href: '/properties/rent' },
+      { label: 'AUCTION', href: '/properties/auction' },
+      { label: 'INTERNATIONAL', href: 'https://www.kw.com/search/sale?viewport=56.41671222773751%2C120.63362495324327%2C-14.684966046563696%2C-6.807781296756721' }
+    ]},
+    { label: 'MARKET CENTER', key: 'market', submenu: [
+      { label: 'ALL MC', href: '/marketCenter' },
+      { label: 'JASMINE', href: '/riyadh' },
+      { label: 'JEDDAH', href: '/jeddah' }
+    ] },
+    { label: 'BUYER', key: 'buyer', submenu: [
+      { label: 'SEARCH PROPERTY', href: '/properties' },
+      { label: 'AUCTION', href: '/properties/auction' },
+      { label: 'NEW DEVELOPMENT', href: '/properties/newdevelopment' },
+      { label: 'BUYING GUIDE', href: '/buyer/buyerguid' }
+    ]},
+    { label: 'TENANT', key: 'tenant', submenu: [
+      { label: 'RENT SEARCH', href: '/properties/rent' },
+      { label: 'TENANT GUIDE', href: '/tenant' }
+    ] },
+    { label: 'SELLER', key: 'seller',  submenu: [
+      { label: 'SEARCH AGENT', href: '/agent' },
+      { label: 'FIVE STEPS TO SELL', href: '/seller' },
+      { label: 'SELLER GUIDE', href: 'seller/sellerguid' }
+    ]},
+    { label: 'OUR CULTURE', key: 'culture', submenu: [
+      { label: 'OUR PROMISE', href: '/ourpromise' },
+      { label: 'ABOUT US', href: '/ourCulture' },
+      { label: 'WHY KW', href: '/ourCulture/whyKW' },
+      { label: 'KW TRAINING', href: '/culture/training' },
+      { label: 'KW TECHNOLOGY', href: '/ourCulture/kwuniversity"' }
+    ] },
+    { label: 'FRANCHISE', key: 'franchise',href: '/franchise'   },
+    { label: 'LOGIN', key: 'login',href: '/franchise' },
+    { label: 'CONTACT US', key: 'contact',href: '/franchise' },
+    { label: 'JOIN US', key: 'join' ,href: '/franchise'},
+    { label: 'INSTANT VALUATION', key: 'valuation',href: '/franchise' },
+    { label: 'TERMS & POLICY', key: 'terms',href: '/franchise' },
+  ];
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,7 +106,6 @@ export default function PropertyListing() {
     phone: '',
     message: "I'm interested in Astounding 4-BDR Villa in Lusail Entertainment City. Please provide me more details about this property."
   });
-
   const propertyImages = [
     'https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1200',
     'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg?auto=compress&cs=tinysrgb&w=1200',
@@ -50,27 +144,152 @@ export default function PropertyListing() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div>
+       <header className={`  
+        fixed top-0 w-full z-50  
+        flex justify-between items-center px-4 sm:px-6 py-4
+        transition-all duration-300 ease-in-out  
+        ${isVisible ? 'translate-y-0' : '-translate-y-full'}  
+        ${isAtTop ? 'bg-gray-950/90 backdrop-blur-sm' : 'bg-gray-950/90 backdrop-blur-sm'}  
+      `}>
+        {/* Logo */}
+        <div className="flex-shrink-0">
+          <Link href="/">
+            <Image 
+              src="https://static.wixstatic.com/media/36a881_0cd959d32d904bd7be76303fb23dec0a~mv2.png/v1/fill/w_279,h_63,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled%20design.png" 
+              alt="KW Saudi Arabia Logo" 
+              width={279}
+              height={63}
+              className="h-12 w-auto object-contain"
+              priority
+            />
+          </Link>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 tracking-wider">
+          <Link href="/ourCulture" className="text-[0.8rem]  text-white hover:text-gray-300 transition-colors">
+            About Us
+          </Link>
+          <div className="w-px h-4 bg-gray-300/50"></div>
+          <Link href="/properties" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
+            Search
+          </Link>
+          <div className="w-px h-4 bg-gray-300/50"></div>
+          <Link href="/franchise" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
+            Join Us
+          </Link>
+          <div className="w-px h-4 bg-gray-300/50"></div>
+          <Link href="/contactUs" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
+            Contact Us
+          </Link>
+          <div className="w-px h-4 bg-gray-300/50"></div>
+          <Link href="/contactUs" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
+            Instant Valuation
+          </Link>
+        
+          <Link href="#" className="text-[0.8rem] ml-4 mr-8 text-white hover:text-gray-300 transition-colors">
+            عربي
+          </Link>
+          <Link 
+            href="#" 
+            className="border border-white px-4 py-1.5 rounded-full text-white hover:bg-white hover:text-black transition-colors text-[0.8rem]"
+          >
+            Agent Login
+          </Link>
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden text-white focus:outline-none p-2" 
+          onClick={toggleMenu}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMenuOpen ? (
+            <FaTimes size={20} className="text-white" />
+          ) : (
+            <FaBars size={20} className="text-white" />
+          )}
+        </button>
+
+        {/* Mobile Menu Dropdown */}
+        {isMenuOpen && (
+          
+          <div className="absolute md:hidden top-full ml-10 left-0 right-0 py-4  px-6 space-y-4 shadow-lg bg-gray-950/90 backdrop-blur-sm z-50">
+            {menuItems.map(item => (
+              <div key={item.key}>
+                <div
+                  onClick={() => item.submenu && toggleSubmenu(item.key)}
+                  className="flex justify-between items-center text-white hover:text-gray-300 transition-colors cursor-pointer py-1"
+                >
+           <span
+    className={`${
+      openSubmenu === item.key
+        ? 'text-[rgba(202,3,32,255)] font-semibold underline'
+        : ["JOIN US", "CONTACT US"].includes(item.label)
+        ? 'text-[rgba(202,3,32,255)] font-semibold'
+        : 'text-white'
+    }`}
+  >
+    {item.label}
+  </span>
+  
+  
+  
+  
+                  {item.submenu && (
+    openSubmenu === item.key ? (
+      <FaChevronUp size={14} className="text-white" />
+    ) : (
+      <FaChevronDown size={14} className="text-[rgba(202,3,32,255)]" />
+    )
+  )}
+  
+                </div>
+  
+                {/* Submenu */}
+                {item.submenu && openSubmenu === item.key && (
+    <div className="mt-1 space-y-3 text-base text-gray-300">
+      {item.submenu.map(sub => (
+        <Link href={sub.href} key={sub.href} className="block hover:text-white">
+          {sub.label}
+        </Link>
+      ))}
+    </div>
+  )}
+  
+              </div>
+            ))}
+          </div>
+        )}
+        </header>
+    <div className="min-h-screen md:mt-30 bg-gray-50">
+    <div className="flex items-center gap-2 md:mb-6 mb-6 cursor-pointer hover:text-gray-600 mx-20">
+  <a href='/properties' className="w-5 h-5 flex items-center justify-center rounded-full bg-white border border-black text-black hover:bg-gray-100">
+    <FaArrowLeft className="w-2 h-2" />
+  </a>
+  <a href='/properties/active' className="text-[0.9rem] text-[rgba(202,3,32,255)]">Back to Search</a>
+</div>
       {/* Breadcrumb */}
-      <div className="max-w-8xl mx-auto px-6 sm:px-6 lg:px-8 py-6">
-        <div className="flex items-center space-x-2 text-sm text-gray-600 overflow-x-auto scrollbar-hide whitespace-nowrap">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
+        <div className="flex items-center space-x-2 text-xs sm:text-sm text-gray-600 overflow-x-auto scrollbar-hide whitespace-nowrap">
           <span className="font-bold underline">Real Estate</span>
           <span className="mx-1">{'>'}</span>
           <span className="font-bold underline">Properties for Rent</span>
           <span className="mx-1">{'>'}</span>
           <span className="font-bold underline">Lusail</span>
           <span className="mx-1">{'>'}</span>
-          <span className="text-gray-900">Outounding 4-BDR Villa in Lusail Entertainment City</span>
+          <span className="text-gray-900">Astounding 4-BDR Villa in Lusail Entertainment City</span>
         </div>
       </div>
 
-      <div className="max-w-8xl mx-auto px-6 sm:px-6 lg:px-8 pb-12" style={{padding :7}}>
-        <div className="grid lg:grid-cols-[2.2fr,1fr] gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 md:pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[2.2fr,1fr] gap-6 md:gap-8">
           {/* Main Content */}
           <div>
             {/* Image Gallery */}
-            <div className="relative mb-6">
-              <div className="relative aspect-[16/7] rounded-2xl overflow-hidden">
+            <div className="relative mb-4 md:mb-6">
+              <div className="relative aspect-[16/9] sm:aspect-[16/7] rounded-xl md:rounded-2xl overflow-hidden">
                 <Image
                   src={propertyImages[currentImageIndex]}
                   alt="Property"
@@ -80,26 +299,26 @@ export default function PropertyListing() {
                 />
                 
                 {/* 360 Virtual Tour Badge */}
-                <div className="absolute top-4 left-4 bg-black/80 text-white px-3 py-1 rounded-full text-sm font-medium">
+                <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-black/80 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
                   360 Virtual Tour
                 </div>
 
                 {/* Desktop Arrows */}
                 <button
                   onClick={prevImage}
-                  className="hidden sm:block absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all"
+                  className="hidden sm:block absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all"
                 >
                   <ChevronLeft className="w-5 h-5 text-gray-700" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="hidden sm:block absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all"
+                  className="hidden sm:block absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all"
                 >
                   <ChevronRight className="w-5 h-5 text-gray-700" />
                 </button>
 
                 {/* Mobile Arrows */}
-                <div className="flex sm:hidden absolute bottom-4 left-4 space-x-2 z-10">
+                <div className="flex sm:hidden absolute bottom-2 left-2 space-x-2 z-10">
                   <button
                     onClick={prevImage}
                     className="bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all"
@@ -115,7 +334,7 @@ export default function PropertyListing() {
                 </div>
 
                 {/* Dots Indicator */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
                   {propertyImages.map((_, index) => (
                     <button
                       key={index}
@@ -131,7 +350,7 @@ export default function PropertyListing() {
 
             {/* Clickable Thumbnail Images */}
 
-            <div className="grid grid-cols-4 gap-3 mb-8">
+            <div className="grid grid-cols-4 gap-2 sm:gap-3 mb-6 md:mb-8">
   {thumbnailImages.map((image, index) => (
     <div 
       key={index} 
@@ -154,12 +373,12 @@ export default function PropertyListing() {
 
 
             {/* Property Title */}
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-8">
               Astounding 4-BDR Villa in Lusail Entertainment City
             </h1>
 
             {/* Property Details Cards */}
-       <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 bg-white rounded-lg border overflow-hidden mb-8">
+       <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 bg-white rounded-lg border overflow-hidden mb-6 md:mb-8 text-xs sm:text-sm">
   <div className="p-4">
     <div className="text-sm text-gray-700 mb-1">Reference no.</div>
     <div className="font-semibold text-gray-900">AREDC-20465</div>
@@ -191,17 +410,17 @@ export default function PropertyListing() {
 </div>
 
             {/* Property Description */}
-            <div className="bg-white p-6 rounded-lg border mb-8">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">Property Description</h2>
-              <p className="text-gray-600 leading-relaxed">
-              <p className="text-sm leading-relaxed">
+            <div className="bg-white p-4 sm:p-6 rounded-lg border mb-6 md:mb-8">
+              <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-4">Property Description</h2>
+              <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
+             
   This stunning 4-bedroom villa in Lusail Entertainment City offers luxurious living with modern amenities.
   The property features spacious rooms, high-end finishes, and beautiful outdoor spaces perfect for entertaining.
   Located in one of Qatar&apos;s most prestigious developments, this villa provides easy access to shopping, dining,
   and entertainment options while maintaining privacy and tranquility.
 </p>
 
-              </p>
+             
             </div>
 
             {/* Features */}
@@ -210,39 +429,42 @@ export default function PropertyListing() {
 
           {/* Sidebar */}
           <div>
-            <div className="bg-[#f3f4f6] rounded-2xl p-6 shadow-sm border sticky top-6">
+            <div className="bg-[#f3f4f6] rounded-xl md:rounded-2xl p-4 sm:p-6 shadow-sm border sticky top-4 md:top-6">
               {/* Price & Location */}
-              <div className="mb-6">
-                <div className="text-3xl font-bold text-gray-900 mb-1">
-                  26,500 <span className="text-lg font-normal text-gray-600">QAR/month</span>
+              <div className="mb-4 md:mb-6">
+                <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
+                  26,500 <span className="text-base sm:text-lg font-normal text-gray-600">QAR/month</span>
                 </div>
                 <div className="flex items-center text-gray-600 ">
                   <MapPin className="w-4 h-4 mr-1" />
-                  <span className="text-sm">Les Maisons Blanches, Lusail</span>
+                  <span className="text-xs sm:text-sm">Les Maisons Blanches, Lusail</span>
                 </div>
               </div>
 
               {/* Agent Info */}
-              <div className="mb-6 pb-6 border-b">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
-                    <img
-                      src="https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=150"
-                      alt="Agent"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+              <div className="mb-4 md:mb-6 pb-4 md:pb-6 border-b">
+                <div className="flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-200 rounded-full overflow-hidden">
+  <Image
+    src="https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=150"
+    alt="Agent"
+    width={48}
+    height={48}
+    className="w-full h-full object-cover"
+  />
+</div>
+
                   <div>
                     <h3 className="font-semibold text-gray-900">Oumaima Labaoui</h3>
                     <p className="text-sm text-gray-600">Senior Sales Manager</p>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-3 ">
-                  <button className="bg-black text-white hover:bg-gray-800 px-4 py-2 rounded-2xl flex items-center justify-center space-x-2 transition-colors">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3 ">
+                  <button className="bg-black text-white hover:bg-gray-800 px-3 sm:px-4 py-2 rounded-xl sm:rounded-2xl flex items-center justify-center space-x-2 transition-colors text-xs sm:text-sm">
                     <Phone className="w-4 h-4" />
                     <span>Call</span>
                   </button>
-                  <button className="border bg-black text-white border-gray-300 text-gray-700 hover:bg-gray-50 px-4 py-2 rounded-2xl flex items-center justify-center space-x-2 transition-colors">
+                  <button className="border bg-black text-white border-gray-300 text-gray-700 hover:bg-gray-50 px-3 sm:px-4 py-2 rounded-xl sm:rounded-2xl flex items-center justify-center space-x-2 transition-colors text-xs sm:text-sm">
                     <MessageCircle className="w-4 h-4" />
                     <span>WhatsApp</span>
                   </button>
@@ -250,61 +472,54 @@ export default function PropertyListing() {
               </div>
 
               {/* Contact Form */}
-              <form onSubmit={handleSubmit} className="space-y-4">
-             <input
-  type="text"
-  placeholder="Your name"
-  value={formData.name}
-  onChange={(e) => handleInputChange('name', e.target.value)}
-  className="w-full px-3 py-2 border border-gray-300 rounded-2xl bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-  required
-/>
-
+              <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={(e) => handleInputChange('name', e.target.value)}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl sm:rounded-2xl bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs sm:text-sm"
+                  required
+                />
                 <input
                   type="email"
                   placeholder="Email address"
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
                   required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-2xl bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl sm:rounded-2xl bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs sm:text-sm"
                 />
-               
-               <div className="flex space-x-2">
-<select
-  value={formData.countryCode}
-  onChange={(e) => handleInputChange('countryCode', e.target.value)}
-  className="w-28 px-3 pr-6 py-2 border border-gray-300 rounded-2xl bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
->
-  <option value="+974">+974</option>
-  <option value="+971">+971</option>
-  <option value="+1">+1</option>
-  <option value="+44">+44</option>
-</select>
-
-  <input
-    type="tel"
-    placeholder="Phone Number"
-    value={formData.phone}
-    onChange={(e) => handleInputChange('phone', e.target.value)}
-    required
-    className="flex-1 px-3 py-2 border border-gray-300 rounded-2xl bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-  />
-</div>
-
-
-           <textarea
-  placeholder="Message"
-  value={formData.message}
-  onChange={(e) => handleInputChange('message', e.target.value)}
-  rows={4}
-  className="w-full px-3 py-2 border border-gray-300 rounded-2xl bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent overflow-hidden resize-none"
-  required
-/>
-
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <select
+                    value={formData.countryCode}
+                    onChange={(e) => handleInputChange('countryCode', e.target.value)}
+                    className="w-full sm:w-28 px-3 pr-6 py-2 border border-gray-300 rounded-xl sm:rounded-2xl bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs sm:text-sm"
+                  >
+                    <option value="+974">+974</option>
+                    <option value="+971">+971</option>
+                    <option value="+1">+1</option>
+                    <option value="+44">+44</option>
+                  </select>
+                  <input
+                    type="tel"
+                    placeholder="Phone Number"
+                    value={formData.phone}
+                    onChange={(e) => handleInputChange('phone', e.target.value)}
+                    required
+                    className="flex-1 px-3 py-2 border border-gray-300 rounded-xl sm:rounded-2xl bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-xs sm:text-sm"
+                  />
+                </div>
+                <textarea
+                  placeholder="Message"
+                  value={formData.message}
+                  onChange={(e) => handleInputChange('message', e.target.value)}
+                  rows={4}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-xl sm:rounded-2xl bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent overflow-hidden resize-none text-xs sm:text-sm"
+                  required
+                />
                 <button
                   type="submit"
-                  className="w-full bg-black text-white hover:bg-gray-800 py-3 rounded-lg font-medium transition-colors"
+                  className="w-full bg-black text-white hover:bg-gray-800 py-2 sm:py-3 rounded-lg font-medium transition-colors text-xs sm:text-base"
                 >
                   Submit enquiry
                 </button>
@@ -313,6 +528,8 @@ export default function PropertyListing() {
           </div>
         </div>
       </div>
+    </div>
+    <Footer></Footer>
     </div>
   );
 }

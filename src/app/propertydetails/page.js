@@ -94,10 +94,10 @@ export default function PropertyListing() {
     ] },
     { label: 'FRANCHISE', key: 'franchise',href: '/franchise'   },
     { label: 'LOGIN', key: 'login',href: '/franchise' },
-    { label: 'CONTACT US', key: 'contact',href: '/franchise' },
-    { label: 'JOIN US', key: 'join' ,href: '/franchise'},
-    { label: 'INSTANT VALUATION', key: 'valuation',href: '/franchise' },
-    { label: 'TERMS & POLICY', key: 'terms',href: '/franchise' },
+    { label: 'CONTACT US', key: 'contact',href: '/contactUs' },
+    { label: 'JOIN US', key: 'join' ,href: '/joinus'},
+    { label: 'INSTANT VALUATION', key: 'valuation',href: '/instantvaluation' },
+    { label: 'TERMS & POLICY', key: 'terms',href: '#' },
   ];
   const [formData, setFormData] = useState({
     name: '',
@@ -218,46 +218,50 @@ export default function PropertyListing() {
           <div className="absolute md:hidden top-full ml-10 left-0 right-0 py-4  px-6 space-y-4 shadow-lg bg-gray-950/90 backdrop-blur-sm z-50">
             {menuItems.map(item => (
               <div key={item.key}>
-                <div
-                  onClick={() => item.submenu && toggleSubmenu(item.key)}
-                  className="flex justify-between items-center text-white hover:text-gray-300 transition-colors cursor-pointer py-1"
-                >
-           <span
-    className={`${
-      openSubmenu === item.key
-        ? 'text-[rgba(202,3,32,255)] font-semibold underline'
-        : ["JOIN US", "CONTACT US"].includes(item.label)
-        ? 'text-[rgba(202,3,32,255)] font-semibold'
-        : 'text-white'
-    }`}
-  >
-    {item.label}
-  </span>
-  
-  
-  
-  
-                  {item.submenu && (
-    openSubmenu === item.key ? (
-      <FaChevronUp size={14} className="text-white" />
-    ) : (
-      <FaChevronDown size={14} className="text-[rgba(202,3,32,255)]" />
-    )
-  )}
-  
-                </div>
-  
+                {item.submenu ? (
+                  <div
+                    onClick={() => toggleSubmenu(item.key)}
+                    className="flex justify-between items-center text-white hover:text-gray-300 transition-colors cursor-pointer py-1"
+                  >
+                    <span
+                      className={
+                        openSubmenu === item.key
+                          ? (["JOIN US", "CONTACT US"].includes(item.label)
+                            ? 'text-[rgba(202,3,32,255)] font-semibold underline'
+                            : 'text-[rgba(202,3,32,255)] font-semibold underline')
+                          : ["JOIN US", "CONTACT US"].includes(item.label)
+                          ? 'text-[rgba(202,3,32,255)] font-semibold'
+                          : 'text-white'
+                      }
+                    >
+                      {item.label}
+                    </span>
+                    {item.submenu && (
+                      openSubmenu === item.key ? (
+                        <FaChevronUp size={14} className="text-white" />
+                      ) : (
+                        <FaChevronDown size={14} className="text-[rgba(202,3,32,255)]" />
+                      )
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={`block py-1 font-semibold transition-colors ${["JOIN US", "CONTACT US"].includes(item.label) ? 'text-[rgba(202,3,32,255)] hover:text-[rgba(202,3,32,255)]' : 'text-white hover:text-[rgba(202,3,32,255)]'}`}
+                  >
+                    {item.label}
+                  </Link>
+                )}
                 {/* Submenu */}
                 {item.submenu && openSubmenu === item.key && (
-    <div className="mt-1 space-y-3 text-base text-gray-300">
-      {item.submenu.map(sub => (
-        <Link href={sub.href} key={sub.href} className="block hover:text-white">
-          {sub.label}
-        </Link>
-      ))}
-    </div>
-  )}
-  
+                  <div className="mt-1 space-y-3 text-base text-gray-300">
+                    {item.submenu.map(sub => (
+                      <Link href={sub.href} key={sub.href} className="block hover:text-white">
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>

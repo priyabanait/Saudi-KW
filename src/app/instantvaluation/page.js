@@ -134,64 +134,64 @@ const Instantvaluation = () => {
           <div className="flex-1 py-6 md:py-10 px-4 md:px-30">
             <form className="w-full max-w-full space-y-4">
               <div>
-              <label className="block mb-2 ml-2 md:text-[1rem] text-[0.8rem] font-normal md:font-normal ">First Name</label>
+              <label className="block mb-2 ml-2 md:text-[18px] font-normal">First Name</label>
                 <input
                   type="text"
                   placeholder="First name"
-                  className="w-full pl-4 py-2 md:py-3 rounded-2xl bg-white"
+                      className="w-full  pl-4 py-2 md:py-3 text-base md:text-lg rounded-lg bg-white"
                 />
               </div>
               <div>
-              <label className="block ml-2  mb-2 md:text-[1rem] text-[0.8rem] font-normal md:font-normal ">Phone</label>
+              <label className="block mb-2 ml-2 md:text-[18px] font-normal">Phone</label>
                 <input
                   type="text"
                   placeholder="Phone"
-                  className="w-full pl-4 py-2 md:py-3 rounded-2xl bg-white"
+                      className="w-full  pl-4 py-2 md:py-3 text-base md:text-lg rounded-lg bg-white"
                 />
               </div>
               <div>
-              <label className="block ml-2 mb-2 md:text-[1rem] text-[0.8rem] font-normal md:font-normal ">City</label>
+              <label className="block mb-2 ml-2 md:text-[18px] font-normal">City</label>
                 <input
                   type="text"
                   placeholder="City"
-                   className="w-full pl-4 py-2 md:py-3 rounded-2xl bg-white"
+                       className="w-full  pl-4 py-2 md:py-3 text-base md:text-lg rounded-lg bg-white"
                 />
               </div>
               <div>
-              <label className="block ml-2 mb-2 md:text-[1rem] text-[0.8rem] font-normal md:font-normal ">Email *</label>
+              <label className="block mb-2 ml-2 md:text-[18px] font-normal">Email *</label>
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full pl-4 py-2 md:py-3 rounded-2xl bg-white"
+                     className="w-full  pl-4 py-2 md:py-3 text-base md:text-lg rounded-lg bg-white"
                 />
               </div>
               <div>
-              <label className="block ml-2 mb-2 md:text-[1rem] text-[0.8rem] font-normal md:font-normal ">Property Type</label>
+              <label className="block mb-2 ml-2 md:text-[18px] font-normal">Property Type</label>
                 <input
                   type="text"
                   placeholder="Property Type"
-               className="w-full pl-4 py-2 md:py-3 rounded-2xl bg-white"
+    className="w-full  pl-4 py-2 md:py-3 text-base md:text-lg rounded-lg bg-white"
                 />
               </div>
               <div>
-              <label className="block ml-2 mb-2 md:text-[1rem] text-[0.8rem] font-normal md:font-normal ">Upload Photos</label>
+              <label className="block mb-2 ml-2 md:text-[18px] font-normal">Upload Photos</label>
                 <input
                   type="file"
                   placeholder="Upload Photos"
-                   className="w-full pl-4 py-2 md:py-3 rounded-2xl bg-white"
+                      className="w-full  pl-4 py-2 md:py-3 text-base md:text-lg rounded-lg bg-white"
                 />
               </div>
               <div>
-              <label className="block ml-2 mb-2 md:text-[1rem] text-[0.8rem] font-normal md:font-normal ">Enter the Property Details *</label>
+              <label className="block mb-2 ml-2 md:text-[18px] font-normal">Enter the Property Details *</label>
                 <textarea
                   placeholder="Enter the Property Details"
                   rows="3"
-                   className="w-full pl-4 py-2 md:py-3 rounded-2xl bg-white"
+                       className="w-full  pl-4 py-2 md:py-3 text-base md:text-lg rounded-lg bg-white"
                 />
               </div>
               <button
                 type="submit"
-                className="bg-red-700 text-white px-8 py-2 rounded-full float-right mt-4 md:mt-0"
+                className="bg-red-700 text-white px-8 py-2 md:font-semibold text-sm md:text-base  rounded-full float-right mt-4 md:mt-0"
               >
                 Submit
               </button>

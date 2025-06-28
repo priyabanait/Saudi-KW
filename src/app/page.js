@@ -217,7 +217,12 @@ const Home = () => {
       <div className="flex justify-center items-center md:my-0 my-12 mt-20 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8">
         <hr className="md:w-170 w-44 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px]" />
       </div>
-
+      <div className="md:w-1/3 md:text-center text-center mb-6 md:mb-0">
+     
+  </div>
+  <div className="flex justify-center text-center my-12 md:my-0 md:mt-30">
+        <h1 className="text-center text-[1rem] md:text-[2.2rem] font-bold"><span className="text-[rgba(202,3,32,255)]">OUR </span> MARKET CENTERS</h1>
+      </div>
       <div className="w-full mx-auto px-4 md:px-12 lg:px-18 md:py-14 py-4 md:mt-12">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-20">
           {/* First Image Block */}

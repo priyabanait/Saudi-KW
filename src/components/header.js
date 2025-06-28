@@ -131,7 +131,7 @@ const Header = () => {
             Search
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>
-          <Link href="/franchise" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
+          <Link href="/joinus" className="text-[0.8rem] text-white hover:text-gray-300 transition-colors">
             Join Us
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>

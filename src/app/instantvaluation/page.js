@@ -118,11 +118,21 @@ const InstantValuation = (props) => {
           {/* Why Attend */}
           <div>
             <h3 className="text-xl font-semibold mb-2">Why Us?</h3>
-            <ul className="text-gray-700 list-disc list-inside space-y-1">
-              <li>One-of-a-kind culture</li>
-              <li>Limitless earning potential</li>
-              <li>Industry-leading technology</li>
-            </ul>
+            <ul className="text-gray-700 space-y-2">
+  <li className="flex items-start gap-2">
+    <span className="text-[rgba(202,3,32,255)] font-bold mt-1">✓</span>
+    <span>One-of-a-kind culture</span>
+  </li>
+  <li className="flex items-start gap-2">
+    <span className="text-[rgba(202,3,32,255)] font-bold mt-1">✓</span>
+    <span>Limitless earning potential</span>
+  </li>
+  <li className="flex items-start gap-2">
+    <span className="text-[rgba(202,3,32,255)] font-bold mt-1">✓</span>
+    <span>Industry-leading technology</span>
+  </li>
+</ul>
+
           </div>
         </div>
 

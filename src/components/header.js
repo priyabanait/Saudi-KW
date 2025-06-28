@@ -123,7 +123,7 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 tracking-wider">
-          <Link href="/ourCulture" className="text-[0.8rem]  text-white hover:text-gray-300 transition-colors">
+          <Link href="/aboutus" className="text-[0.8rem]  text-white hover:text-gray-300 transition-colors">
             About Us
           </Link>
           <div className="w-px h-4 bg-gray-300/50"></div>

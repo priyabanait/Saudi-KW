@@ -1,17 +1,23 @@
 'use client'
 
-import { FaSearch, FaBars, FaTimes, FaBuilding, FaChevronDown } from "react-icons/fa";
+import { FaSearch, FaBars, FaTimes, FaBuilding, FaChevronDown, FaChevronRight} from "react-icons/fa";
 import Link from 'next/link';
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import React, { useRef,useState,useEffect,useMemo  } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 const Home = () => {
  
   const scrollRef = useRef(null);
   const [showScrollButton, setShowScrollButton] = useState(false);
-
+  const stats = [
+    { value: '$532B', label1: 'Total Sales Volume', label2: 'Worldwide' },
+    { value: '$1.4B', label1: 'Closed Transactions', label2: 'Worldwide' },
+    { value: '1002', label1: 'Market Centers', label2: 'Worldwide' },
+    { value: '191K', label1: 'Real Estate Agents', label2: 'Worldwide' },
+  ];
   const properties =useMemo(() => [
     {
       title: "Marina View Tower",
@@ -38,7 +44,15 @@ const Home = () => {
       image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd",
     },
   ], []);
+  const [clear, setClear] = useState(false)
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setClear(true)
+    }, 1000) // 1 second
+
+    return () => clearTimeout(timer)
+  }, [])
   useEffect(() => {
     const el = scrollRef.current;
 
@@ -114,7 +128,7 @@ const Home = () => {
   <div className="mt-4 bg-white rounded-full hidden md:flex items-center w-full overflow-hidden shadow-md">
     {/* Search Input */}
     <div className="flex items-center flex-1 px-8 py-2">
-      <FaSearch className="text-gray-500 mr-2 text-sm" />
+      <FaSearch className="text-gray-500 mr-3 md:text-xl text-sm" />
       <input
         type="text"
         placeholder="City , Area or Building"
@@ -132,7 +146,7 @@ const Home = () => {
     </div>
 
     {/* Search Button */}
-    <button className="bg-[rgba(202,3,32,255)] text-white px-12 py-3 rounded-r-full text-xs md:text-base font-semibold">
+    <button className="bg-[rgba(202,3,32,255)] text-white px-12 py-2 mr-1 rounded-r-full rounded-l-full text-xs md:text-base font-semibold">
       Search
     </button>
   </div>
@@ -162,7 +176,7 @@ const Home = () => {
 </div>
 
     {/* Search Button (full width below) */}
-    <button className="bg-[rgba(202,3,32,255)] text-white justify-center  items-center w-30 py-2 text-[0.6rem] rounded-full mt-1 focus:outline-none focus:ring-0 block mx-auto">
+    <button className="bg-[rgba(202,3,32,255)] text-white justify-center  items-center w-30 py-2 text-xs font-semibold rounded-full mt-1 focus:outline-none focus:ring-0 block mx-auto">
   Search
 </button>
   </div>
@@ -175,7 +189,7 @@ const Home = () => {
 <hr className="w-44 mx-auto bg-[rgba(202,3,32,255)] h-[1.5px] border-0 my-12 md:hidden" />
 
       {/* Image Grid Section */}
-      <div className="md:mx-4 mx-14 md:py-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-0 md:gap-2">
+      <div className="md:mx-8 mx-14 md:py-18 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-0 md:gap-2">
   {[
     { label: "Properties", path: 'properties', imageUrl: "/properties.jpg" },
     { label: "Market Center", path: 'marketCenter', imageUrl: "/marketcenter.jpg" },
@@ -193,7 +207,7 @@ const Home = () => {
           alt={label}
           width={230}
           height={189}
-          className="h-26 w-26 md:h-50 md:w-50 object-contain"
+          className="h-26 w-26 md:h-52 md:w-52 object-contain"
         />
       </div>
     </Link>
@@ -201,92 +215,101 @@ const Home = () => {
 </div>
 
       <div className="flex justify-center items-center md:my-0 my-12 mt-20 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8">
-        <hr className="md:w-140 w-44 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px]" />
+        <hr className="md:w-170 w-44 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px]" />
       </div>
 
-      <div className="w-full mx-auto px-4 md:px-12 lg:px-18 md:py-14 py-4 md:mt-11">
+      <div className="w-full mx-auto px-4 md:px-12 lg:px-18 md:py-14 py-4 md:mt-12">
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-20">
           {/* First Image Block */}
-          <div className="lg:w-1/2">
-  <Link href="/riyadh">
-    <Image
-      src="/riyaddh.jpg"
-      alt="Real Estate Property"
-      width={800}
-      height={500}
-      className="w-full h-auto max-h-[500px] object-contain cursor-pointer"
-    />
-  </Link>
-</div>
-
-{/* Second Image Block */}
-<div className="lg:w-1/2">
-  <Link href="/jeddah">
-    <Image
-      src="/jeddhah.jpg"
-      alt="Real Estate Agent"
-      width={800}
-      height={500}
-      className="w-full h-auto max-h-[500px] object-contain cursor-pointer"
-    />
-  </Link>
-</div>
-        </div>
-      </div>
-
-      <div className="flex justify-center my-12 md:my-0 md:mt-11">
-        <h1 className="text-center text-[1rem] md:text-[2.2rem] font-bold">TOOLS FOR YOUR NEEDS</h1>
-      </div>
-
-      <div className=" md:flex justify-center items-center md:my-2 my-0">
-      <div className="md:mx-4 mx-14 md:py-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-0 md:gap-2">
-    {[
-      {
-        label: "Seller",
-        path: "seller/sellerguid",
-        imageUrl:
-          "/sellerguid.jpg",
-      },
-      {
-        label: "Buyer",
-        path: "buyer/buyerguid",
-        imageUrl:
-          "/buyerguid.jpg",
-      },
-      {
-        label: "Tenant",
-        path: "tenant",
-        imageUrl:
-          "/tenantguid.jpg",
-      },
-      {
-        label: "KW Training",
-        path: "training",
-        imageUrl:
-          "/kwtraining.jpg"
-      },
-    ].map(({ imageUrl, path }, i) => (
-      <Link href={path} key={i} className="group">
-        <div className="rounded-xl md:py-6 flex flex-col items-center text-center transition-all duration-300 transform hover:scale-105 cursor-pointer">
+          <div className="lg:w-1/2 overflow-hidden">
+        <Link href="/riyadh">
           <Image
-            src={imageUrl}
-            alt="image"
-            width={230}
-            height={189}
-            className="h-25 w-25 md:h-38 md:w-38 object-contain"
+            src="/riyaddh.jpg"
+            alt="Real Estate Property"
+            width={800}
+            height={500}
+            className={`w-full h-auto max-h-[530px] object-contain transition-all duration-300 transform hover:scale-105 cursor-pointer ${
+              clear ? 'blur-0' : 'blur-xs'
+            }`}
           />
+        </Link>
+      </div>
+
+      {/* Second Image */}
+      <div className="lg:w-1/2 overflow-hidden">
+        <Link href="/jeddah">
+          <Image
+            src="/jeddhah.jpg"
+            alt="Real Estate Agent"
+            width={800}
+            height={500}
+            className={`w-full h-auto max-h-[530px] object-contain transition-all duration-300 transform hover:scale-105 cursor-pointer ${
+              clear ? 'blur-0' : 'blur-xs'
+            }`}
+          />
+        </Link>
+      </div>
         </div>
-      </Link>
-    ))}
+      </div>
+
+      <div className="flex flex-col md:flex-row justify-center md:mx-30 items-center md:my-16 my-12 md:gap-6">
+  {/* Heading */}
+  <div className="md:w-1/3 md:text-left text-center mb-6 md:mb-0">
+    <h1 className="text-[1rem] md:text-[2.2rem] font-bold">
+      <span className="text-[rgba(202,3,32,255)]">TOOLS</span> FOR YOUR NEEDS
+    </h1>
+  </div>
+
+  {/* Grid */}
+  <div className="md:w-2/3">
+    <div className="mx-14 md:mx-4 md:py-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      {[
+        {
+          label: "Seller",
+          path: "seller/sellerguid",
+          imageUrl: "/sellerguid.jpg",
+        },
+        {
+          label: "Buyer",
+          path: "buyer/buyerguid",
+          imageUrl: "/buyerguid.jpg",
+        },
+        {
+          label: "Tenant",
+          path: "tenant",
+          imageUrl: "/tenantguid.jpg",
+        },
+        {
+          label: "KW Training",
+          path: "training",
+          imageUrl: "/kwtraining.jpg",
+        },
+      ].map(({ imageUrl, path }, i) => (
+        <Link href={path} key={i} className="group">
+          <div className="rounded-xl p-2 flex flex-col items-center text-center transition-all duration-300 transform hover:scale-105 cursor-pointer">
+            <Image
+              src={imageUrl}
+              alt="image"
+              width={230}
+              height={189}
+              className="h-25 w-25 md:h-40 md:w-40 object-contain"
+            />
+          </div>
+        </Link>
+      ))}
+    </div>
   </div>
 </div>
 
-      <div className="flex justify-center items-center mt-4 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8  md:mb-0">
-        <hr className="md:w-140 w-44 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px]" />
-      </div>
 
+      <div className="flex justify-center items-center mt-8 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8  md:mb-0">
+        <hr className="md:w-170 w-44 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px]" />
+      </div>
+      <div className="flex justify-center my-12 md:my-0 md:mt-30">
+        <h1 className="text-center text-[1rem] md:text-[2.2rem] font-bold"><span className="text-[rgba(202,3,32,255)]">OUR </span> TRENDING PROPERTIES</h1>
+      </div>
       {/* First Home Block */}
-      <div className="relative w-full px-6 md:py-30 py-15 bg-white">
+      <div className="relative w-full px-10 md:py-22 py-15 bg-white">
   <div
     ref={scrollRef}
     className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar w-full"
@@ -296,6 +319,16 @@ const Home = () => {
     key={index}
     className="flex-shrink-0 basis-full sm:basis-1/2 md:basis-1/3 max-w-[80%] sm:max-w-[50%] md:max-w-[30%] md:h-[330px] h-[200px] rounded-xl overflow-hidden shadow-md bg-white relative"
   >
+    {/* 360 Logo in the top-left corner */}
+    <div className="absolute top-4 left-4 z-20">
+      <Image
+        src="/360logo.png"
+        alt="360 Logo"
+        width={40}
+        height={40}
+        className="rounded-full bg-white/80 p-1 shadow"
+      />
+    </div>
     <Image
       src={property.image}
       alt={property.title}
@@ -316,15 +349,20 @@ const Home = () => {
 
   {showScrollButton && (
     <button
-      onClick={scrollRight}
-      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white border rounded-full p-2 shadow-md z-10"
-    >
-      <ArrowRight size={20} />
-    </button>
+    onClick={scrollRight}
+    className="absolute md:right-0 right-4 top-1/2 transform -translate-y-1/2 
+               bg-white border border-gray-300 rounded-full p-2 md:p-4 
+               shadow-md z-10 hover:shadow-lg transition"
+  >
+   <ChevronRight 
+   className="cursor-pointer text-[rgba(202,3,32,255)] w-6 h-6 md:w-[50px] md:h-[50px]" 
+ />
+ 
+  </button>
   )}
 </div>
 
-      <main className="w-full">
+      <main className="w-full md:mt-18 mt-0">
         <div className="flex flex-col lg:flex-row h-auto lg:h-screen">
           {/* Left Side - Image (Full Height on Laptops) */}
           <div className="w-full lg:w-1/2 h-[40vh] sm:h-[50vh] lg:h-full relative">
@@ -346,22 +384,22 @@ const Home = () => {
               {/* Form Inputs */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <div>
-                  <label className="block text-white md:text-base text-sm ml-2 font-normal mb-2 sm:mb-4" htmlFor="first-name">
+                  <label className="block text-white md:text-lg text-sm ml-2 font-normal mb-2 sm:mb-4" htmlFor="first-name">
                     First Name
                   </label>
                   <input
-                    className="w-full px-4 py-2 sm:py-4 border text-white text-[0.8rem] border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    className="w-full px-4 py-2 sm:py-3 border text-white md:text-lg text-baseborder-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-400"
                     id="first-name"
                     type="text"
                     placeholder="First Name"
                   />
                 </div>
                 <div>
-                  <label className="block text-white text-sm md:text-base font-normal ml-2 mb-2 sm:mb-4" htmlFor="last-name">
+                  <label className="block text-white text-sm md:text-lg font-normal ml-2 mb-2 sm:mb-4" htmlFor="last-name">
                     Last Name
                   </label>
                   <input
-                    className="w-full px-4 py-2 sm:py-4 border text-white text-[0.8rem] border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    className="w-full px-4 py-2 sm:py-3 border text-white md:text-lg text-base border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-400"
                     id="last-name"
                     type="text"
                     placeholder="Last Name"
@@ -370,11 +408,11 @@ const Home = () => {
               </div>
 
               <div className="mb-6">
-                <label className="block text-white text-sm md:text-base font-normal ml-2 mb-2" htmlFor="purpose">
+                <label className="block text-white text-sm md:text-lg font-normal ml-2 mb-2" htmlFor="purpose">
                   I Want To
                 </label>
                 <input
-                  className="w-80 px-4 py-2 sm:py-4 border text-white text-[0.8rem] border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-400"
+                  className="w-80 px-4 py-2 sm:py-3 border text-white md:text-lg text-base border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-400"
                   id="purpose"
                   type="text"
                   placeholder="Buy Property, Find agent"
@@ -382,11 +420,11 @@ const Home = () => {
               </div>
 
               <div className="mb-6">
-                <label className="block text-white text-sm md:text-base font-normal ml-2 mb-2" htmlFor="notes">
+                <label className="block text-white text-sm md:text-lg font-normal ml-2 mb-2" htmlFor="notes">
                   Notes
                 </label>
                 <textarea
-                  className="w-full px-4 py-1 sm:py-4 border text-white text-[0.8rem] border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-400"
+                  className="w-full px-4 py-1 sm:py-3 border text-white md:text-lg text-base border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-400"
                   id="notes"
                   rows="4"
                 ></textarea>
@@ -413,75 +451,43 @@ const Home = () => {
         </div>
 
         {/* Overlay Content */}
-        <div className="relative z-10 px-4 sm:px-8 md:py-16 my-4 text-black text-center bg-white/50 ">
-          {/* Heading */}
-          <div className="mb-10 md:mb-28 md:mt-34 my-20 md:my-0">
-          <h1 className=" text-xs md:text-2xl font-bold mb-2 text-[rgba(202,3,32,255)]">
-              OUR STATS
-            </h1>
-            <h1 className="text-xs md:text-4xl font-bold mb-2">
-              WHY WORK WITH US
-            </h1>
-            <hr className="md:w-1/2 w-44 mx-auto border-gray-400 h-[2px]" />
-          </div>
+        <div className="relative z-10 px-4 sm:px-8 md:py-16 my-4 text-black text-center bg-white/50">
+      {/* Heading */}
+      <div className="mb-10 md:mb-28 md:mt-34 my-20 md:my-0">
+        <h1 className="text-xs md:text-2xl font-bold mb-2 text-[rgba(202,3,32,255)]">
+          OUR STATS
+        </h1>
+        <h1 className="text-xs md:text-4xl font-bold mb-2">
+          WHY WORK WITH US
+        </h1>
+        <hr className="md:w-1/2 w-44 mx-auto border-gray-400 h-[2px]" />
+      </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 items-center justify-center md:grid-cols-4 gap-8 mt-15 md:mt-0 max-w-full mx-12 mb-12 md:mb-60">
-            {/* Stat 1 */}
-            <div className="text-center">
-  <p className="text-lg md:text-5xl font-bold mb-4">$532B</p>
-  <div className="flex items-center justify-center  md:max-w-[200px] max-w-[100px] mx-auto my-4">
-    <div className="flex-1 h-px bg-[rgba(202,3,32,255)]"></div>
+      {/* Stats Grid */}
+      <div className="grid grid-cols-2 items-center justify-center md:grid-cols-4 gap-8 mt-15 md:mt-0 max-w-full mx-12 mb-12 md:mb-60">
+        {stats.map((stat, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <p className="text-lg md:text-5xl font-bold mb-4">{stat.value}</p>
+            <div className="flex items-center justify-center md:max-w-[200px] max-w-[100px] mx-auto my-4">
+              <div className="flex-1 h-px bg-[rgba(202,3,32,255)]"></div>
+              <div className="flex-1 h-px bg-gray-500"></div>
+            </div>
+            <p className="md:text-[1rem] text-[0.8rem]">{stat.label1}</p>
+            <p className="md:text-[1rem] text-[0.8rem]">{stat.label2}</p>
+          </motion.div>
+        ))}
+      </div>
    
-    <div className="flex-1 h-px bg-gray-500"></div>
-  </div>
-
-
-              <p className="md:text-[1rem] text-[0.8rem]">Total Sales Volume</p>
-              <p className="md:text-[1rem] text-[0.8rem]">Worldwide</p>
-            </div>
-
-            {/* Stat 2 */}
-            <div className="text-center">
-              <p className="text-lg md:text-5xl font-bold mb-4">$1.4B</p>
-              <div className="flex items-center justify-center md:max-w-[200px] max-w-[100px] mx-auto my-4">
-  <div className="flex-1 h-px bg-[rgba(202,3,32,255)]"></div>
-  <div className="flex-1 h-px bg-gray-500"></div>
-</div>
-
-              <p className="md:text-[1rem] text-[0.8rem]">Closed Transactions</p>
-              <p className="md:text-[1rem] text-[0.8rem]">Worldwide</p>
-            </div>
-
-            <div className="text-center">
-              <p className="text-lg md:text-5xl font-bold mb-4">1002</p>
-              <div className="flex items-center justify-center md:max-w-[200px] max-w-[100px] mx-auto my-4">
-  <div className="flex-1 h-px bg-[rgba(202,3,32,255)]"></div>
-  <div className="flex-1 h-px bg-gray-500"></div>
-</div>
-
-              <p className="md:text-[1rem] text-[0.8rem]">Market Centers</p>
-              
-              
-              <p className="md:text-[1rem] text-[0.8rem]">Worldwide</p>
-            </div>
-
-            {/* Stat 4 */}
-            <div className="text-center">
-              <p className="text-lg md:text-4xl font-bold mb-4">191K</p>
-              <div className="flex items-center justify-center md:max-w-[200px] max-w-[100px] mx-auto my-4">
-  <div className="flex-1 h-px bg-[rgba(202,3,32,255)]"></div>
-  <div className="flex-1 h-px bg-gray-500"></div>
-</div>
-
-              <p className="md:text-[1rem] text-[0.8rem]">Real Estate Agents</p>
-              <p className="md:text-[1rem] text-[0.8rem]">Worldwide</p>
-            </div>
-          </div>
-
           {/* Bottom Red Line */}
-          <div className="flex justify-center items-center md:mt-14 my-2 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8">
-            <hr className="md:w-6/12 w-44 mx-auto bg-[rgba(202,3,32,255)] border-0 h-[1.5px]" />
+          <div className="flex justify-center items-center  my-2 col-span-2 sm:col-span-3 md:col-span-4 lg:col-span-8">
+            <hr className="md:w-6/12 w-44 mx-auto md:mt-20 bg-[rgba(202,3,32,255)] border-0 h-[2px]" />
           </div>
         </div>
       </div>

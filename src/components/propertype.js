@@ -4,7 +4,7 @@ import {
     FaHome,
     FaMapMarkerAlt,
     FaMoneyBillWave,
-    FaBuilding,
+    FaBuilding,FaWarehouse ,FaShoppingBag  
   } from "react-icons/fa";
   import { BsListUl, BsMap } from "react-icons/bs";
   import { FiFilter } from "react-icons/fi";
@@ -12,6 +12,7 @@ import {
   import Image from "next/image";
   import Link from "next/link";
   import { useState, useRef, useEffect } from "react";
+
   export default function Home(props) {
     const [viewMode, setViewMode] = useState("list");
     const [showMobileFilters, setShowMobileFilters] = useState(false);
@@ -97,7 +98,7 @@ import {
       <div className="min-h-screen bg-gray-50  mx-4 ">
         {/* Header */}
         <header className="w-full bg-gray-200 shadow-sm py-4 rounded-xl">
-  <div className="container mx-auto px-4 md:px-0">
+  <div className="container mx-auto px-4 md:px-4">
     <div className="flex flex-wrap md:flex-row w-full gap-1 md:items-center">
       {/* Mobile Header (List/Map + Filters button in one line) */}
       <div className="md:hidden w-full flex items-center justify-between py-2">
@@ -149,7 +150,7 @@ import {
             {/* Property Type Dropdown */}
             <div className="relative flex-1">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <FaHome className="text-gray-400" />
+                <FaHome className="text-orange-500" />
               </div>
               <select className="w-full appearance-none min-w-[180px] pl-10 pr-3 py-2 rounded-lg bg-white text-sm text-gray-500 border border-gray-300">
                 <option>Properties For Rent</option>
@@ -164,7 +165,7 @@ import {
             {/* Property Category Dropdown */}
             <div className="relative flex-1">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <FaBuilding className="text-gray-400" />
+                <FaBuilding className="text-blue-400" />
               </div>
               <select className="w-full appearance-none min-w-[180px] pl-10 pr-3 py-2 rounded-lg bg-white text-sm text-gray-500 border border-gray-300">
                 <option>Property Type</option>
@@ -182,7 +183,7 @@ import {
             {/* Property Subtype Dropdown */}
             <div className="relative flex-1">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <FaMapMarkerAlt className="text-gray-400" />
+                <FaWarehouse  className="text-green-700" />
               </div>
               <select className="w-full appearance-none min-w-[180px] pl-10 pr-3 py-2 rounded-lg bg-white text-sm text-gray-500 border border-gray-300">
                 <option>Property Subtype</option>
@@ -211,7 +212,7 @@ import {
             {/* Market Center Dropdown */}
             <div className="relative flex-1">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <FaMapMarkerAlt className="text-gray-400" />
+                <FaShoppingBag   className="text-yellow-400" />
               </div>
               <select className="w-full appearance-none min-w-[180px] pl-10 pr-3 py-2 rounded-lg bg-white text-sm text-gray-500 border border-gray-300">
                 <option>Market Center</option>
@@ -227,7 +228,7 @@ import {
             {/* Location Dropdown */}
             <div className="relative flex-1">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <FaMapMarkerAlt className="text-gray-400" />
+                <FaMapMarkerAlt className="text-red-500" />
               </div>
               <select className="w-full appearance-none min-w-[180px] pl-10 pr-3 py-2 rounded-lg bg-white text-sm text-gray-500 border border-gray-300">
                 <option>Select Location</option>
@@ -259,7 +260,7 @@ import {
             {/* Price Range Dropdown */}
             <div className="relative flex-1">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                <FaMoneyBillWave className="text-gray-400" />
+                <FaMoneyBillWave className="text-green-500" />
               </div>
               <select className="w-full appearance-none min-w-[180px] pl-10 pr-3 py-2 rounded-lg bg-white text-sm text-gray-500 border border-gray-300">
                 <option>Select Price Range</option>
@@ -345,7 +346,7 @@ import {
         {/* Market Center Dropdown */}
         <div className="relative w-full">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-            <FaMapMarkerAlt className="text-gray-400" />
+            <FaShoppingBag  className="text-gray-400" />
           </div>
           <select className="w-full appearance-none pl-10 pr-3 py-2 rounded-lg bg-gray-100 text-sm text-gray-500 border border-gray-300">
             <option>Market Center</option>
@@ -533,106 +534,119 @@ import {
             </div>
           )}
           {/* Desktop: Always show both */}
-          <div className="hidden md:grid md:w-1/2 grid-cols-1 sm:grid-cols-2 gap-4">
-            {currentProperties.map((property, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
-              >
-                <Link href="/propertydetails">
-                  <div className="relative">
-                    <Image
-                      src={property.image}
-                      alt={property.title}
-                      width={500}
-                      height={300}
-                      className="w-full h-40 object-cover"
-                    />
-                    <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-black/80 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium z-10">
-                      360 Virtual Tour
-                    </div>
-                  </div>
-                </Link>
-                <div className="p-4">
-                  <h3 className="font-semibold text-sm md:text-xl">
-                    {property.title}
-                  </h3>
-                  <p className="text-xs text-gray-500">{property.location}</p>
-                  <div className="flex w-full items-center gap-2 text-sm my-2">
-                    <span className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-gray-200 p-2">
-                      <span className="relative h-4 w-4">
-                        <Image
-                          src={bedIconUrl}
-                          alt="bed"
-                          fill
-                          className="object-contain"
-                        />
-                      </span>
-                      {property.beds}
-                    </span>
-                    <span className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-gray-200 p-2">
-                      <span className="relative h-4 w-4">
-                        <Image
-                          src={bathIconUrl}
-                          alt="bath"
-                          fill
-                          className="object-contain"
-                        />
-                      </span>
-                      {property.baths}
-                    </span>
-                    <span className="inline-flex items-center gap-1 rounded-lg bg-gray-200 px-3 py-2 whitespace-nowrap">
-                      <span className="relative h-4 w-4">
-                        <Image
-                          src={areaIconUrl}
-                          alt="area"
-                          fill
-                          className="object-contain"
-                        />
-                      </span>
-                      {property.area} sqm
-                    </span>
-                  </div>
-                  <div className="mt-2 flex items-center justify-between">
-                    <p className="text-lg font-bold">{property.price}</p>
-                    <button className="text-sm text-white p-2 rounded-lg bg-[rgba(202,3,32,255)]">Enquire now</button>
-                  </div>
-                </div>
+         
+          <div className="hidden md:flex w-full h-screen">
+  {/* Left - Properties List */}
+  <div className="w-1/2 h-full overflow-y-auto pr-3">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+      {currentProperties.map((property, index) => (
+        <div
+          key={index}
+          className="bg-white rounded-lg shadow-md overflow-hidden"
+        >
+          <Link href="/propertydetails">
+            <div className="relative">
+              <Image
+                src={property.image}
+                alt={property.title}
+                width={500}
+                height={300}
+                className="w-full h-40 object-cover"
+              />
+              <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-black/80 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium z-10">
+                360 Virtual Tour
               </div>
-            ))}
-            <div className="col-span-full flex justify-center items-center gap-2 mt-4">
-              <button
-                onClick={handlePrevPage}
-                disabled={currentPage === 1}
-                className="px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
-              >
-                Prev
-              </button>
-              <span>
-                Page {currentPage} of {totalPages}
+            </div>
+          </Link>
+          <div className="p-4">
+            <h3 className="font-semibold text-sm md:text-xl">
+              {property.title}
+            </h3>
+            <p className="text-xs text-gray-500">{property.location}</p>
+            <div className="flex w-full items-center gap-2 text-sm my-2">
+              <span className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-gray-200 p-2">
+                <span className="relative h-4 w-4">
+                  <Image
+                    src={bedIconUrl}
+                    alt="bed"
+                    fill
+                    className="object-contain"
+                  />
+                </span>
+                {property.beds}
               </span>
-              <button
-                onClick={handleNextPage}
-                disabled={currentPage === totalPages}
-                className="px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
-              >
-                Next
+              <span className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-gray-200 p-2">
+                <span className="relative h-4 w-4">
+                  <Image
+                    src={bathIconUrl}
+                    alt="bath"
+                    fill
+                    className="object-contain"
+                  />
+                </span>
+                {property.baths}
+              </span>
+              <span className="inline-flex items-center gap-1 rounded-lg bg-gray-200 px-3 py-2 whitespace-nowrap">
+                <span className="relative h-4 w-4">
+                  <Image
+                    src={areaIconUrl}
+                    alt="area"
+                    fill
+                    className="object-contain"
+                  />
+                </span>
+                {property.area} sqm
+              </span>
+            </div>
+            <div className="mt-2 flex items-center justify-between">
+              <p className="text-lg font-bold">{property.price}</p>
+              <button className="text-sm text-white p-2 rounded-lg bg-[rgba(202,3,32,255)]">
+                Enquire now
               </button>
             </div>
           </div>
-          <div className="hidden md:block md:w-1/2">
-            <div className="w-full h-64 md:h-[700px] bg-blue-100 rounded-lg overflow-hidden sticky top-0">
-              <iframe
-                src="https://www.google.com/maps?q=2740+King+Fahd+Branch+Rd,+Riyadh,+Saudi+Arabia&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-          </div>
+        </div>
+      ))}
+
+      {/* Pagination */}
+      <div className="col-span-full flex justify-center items-center gap-2 mt-4">
+        <button
+          onClick={handlePrevPage}
+          disabled={currentPage === 1}
+          className="px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
+        >
+          Prev
+        </button>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+          className="px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {/* Right - Sticky Full-Height Map */}
+  <div className="w-1/2 h-full sticky top-0">
+    <div className="w-full h-full bg-blue-100 rounded-lg overflow-hidden">
+      <iframe
+        src="https://www.google.com/maps?q=2740+King+Fahd+Branch+Rd,+Riyadh,+Saudi+Arabia&output=embed"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
     );

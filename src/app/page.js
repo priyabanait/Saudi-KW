@@ -257,17 +257,17 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-center md:mx-30 items-center md:my-16 my-12 md:gap-6">
+      <div className="flex flex-col justify-center items-center md:my-16 my-12 md:gap-2">
   {/* Heading */}
-  <div className="md:w-1/3 md:text-left text-center mb-6 md:mb-0">
+  <div className="w-full text-center mb-8">
     <h1 className="text-[1rem] md:text-[2.2rem] font-bold">
       <span className="text-[rgba(202,3,32,255)]">TOOLS</span> FOR YOUR NEEDS
     </h1>
   </div>
 
   {/* Grid */}
-  <div className="md:w-2/3">
-    <div className="mx-14 md:mx-4 md:py-10 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+  <div className="w-full md:px-100 px-20">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 justify-center">
       {[
         {
           label: "Seller",

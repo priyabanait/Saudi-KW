@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-export default function ceoTeam() {
+export default function CeoTeam() {
     const teamMembers = [
         {
           name: "MUHANNAD AWAD",

@@ -10,15 +10,144 @@ import {
   import { FiFilter } from "react-icons/fi";
   import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
   import Image from "next/image";
-  import Link from "next/link";
   import { useState, useRef, useEffect } from "react";
+  import axios from 'axios';
+
+  // Add this new component before the Home component
+  const PropertyCard = ({ property, bedIconUrl, bathIconUrl, areaIconUrl }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    const getPropertyImages = (property) => {
+      const fallbackImages = [
+        "/placeholder1.jpg",
+        "/placeholder2.jpg",
+        "/placeholder3.jpg",
+        "/placeholder4.jpg",
+        "/placeholder5.jpg",
+        "/placeholder6.jpg",
+        "/placeholder7.jpg"
+      ];
+      
+      return property.photos?.map(photo => photo.ph_url) || fallbackImages;
+    };
+
+    const handleNextImage = (e) => {
+      e.preventDefault();
+      setCurrentImageIndex((prev) => (prev + 1) % 7);
+    };
+
+    const handlePrevImage = (e) => {
+      e.preventDefault();
+      setCurrentImageIndex((prev) => (prev - 1 + 7) % 7);
+    };
+
+    return (
+      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+        <div
+          className="block relative cursor-pointer"
+          onClick={() => {
+            localStorage.setItem('selectedProperty', JSON.stringify(property));
+            window.location.href = '/propertydetails';
+          }}
+        >
+          <div className="relative">
+            <Image
+              src={getPropertyImages(property)[currentImageIndex]}
+              alt={property.prop_type || "Property Image"}
+              width={500}
+              height={300}
+              className="w-full h-40 object-cover rounded-lg"
+            />
+            <div className="absolute top-1/2 transform -translate-y-1/2 left-0 right-0 flex justify-between px-2">
+              <button 
+                onClick={handlePrevImage}
+                className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+              >
+                <FaChevronLeft className="w-4 h-4" />
+              </button>
+              <button 
+                onClick={handleNextImage}
+                className="bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors"
+              >
+                <FaChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-1">
+              {[...Array(7)].map((_, idx) => (
+                <div
+                  key={idx}
+                  className={`w-1.5 h-1.5 rounded-full ${
+                    currentImageIndex === idx ? 'bg-white' : 'bg-white/50'
+                  }`}
+                />
+              ))}
+            </div>
+            <div className="absolute top-2 left-2 sm:top-2 sm:left-2 bg-black/80 text-white px-2 sm:px-2 py-1 rounded-full text-xs sm:text-sm font-medium z-10">
+              360 Virtual Tour
+            </div>
+          </div>
+        </div>
+        <div className="p-4">
+          <h3 className="font-semibold text-sm md:text-xl">
+            {property.prop_type}
+          </h3>
+          <p className="text-xs text-gray-500">{property.list_address?.address}</p>
+          <div className="flex w-full items-center gap-2 text-sm my-2">
+            <span className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-gray-200 p-2">
+              <span className="relative h-4 w-4">
+                <Image
+                  src={bedIconUrl}
+                  alt="bed"
+                  fill
+                  className="object-contain"
+                />
+              </span>
+              {property.total_bed}
+            </span>
+            <span className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-gray-200 p-2">
+              <span className="relative h-4 w-4">
+                <Image
+                  src={bathIconUrl}
+                  alt="bath"
+                  fill
+                  className="object-contain"
+                />
+              </span>
+              {property.total_bath}
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-lg bg-gray-200 px-3 py-2 whitespace-nowrap">
+              <span className="relative h-4 w-4">
+                <Image
+                  src={areaIconUrl}
+                  alt="area"
+                  fill
+                  className="object-contain"
+                />
+              </span>
+              {property.lot_size_area} {property.lot_size_units}
+            </span>
+          </div>
+          <div className="mt-2 flex items-center justify-between">
+            <p className="text-lg font-bold">{property.current_list_price} QAR/month</p>
+            <button className="text-sm text-white p-2 rounded-lg bg-[rgba(202,3,32,255)]">
+              Enquire now
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   export default function Home(props) {
     const [viewMode, setViewMode] = useState("list");
     const [showMobileFilters, setShowMobileFilters] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const propertiesPerPage = 6;
+    const [imageIndices, setImageIndices] = useState({}); // Track current image index for each property
+    const propertiesPerPage = 10;
     const filterPanelRef = useRef(null);
+    const [properties, setProperties] = useState([]);
+    const [isMobile, setIsMobile] = useState(false);
+    const [totalCount, setTotalCount] = useState(0); // <-- add this for backend total count
 
     useEffect(() => {
       if (!showMobileFilters) return;
@@ -33,58 +162,20 @@ import {
       };
     }, [showMobileFilters]);
 
-    const properties = [
-      {
-        title: "Semi-Furnished 4 BDR Villa",
-        location: "Beverly Hills Gardens, Al Waab",
-        price: " 15,000 QAR/month",
-        beds: 2,
-      baths: 1,
-      area: 230,
-        image:
-          "https://c.pxhere.com/photos/2b/c0/architecture_render_external_design_photoshop_3d_3dsmax_crown_render-599832.jpg!d",
-      },
-      {
-        title: "Outstanding 4 BDR Villa",
-        location: "Lusail Entertainment City",
-        price: "13,000 QAR/month",
-        beds: 2,
-      baths: 1,
-      area: 230,
-        image:
-          "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      },
-      {
-        title: "Fully Furnished 3 BHK",
-        location: "Joaan | 4 BHK + Maids",
-        price: " 12,000 QAR/month",
-        beds: 2,
-      baths: 1,
-      area: 230,
-        image:
-          "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      },
-      {
-        title: "Spacious 2 BHK Apartment",
-        location: "The Pearl, Qatar",
-        price: " 9,500 QAR/month",
-        beds: 2,
-      baths: 1,
-      area: 230,
-        image:
-          "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      },
-      
-    ];
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 768);
+      handleResize();
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const bedIconUrl = "/bed.png";
     const bathIconUrl = "/bath.png";
     const areaIconUrl = "/area.png";
 
     // Pagination logic
-    const indexOfLastProperty = currentPage * propertiesPerPage;
-    const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
-    const currentProperties = properties.slice(indexOfFirstProperty, indexOfLastProperty);
-    const totalPages = Math.ceil(properties.length / propertiesPerPage);
+    const currentProperties = properties; // backend returns paginated data
+    const totalPages = Math.ceil(totalCount / propertiesPerPage); // use backend totalCount
 
     const handlePrevPage = () => {
       setCurrentPage((prev) => Math.max(prev - 1, 1));
@@ -94,6 +185,57 @@ import {
       setCurrentPage((prev) => Math.min(prev + 1, totalPages));
     };
 
+    // Function to handle next image
+    const handleNextImage = (propertyId) => {
+      setImageIndices(prev => ({
+        ...prev,
+        [propertyId]: ((prev[propertyId] || 0) + 1) % 7 // Assuming 7 images per property
+      }));
+    };
+
+    // Function to handle previous image
+    const handlePrevImage = (propertyId) => {
+      setImageIndices(prev => ({
+        ...prev,
+        [propertyId]: ((prev[propertyId] || 0) - 1 + 7) % 7 // Assuming 7 images per property
+      }));
+    };
+
+    // Sample image URLs array (replace with actual image URLs from your API)
+    const getPropertyImages = (property) => {
+      // Fallback images array if property doesn't have photos
+      const fallbackImages = [
+        "/placeholder1.jpg",
+        "/placeholder2.jpg",
+        "/placeholder3.jpg",
+        "/placeholder4.jpg",
+        "/placeholder5.jpg",
+        "/placeholder6.jpg",
+        "/placeholder7.jpg"
+      ];
+      
+      return property.photos?.map(photo => photo.ph_url) || fallbackImages;
+    };
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.post('http://localhost:5000/api/listings/list/properties', {
+            market_center: 50449,
+            list_category: 'For Sale',
+            page: currentPage, // send current page to backend
+            limit: propertiesPerPage, // send limit to backend
+          });
+          setProperties(response.data.data); // paginated data
+          setTotalCount(response.data.total || 0); // ✅ match backend's "total"
+          // set total count from backend
+        } catch (error) {
+          console.error('POST request error:', error);
+        }
+      };
+      fetchData();
+    }, [currentPage, propertiesPerPage]);
+    
     return (
       <div className="min-h-screen bg-gray-50  mx-4 ">
         {/* Header */}
@@ -422,7 +564,7 @@ import {
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 mt-10">
             Properties for {props.type} 
           </h2>
-          <span>Showing {properties.length} results</span>
+          {/* <span>Showing {propertiess.length} results</span> */}
         </div>
 
         {/* Content: 2 Columns Split (Cards + Map) */}
@@ -432,71 +574,13 @@ import {
           {viewMode === "list" && (
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:hidden gap-4">
               {currentProperties.map((property, index) => (
-                <div
+                <PropertyCard
                   key={index}
-                  className="bg-white rounded-lg shadow-md overflow-hidden"
-                >
-                  <Link href="/propertydetails" className="block relative">
-                    <div className="relative">
-                      <Image
-                        src={property.image}
-                        alt={property.title}
-                        width={500}
-                        height={300}
-                        className="w-full h-40 object-cover rounded-lg"
-                      />
-                      <div className="absolute top-2 left-2 sm:top-2 sm:left-2 bg-black/80 text-white px-2 sm:px-2 py-1 rounded-full text-xs sm:text-sm font-medium z-10">
-                        360 Virtual Tour
-                      </div>
-                    </div>
-                  </Link>
-
-                  <div className="p-4">
-                    <h3 className="font-semibold text-sm md:text-xl">
-                      {property.title}
-                    </h3>
-                    <p className="text-xs text-gray-500">{property.location}</p>
-                    <div className="flex w-full items-center gap-2 text-sm my-2">
-                      <span className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-gray-200 p-2">
-                        <span className="relative h-4 w-4">
-                          <Image
-                            src={bedIconUrl}
-                            alt="bed"
-                            fill
-                            className="object-contain"
-                          />
-                        </span>
-                        {property.beds}
-                      </span>
-                      <span className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-gray-200 p-2">
-                        <span className="relative h-4 w-4">
-                          <Image
-                            src={bathIconUrl}
-                            alt="bath"
-                            fill
-                            className="object-contain"
-                          />
-                        </span>
-                        {property.baths}
-                      </span>
-                      <span className="inline-flex items-center gap-1 rounded-lg bg-gray-200 px-3 py-2 whitespace-nowrap">
-                        <span className="relative h-4 w-4">
-                          <Image
-                            src={areaIconUrl}
-                            alt="area"
-                            fill
-                            className="object-contain"
-                          />
-                        </span>
-                        {property.area} sqm
-                      </span>
-                    </div>
-                    <div className="mt-2 flex items-center justify-between">
-                      <p className="text-lg font-bold">{property.price}</p>
-                      <button className="text-sm text-white p-2 rounded-lg bg-[rgba(202,3,32,255)]">Enquire now</button>
-                    </div>
-                  </div>
-                </div>
+                  property={property}
+                  bedIconUrl={bedIconUrl}
+                  bathIconUrl={bathIconUrl}
+                  areaIconUrl={areaIconUrl}
+                />
               ))}
               <div className="col-span-full flex justify-center items-center gap-2 mt-4">
                 <button
@@ -539,74 +623,16 @@ import {
   {/* Left - Properties List */}
   <div className="w-1/2 h-full overflow-y-auto pr-3">
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
-      {currentProperties.map((property, index) => (
-        <div
-          key={index}
-          className="bg-white rounded-lg shadow-md overflow-hidden"
-        >
-          <Link href="/propertydetails">
-            <div className="relative">
-              <Image
-                src={property.image}
-                alt={property.title}
-                width={500}
-                height={300}
-                className="w-full h-40 object-cover"
-              />
-              <div className="absolute top-2 left-2 sm:top-4 sm:left-4 bg-black/80 text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium z-10">
-                360 Virtual Tour
-              </div>
-            </div>
-          </Link>
-          <div className="p-4">
-            <h3 className="font-semibold text-sm md:text-xl">
-              {property.title}
-            </h3>
-            <p className="text-xs text-gray-500">{property.location}</p>
-            <div className="flex w-full items-center gap-2 text-sm my-2">
-              <span className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-gray-200 p-2">
-                <span className="relative h-4 w-4">
-                  <Image
-                    src={bedIconUrl}
-                    alt="bed"
-                    fill
-                    className="object-contain"
-                  />
-                </span>
-                {property.beds}
-              </span>
-              <span className="flex flex-1 items-center justify-center gap-1 rounded-lg bg-gray-200 p-2">
-                <span className="relative h-4 w-4">
-                  <Image
-                    src={bathIconUrl}
-                    alt="bath"
-                    fill
-                    className="object-contain"
-                  />
-                </span>
-                {property.baths}
-              </span>
-              <span className="inline-flex items-center gap-1 rounded-lg bg-gray-200 px-3 py-2 whitespace-nowrap">
-                <span className="relative h-4 w-4">
-                  <Image
-                    src={areaIconUrl}
-                    alt="area"
-                    fill
-                    className="object-contain"
-                  />
-                </span>
-                {property.area} sqm
-              </span>
-            </div>
-            <div className="mt-2 flex items-center justify-between">
-              <p className="text-lg font-bold">{property.price}</p>
-              <button className="text-sm text-white p-2 rounded-lg bg-[rgba(202,3,32,255)]">
-                Enquire now
-              </button>
-            </div>
-          </div>
-        </div>
-      ))}
+    {properties.map((property, index) => (
+  <PropertyCard
+    key={index}
+    property={property}
+    bedIconUrl={bedIconUrl}
+    bathIconUrl={bathIconUrl}
+    areaIconUrl={areaIconUrl}
+  />
+))}
+
 
       {/* Pagination */}
       <div className="col-span-full flex justify-center items-center gap-2 mt-4">

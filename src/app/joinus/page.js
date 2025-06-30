@@ -1,68 +1,22 @@
 'use client'
 import React from 'react';
 import Image from 'next/image';
+import Box from '@/components/box';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 const Joinus = (props) => {
   return (
     <div className="">
       {/* Hero Section */}
-      <Header></Header>
-      <div className="relative min-h-[76vh] md:min-h-[100vh]">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <Image
-            src='/contact.jpg'
-            alt="Background"
-            fill
-            className="object-cover "
-            priority
-          />
-          <div className="absolute inset-0" />
-        </div>
+      <Header />
 
-        {/* White Box (Fixed Dimensions) */}
-        <div className="relative z-10 flex flex-col items-center  justify-end min-h-[46vh] md:min-h-[100vh]  px-10">
-          
-        <div className="w-full md:hidden ">
-            <div className="bg-gray-500/50 backdrop-blur-sm max-w-sm mx-auto px-8 py-0 mt-0 rounded-3xl">
-              <div className="flex flex-col items-center">
-              <div className="relative w-25 h-20"> 
-  <Image
-    src='/contactdown.png'
-    alt="Hero"
-    width={128} 
-    height={128}
-    className="object-cover rounded-full w-full h-full" 
-  />
-</div>
-<hr className='w-25 h-[1.3px] bg-[rgba(202,3,32,255)] border-0'/>
-<h3 className="text-lg font-normal py-4 text-white text-center tracking-[0.2em] md:tracking-[0.3em] lg:tracking-[0.4em] leading-relaxed">
-{props.h3}
-</h3>
-
-              </div>
-            </div>
-          </div>
-
-          <div className="hidden md:block w-full max-w-xl mx-auto">
-            <div className="bg-white rounded-t-3xl md:pb-20 w-full">
-              <div className="flex flex-col items-center">
-                <div className="relative w-[100px] h-[100px] md:w-[100px] md:h-[100px]">
-                  <Image
-                    src='/contactdown.png'
-                    alt="Hero"
-                    fill
-                    className="object-cover rounded-full"
-                  />
-                 
-                </div>
-               <p className='text-gray-500'>{props.h3}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Box
+       
+        src="/training.jpg"
+        image={
+          '/joinus.png'
+        }
+      ></Box>
   {/* Intro Text */}
       <main className="px-4 py-6 md:mt-10 mt-10">
         <div className="mx-auto text-center">
